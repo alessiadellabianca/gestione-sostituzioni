@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class HomePage extends JFrame {
     private JLabel scrittaIniziale = new JLabel("Gestione Orari e Sostituzioni - Scuola IS Saraceno-Romegialli");
@@ -13,8 +15,6 @@ public class HomePage extends JFrame {
         JPanel pannelloScritta = new JPanel(new GridLayout(2, 1));
         pannelloScritta.add(scrittaIniziale);
         scrittaIniziale.setHorizontalAlignment(SwingConstants.CENTER);
-
-
 
         JPanel pannelloBottoni = new JPanel(new GridLayout(1, 3, 5, 0));
         pannelloBottoni.add(sostituzioni);
@@ -40,5 +40,18 @@ public class HomePage extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+
+        //sostituzioni.addActionListener(e -> new FrameSostituzioni());
+        //orario.addActionListener(e -> new FrameOrario());
+
+        caricaFile.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                container.removeAll();
+                container.add(new CaricamentoFile(), BorderLayout.CENTER);
+                container.revalidate();
+                container.repaint();
+            }
+        });
     }
 }
