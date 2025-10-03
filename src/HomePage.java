@@ -36,14 +36,32 @@ public class HomePage extends JFrame {
 
         getContentPane().add(container, BorderLayout.CENTER);
 
-        setSize(400, 400);
+        setSize(600, 400);
         setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 
-        //sostituzioni.addActionListener(e -> new FrameSostituzioni());
-        //orario.addActionListener(e -> new FrameOrario());
+
+        sostituzioni.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                container.removeAll();
+                container.add(new FrameSostituzioni(), BorderLayout.CENTER);
+                container.revalidate();
+                container.repaint();
+            }
+        });
+
+        orario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                container.removeAll();
+                container.add(new FrameOrario(), BorderLayout.CENTER);
+                container.revalidate();
+                container.repaint();
+            }
+        });
 
         caricaFile.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
