@@ -6,6 +6,8 @@ public class CaricamentoFile extends JPanel
 {
     JButton caricaCVS = new JButton("Seleziona file da caricare");
 
+    GestioneDati gestoreDeiDati = new GestioneDati();
+
     public CaricamentoFile()
     {
         setLayout(new BorderLayout());
@@ -18,42 +20,29 @@ public class CaricamentoFile extends JPanel
 
             if (result == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = fileChooser.getSelectedFile();
-                File lunediFile = new File("lunediFile.txt");
-                File martediFile = new File("martediFile.txt");
-                File mercolediFile = new File("mercolediFile.txt");
-                File giovediFile = new File("giovediFile.txt");
-                File venerdiFile = new File("venerdiFile.txt");
-                File sabatoFile = new File("sabatoFile.txt");
+                File letturaFile = new File("letturaFile.txt");
 
 
                 try (BufferedReader br = new BufferedReader(new FileReader(selectedFile));
-                     BufferedWriter bw = new BufferedWriter(new FileWriter(martediFile)))
+                     BufferedWriter bw = new BufferedWriter(new FileWriter(letturaFile)))
                 {
-
-
                     String line;
                     while ((line = br.readLine()) != null) {
-                        String trimmedLine = line.trim().toLowerCase();
-                        if (trimmedLine.equals("martedì") || trimmedLine.equals("martedi")) {
-                            break;
-                        }
+
                         bw.write(line);
                         bw.newLine();
                     }
-
-
-                    JOptionPane.showMessageDialog(this, "File salvato con successo in: " + lunediFile.getAbsolutePath());
-
+                    JOptionPane.showMessageDialog(this, "File salvato con successo in: " + letturaFile.getAbsolutePath());
                 } catch (IOException ex) {
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(this, "Errore nel caricamento o salvataggio", "Errore", JOptionPane.ERROR_MESSAGE);
                 }
             }
+
+            gestoreDeiDati.organizzazioneFile("letturaFile.txt");
+
+            System.out.println(gestoreDeiDati.toString());
         });
-
-
-
-
 
     }
 }
