@@ -1,0 +1,688 @@
+NUMERO;DURATA;MAT_NOME;DOC_COGN;CLASSE;CO-DOC.;GIORNO;O.INIZIO
+1.0;1h00;Lettere;Cognome3;4^ B TUR;N;lunedì;08h00
+2.0;2h00;TTRG;Cognome68;2^ D INF;N;lunedì;08h00
+3.0;2h00;A TE/PRO .;"Cognome20; Cognome26";2^ C IeFP;S;lunedì;08h00
+4.0;1h00;TPSIT;Cognome39;4^ D INF;N;lunedì;08h00
+5.0;3h00;Informatica;"Cognome49; Cognome69";3^ D INF;S;lunedì;08h00
+6.0;1h00;GPOI;"Cognome70; Cognome31";5^ D INF;S;lunedì;08h00
+7.0;1h00;Tec mec;Cognome33;4^ F MEC;N;lunedì;08h00
+8.0;2h00;A LING ED. FIS;Cognome30;3^ C IeFP;N;lunedì;08h00
+9.0;1h00;Religione;Cognome42;5^ B TUR;N;lunedì;08h00
+10.0;1h00;Religione;Cognome57;1^ G AGR;N;lunedì;08h00
+11.0;1h00;Lettere;Cognome35;3^ F MEC;N;lunedì;08h00
+12.0;1h00;Meccanica;"Cognome59; Cognome13";5^ F MEC;S;lunedì;08h00
+13.0;1h00;Inglese;Cognome43;1^ D INF;N;lunedì;08h00
+14.0;1h00;Storia;Cognome51;1^ F MEC;N;lunedì;08h00
+15.0;1h00;Dir ec pol;"Cognome27; Cognome23";2^G AGR;S;lunedì;08h00
+16.0;1h00;Chimica;Cognome65;2^ F MEC;N;lunedì;08h00
+17.0;1h00;Scienze;Cognome1;2^ A MAT;N;lunedì;08h00
+18.0;1h00;LTE;"Cognome34; Cognome6";1^ A MAT;S;lunedì;08h00
+19.0;1h00;Dir leg tur;"Cognome38; Cognome8";3^ B TUR;S;lunedì;08h00
+20.0;1h00;A TE/PRO FIS;"Cognome36; Cognome62";1^ C IeFP;S;lunedì;08h00
+21.0;2h00;TTIM;"Cognome61; Cognome53; Cognome44";5^ A MAT;S;lunedì;08h00
+22.0;1h00;Matematica;"Cognome21; Cognome45";3^ A MAT;N;lunedì;08h00
+23.0;1h00;Storia;Cognome41;4^ A MAT;N;lunedì;08h00
+24.0;1h00;Estimo;Cognome14;3^G AGR;N;lunedì;08h00
+25.0;1h00;Disposizione;Cognome28;Disposizione;N;lunedì;08h00
+26.0;1h00;TPSIT;Cognome39;5^ D INF;N;lunedì;09h00
+27.0;1h00;Tec mec;Cognome33;3^ F MEC;N;lunedì;09h00
+28.0;1h00;Fisica;Cognome36;1^ D INF;N;lunedì;09h00
+29.0;1h00;Religione;Cognome42;4^ F MEC;N;lunedì;09h00
+30.0;1h00;Religione;Cognome57;4^ A MAT;N;lunedì;09h00
+31.0;1h00;Dir leg tur;"Cognome38; Cognome6";4^ B TUR;S;lunedì;09h00
+32.0;2h00;Sistemi;"Cognome55; Cognome13";5^ F MEC;S;lunedì;09h00
+33.0;1h00;Inglese;"Cognome48; Cognome8";3^ B TUR;S;lunedì;09h00
+34.0;1h00;Chimica;"Cognome63; Cognome58";1^ G AGR;S;lunedì;09h00
+35.0;1h00;Scienze;Cognome65;2^ F MEC;N;lunedì;09h00
+36.0;1h00;Matematica;Cognome28;4^ D INF;N;lunedì;09h00
+37.0;1h00;Inglese;"Cognome43; Cognome23";2^G AGR;S;lunedì;09h00
+38.0;1h00;A MA/SCI MAT;"Cognome1; Cognome62";1^ C IeFP;S;lunedì;09h00
+39.0;1h00;Matematica;Cognome21;2^ A MAT;N;lunedì;09h00
+40.0;1h00;Storia;"Cognome35; Cognome45";3^ A MAT;N;lunedì;09h00
+41.0;2h00;Tec inf;"Cognome70; Cognome31";1^ F MEC;S;lunedì;09h00
+42.0;1h00;Disposizione;Cognome27;Disposizione;N;lunedì;09h00
+43.0;2h00;Pr. Vegetali;"Cognome72; Cognome14";3^G AGR;S;lunedì;09h00
+44.0;1h00;Tedesco;Cognome71;5^ B TUR;N;lunedì;09h00
+45.0;1h00;Disposizione;Cognome15;Disposizione;N;lunedì;09h00
+46.0;1h00;LTE;"Cognome34; Cognome64";1^ A MAT;S;lunedì;09h00
+47.0;1h00;Lettere;"Cognome3; Cognome8";3^ B TUR;S;lunedì;10h00
+48.0;1h00;Inglese;Cognome48;4^ F MEC;N;lunedì;10h00
+49.0;2h00;Sc motorie;Cognome16;5^ D INF;N;lunedì;10h00
+50.0;1h00;Religione;Cognome42;3^ F MEC;N;lunedì;10h00
+51.0;1h00;Dir leg tur;Cognome38;5^ B TUR;N;lunedì;10h00
+52.0;1h00;Dir ec pol;Cognome27;2^ D INF;N;lunedì;10h00
+53.0;1h00;Storia;Cognome51;2^ F MEC;N;lunedì;10h00
+54.0;1h00;A MA/SCI SCI;Cognome65;2^ C IeFP;N;lunedì;10h00
+55.0;1h00;Storia;Cognome11;4^ D INF;N;lunedì;10h00
+56.0;1h00;Lettere;"Cognome10; Cognome41";5^ A MAT;S;lunedì;10h00
+57.0;1h00;Storia;Cognome15;2^ A MAT;N;lunedì;10h00
+58.0;2h00;TEEA;"Cognome34; Cognome9; Cognome45";3^ A MAT;S;lunedì;10h00
+59.0;1h00;Fisica;"Cognome36; Cognome58";1^ G AGR;S;lunedì;10h00
+60.0;1h00;LTE;Cognome18;4^ A MAT;N;lunedì;10h00
+61.0;1h00;Matematica;"Cognome21; Cognome44";1^ A MAT;N;lunedì;10h00
+62.0;1h00;A TE/PRO.;"Cognome26; Cognome62";1^ C IeFP;S;lunedì;10h00
+63.0;1h00;Matematica;Cognome28;1^ D INF;N;lunedì;10h00
+64.0;3h00;A TE/PRO..;"Cognome59; Cognome56";3^ C IeFP;S;lunedì;10h00
+65.0;1h00;Religione;Cognome57;2^G AGR;N;lunedì;10h00
+66.0;1h00;Tedesco;"Cognome6; Cognome71";4^ B TUR;S;lunedì;10h00
+67.0;1h00;Disposizione;Cognome22;Disposizione;N;lunedì;10h00
+68.0;1h00;Disposizione;Cognome1;Disposizione;N;lunedì;10h00
+69.0;1h00;Lettere;Cognome51;5^ B TUR;N;lunedì;11h10
+70.0;2h00;A TE/PRO .;"Cognome20; Cognome26";1^ C IeFP;S;lunedì;11h10
+71.0;2h00;Sistemi;"Cognome39; Cognome70";4^ D INF;S;lunedì;11h10
+72.0;1h00;STA;Cognome31;2^ D INF;N;lunedì;11h10
+73.0;1h00;Inglese;Cognome48;3^ F MEC;N;lunedì;11h10
+74.0;1h00;STA;Cognome33;2^ F MEC;N;lunedì;11h10
+75.0;1h00;A LING REL;Cognome57;2^ C IeFP;N;lunedì;11h10
+76.0;1h00;Storia;"Cognome11; Cognome58";3^G AGR;S;lunedì;11h10
+77.0;1h00;Storia;"Cognome3; Cognome2";3^ D INF;N;lunedì;11h10
+78.0;1h00;Chimica;"Cognome63; Cognome72";1^ F MEC;S;lunedì;11h10
+79.0;2h00;Lettere;Cognome15;4^ F MEC;N;lunedì;11h10
+80.0;1h00;Lettere;"Cognome6; Cognome40";1^ A MAT;S;lunedì;11h10
+81.0;1h00;Dir ec pol;Cognome27;2^ A MAT;N;lunedì;11h10
+82.0;1h00;TTRG;"Cognome68; Cognome55";1^ D INF;S;lunedì;11h10
+83.0;1h00;TTIM;"Cognome18; Cognome61";4^ A MAT;S;lunedì;11h10
+84.0;1h00;Religione;Cognome42;4^ B TUR;N;lunedì;11h10
+85.0;2h00;Dis prog;Cognome13;5^ F MEC;N;lunedì;11h10
+86.0;1h00;Matematica;"Cognome22; Cognome64";1^ G AGR;S;lunedì;11h10
+87.0;1h00;Disposizione;Cognome43;Disposizione;N;lunedì;11h10
+88.0;1h00;Storia;"Cognome23; Cognome35";2^G AGR;S;lunedì;11h10
+89.0;1h00;Tedesco;"Cognome8; Cognome71";3^ B TUR;S;lunedì;11h10
+90.0;1h00;Lettere;"Cognome10; Cognome41; Cognome44";5^ A MAT;S;lunedì;11h10
+91.0;1h00;Lettere;Cognome40;2^ D INF;N;lunedì;12h05
+92.0;1h00;Inglese;Cognome48;4^ B TUR;N;lunedì;12h05
+93.0;1h00;Sc motorie;Cognome16;2^ A MAT;N;lunedì;12h05
+94.0;2h00;Sc motorie;Cognome30;1^ D INF;N;lunedì;12h05
+95.0;1h00;A TE/PRO FIS;Cognome36;2^ C IeFP;N;lunedì;12h05
+96.0;1h00;Storia;Cognome3;3^ B TUR;N;lunedì;12h05
+97.0;1h00;Inglese;"Cognome43; Cognome2";3^ D INF;N;lunedì;12h05
+98.0;1h00;Lettere;Cognome51;2^ F MEC;N;lunedì;12h05
+99.0;2h00;TEEA;"Cognome9; Cognome53";4^ A MAT;S;lunedì;12h05
+100.0;1h00;Scienze;"Cognome63; Cognome64";1^ G AGR;S;lunedì;12h05
+101.0;1h00;TTIM;"Cognome61; Cognome45";3^ A MAT;N;lunedì;12h05
+102.0;1h00;Storia;Cognome35;3^ F MEC;N;lunedì;12h05
+103.0;1h00;Informatica;Cognome49;5^ D INF;N;lunedì;12h05
+104.0;1h00;Matematica;Cognome22;2^G AGR;N;lunedì;12h05
+105.0;1h00;Tec inf;"Cognome69; Cognome31";1^ A MAT;S;lunedì;12h05
+106.0;1h00;Inglese;"Cognome4; Cognome58";3^G AGR;S;lunedì;12h05
+107.0;1h00;Disposizione;Cognome11;Disposizione;N;lunedì;12h05
+108.0;1h00;Tedesco;Cognome71;5^ B TUR;N;lunedì;12h05
+109.0;1h00;TTRG;"Cognome68; Cognome23";1^ F MEC;S;lunedì;12h05
+110.0;1h00;LTE;"Cognome18; Cognome10; Cognome44";5^ A MAT;S;lunedì;12h05
+111.0;1h00;TTRG;Cognome68;1^ F MEC;N;lunedì;13h00
+112.0;1h00;Fisica;Cognome36;2^ D INF;N;lunedì;13h00
+113.0;1h00;Lettere;Cognome11;4^ D INF;N;lunedì;13h00
+114.0;1h00;Inglese;Cognome4;5^ D INF;N;lunedì;13h00
+115.0;1h00;Chimica;Cognome63;2^G AGR;N;lunedì;13h00
+116.0;1h00;LTE;"Cognome18; Cognome10";5^ A MAT;S;lunedì;13h00
+117.0;1h00;Lettere;Cognome40;1^ G AGR;N;lunedì;13h00
+118.0;1h00;Comp. mat.;"Cognome22; Cognome58";3^G AGR;S;lunedì;13h00
+119.0;1h00;Sc motorie;"Cognome16; Cognome45";2^ A MAT;N;lunedì;13h00
+120.0;1h00;Matematica;"Cognome28; Cognome62";3^ D INF;S;martedì;08h00
+121.0;1h00;Storia;Cognome51;5^ B TUR;N;martedì;08h00
+122.0;1h00;Spagnolo;"Cognome66; Cognome6";4^ B TUR;S;martedì;08h00
+123.0;1h00;Inglese;Cognome48;4^ F MEC;N;martedì;08h00
+124.0;1h00;Tec mec;Cognome33;5^ F MEC;N;martedì;08h00
+125.0;2h00;Sc motorie;"Cognome30; Cognome50";3^ A MAT;S;martedì;08h00
+126.0;2h00;Dis prog;"Cognome20; Cognome13";3^ F MEC;S;martedì;08h00
+127.0;1h00;Lettere;Cognome11;4^ D INF;N;martedì;08h00
+128.0;1h00;Dir ec pol;Cognome27;1^ G AGR;N;martedì;08h00
+129.0;1h00;Inglese;Cognome4;5^ D INF;N;martedì;08h00
+130.0;1h00;Geografia;"Cognome32; Cognome8";3^ B TUR;S;martedì;08h00
+131.0;1h00;Scienze;Cognome1;2^ D INF;N;martedì;08h00
+132.0;1h00;Scienze;Cognome65;1^ D INF;N;martedì;08h00
+133.0;2h00;LTE;Cognome34;2^ A MAT;N;martedì;08h00
+134.0;1h00;TMA;"Cognome24; Cognome29";4^ A MAT;S;martedì;08h00
+135.0;1h00;Matematica;Cognome73;1^ F MEC;N;martedì;08h00
+136.0;1h00;Matematica;Cognome5;2^ F MEC;N;martedì;08h00
+137.0;2h00;A LING ITA;Cognome60;1^ C IeFP;N;martedì;08h00
+138.0;2h00;A TE/PRO.;Cognome26;2^ C IeFP;N;martedì;08h00
+139.0;2h00;A TE/PRO .;Cognome59;3^ C IeFP;N;martedì;08h00
+140.0;1h00;Matematica;Cognome22;3^G AGR;N;martedì;08h00
+141.0;2h00;Sc motorie;Cognome52;2^G AGR;N;martedì;08h00
+142.0;1h00;TEEA;"Cognome61; Cognome53";5^ A MAT;S;martedì;08h00
+143.0;1h00;Inglese;"Cognome37; Cognome44";1^ A MAT;N;martedì;08h00
+144.0;1h00;Disposizione;Cognome15;Disposizione;N;martedì;08h00
+145.0;1h00;Matematica;Cognome17;5^ B TUR;N;martedì;09h00
+146.0;1h00;Spagnolo;"Cognome66; Cognome6";4^ B TUR;S;martedì;09h00
+147.0;1h00;TPSIT;"Cognome39; Cognome62";3^ D INF;S;martedì;09h00
+148.0;1h00;Matematica;Cognome1;4^ A MAT;N;martedì;09h00
+149.0;1h00;Lettere;Cognome11;3^G AGR;N;martedì;09h00
+150.0;1h00;Inglese;Cognome4;4^ D INF;N;martedì;09h00
+151.0;2h00;Lettere;Cognome51;2^ F MEC;N;martedì;09h00
+152.0;2h00;TTRG;"Cognome68; Cognome24";1^ A MAT;S;martedì;09h00
+153.0;1h00;Chimica;Cognome65;1^ D INF;N;martedì;09h00
+154.0;1h00;Matematica;Cognome5;5^ F MEC;N;martedì;09h00
+155.0;2h00;Informatica;"Cognome49; Cognome69";5^ D INF;S;martedì;09h00
+156.0;1h00;Ec. aziendale;"Cognome8; Cognome12";3^ B TUR;S;martedì;09h00
+157.0;1h00;Inglese;Cognome67;1^ F MEC;N;martedì;09h00
+158.0;1h00;Inglese;"Cognome43; Cognome64";1^ G AGR;S;martedì;09h00
+159.0;1h00;Matematica;Cognome28;2^ D INF;N;martedì;09h00
+160.0;1h00;Meccanica;Cognome29;4^ F MEC;N;martedì;09h00
+161.0;1h00;Disposizione;Cognome15;Disposizione;N;martedì;09h00
+162.0;1h00;Disposizione;"Cognome48; Cognome32";Disposizione;S;martedì;09h00
+163.0;1h00;TEEA;"Cognome61; Cognome53; Cognome44";5^ A MAT;S;martedì;09h00
+164.0;1h00;Storia;"Cognome3; Cognome6";4^ B TUR;S;martedì;10h00
+165.0;1h00;Spagnolo;"Cognome4; Cognome66";5^ B TUR;S;martedì;10h00
+166.0;3h00;Tec mec;"Cognome33; Cognome55";4^ F MEC;S;martedì;10h00
+167.0;1h00;Fisica;Cognome36;2^G AGR;N;martedì;10h00
+168.0;1h00;Comp. mat.;Cognome5;3^ F MEC;N;martedì;10h00
+169.0;2h00;Sc motorie;Cognome52;3^G AGR;N;martedì;10h00
+170.0;1h00;Inglese;Cognome43;2^ D INF;N;martedì;10h00
+171.0;2h00;Sc motorie;Cognome16;1^ F MEC;N;martedì;10h00
+172.0;1h00;A ST/SO DIR;"Cognome47; Cognome27";3^ C IeFP;S;martedì;10h00
+173.0;1h00;Comp. mat.;Cognome28;4^ D INF;N;martedì;10h00
+174.0;2h00;TTIM;"Cognome34; Cognome61; Cognome8";3^ A MAT;S;martedì;10h00
+175.0;2h00;Sistemi;"Cognome39; Cognome2";3^ D INF;N;martedì;10h00
+176.0;1h00;Inglese;"Cognome50; Cognome37";2^ A MAT;S;martedì;10h00
+177.0;1h00;Matematica;"Cognome22; Cognome64";1^ G AGR;S;martedì;10h00
+178.0;1h00;Inglese;Cognome48;5^ F MEC;N;martedì;10h00
+179.0;1h00;A MA/SCI MAT;Cognome1;2^ C IeFP;N;martedì;10h00
+180.0;2h00;Lettere;Cognome60;1^ D INF;N;martedì;10h00
+181.0;1h00;Lettere;Cognome41;4^ A MAT;N;martedì;10h00
+182.0;1h00;A TE/PRO.;Cognome26;1^ C IeFP;N;martedì;10h00
+183.0;1h00;TMA;"Cognome13; Cognome10; Cognome44";5^ A MAT;S;martedì;10h00
+184.0;1h00;Disposizione;Cognome32;Disposizione;N;martedì;10h00
+185.0;1h00;Disposizione;Cognome54;Disposizione;N;martedì;10h00
+186.0;1h00;Ec. aziendale;Cognome12;3^ B TUR;N;martedì;10h00
+187.0;1h00;Matematica;Cognome73;5^ D INF;N;martedì;11h10
+188.0;2h00;Informatica;Cognome49;4^ D INF;N;martedì;11h10
+189.0;2h00;Tec inf;"Cognome69; Cognome31";2^ A MAT;S;martedì;11h10
+190.0;1h00;Fisica;Cognome36;2^ F MEC;N;martedì;11h10
+191.0;2h00;TEEA;Cognome9;4^ A MAT;N;martedì;11h10
+192.0;1h00;Lettere;Cognome3;3^ B TUR;N;martedì;11h10
+193.0;1h00;Ec. aziendale;Cognome54;5^ B TUR;N;martedì;11h10
+194.0;1h00;Lettere;Cognome25;5^ F MEC;N;martedì;11h10
+195.0;1h00;TTRG;"Cognome68; Cognome58";1^ G AGR;S;martedì;11h10
+196.0;1h00;Chimica;Cognome1;2^ D INF;N;martedì;11h10
+197.0;1h00;A LING ING;Cognome37;2^ C IeFP;N;martedì;11h10
+198.0;2h00;Meccanica;Cognome13;3^ F MEC;N;martedì;11h10
+199.0;1h00;Scienze;"Cognome70; Cognome65";1^ A MAT;S;martedì;11h10
+200.0;2h00;Matematica;Cognome22;2^G AGR;N;martedì;11h10
+201.0;1h00;Matematica;"Cognome17; Cognome6";4^ B TUR;S;martedì;11h10
+202.0;1h00;Disposizione;Cognome67;Disposizione;N;martedì;11h10
+203.0;1h00;Disposizione;Cognome41;Disposizione;N;martedì;11h10
+204.0;1h00;A MA/SCI SCI;"Cognome5; Cognome47";3^ C IeFP;S;martedì;11h10
+205.0;1h00;A TE/PRO.;"Cognome26; Cognome62";1^ C IeFP;S;martedì;11h10
+206.0;1h00;LTE;"Cognome18; Cognome10; Cognome44";5^ A MAT;S;martedì;11h10
+207.0;1h00;Lettere;Cognome40;2^ D INF;N;martedì;12h05
+208.0;1h00;Matematica;Cognome17;3^ B TUR;N;martedì;12h05
+209.0;1h00;Spagnolo;Cognome66;5^ B TUR;N;martedì;12h05
+210.0;1h00;TPSIT;"Cognome39; Cognome70";5^ D INF;S;martedì;12h05
+211.0;1h00;Fisica;Cognome36;1^ D INF;N;martedì;12h05
+212.0;2h00;Lettere;"Cognome3; Cognome2";3^ D INF;N;martedì;12h05
+213.0;1h00;A MA/SCI SCI;"Cognome65; Cognome62";1^ C IeFP;S;martedì;12h05
+214.0;2h00;Sc motorie;"Cognome16; Cognome64";1^ A MAT;S;martedì;12h05
+215.0;1h00;A  ST/SO STO;Cognome41;2^ C IeFP;N;martedì;12h05
+216.0;1h00;Storia;Cognome25;5^ F MEC;N;martedì;12h05
+217.0;1h00;Lettere;Cognome51;1^ F MEC;N;martedì;12h05
+218.0;1h00;Ec. aziendale;"Cognome54; Cognome6";4^ B TUR;S;martedì;12h05
+219.0;1h00;LTE;"Cognome18; Cognome10";5^ A MAT;S;martedì;12h05
+220.0;1h00;TMA;"Cognome24; Cognome29";3^ A MAT;S;martedì;12h05
+221.0;1h00;Inglese;Cognome67;2^ F MEC;N;martedì;12h05
+222.0;1h00;Inglese;"Cognome4; Cognome58";3^G AGR;S;martedì;12h05
+223.0;1h00;A LING ING;"Cognome47; Cognome37";3^ C IeFP;S;martedì;12h05
+224.0;1h00;Disposizione;Cognome1;Disposizione;N;martedì;12h05
+225.0;1h00;TTRG;"Cognome68; Cognome44";1^ G AGR;N;martedì;12h05
+226.0;1h00;Storia;Cognome25;5^ D INF;N;martedì;13h00
+227.0;1h00;Sistemi;"Cognome55; Cognome29";3^ F MEC;S;martedì;13h00
+228.0;1h00;Spagnolo;Cognome66;3^ B TUR;N;martedì;13h00
+229.0;1h00;Fisica;Cognome36;1^ F MEC;N;martedì;13h00
+230.0;1h00;Tec inf;Cognome31;1^ D INF;N;martedì;13h00
+231.0;1h00;Storia;Cognome40;1^ G AGR;N;martedì;13h00
+232.0;1h00;Matematica;Cognome17;5^ B TUR;N;martedì;13h00
+233.0;1h00;TTRG;"Cognome68; Cognome24";2^ A MAT;S;martedì;13h00
+234.0;1h00;Ec. aziendale;Cognome54;4^ B TUR;N;martedì;13h00
+235.0;1h00;Lettere;"Cognome3; Cognome6";4^ B TUR;S;mercoledì;08h00
+236.0;1h00;Inglese;Cognome4;5^ B TUR;N;mercoledì;08h00
+237.0;1h00;STA;Cognome33;2^ F MEC;N;mercoledì;08h00
+238.0;1h00;Sc motorie;Cognome52;1^ G AGR;N;mercoledì;08h00
+239.0;1h00;Matematica;Cognome73;4^ F MEC;N;mercoledì;08h00
+240.0;1h00;Religione;Cognome42;4^ D INF;N;mercoledì;08h00
+241.0;1h00;Dir ec pol;Cognome27;2^ D INF;N;mercoledì;08h00
+242.0;2h00;LTE;"Cognome34; Cognome50";2^ A MAT;S;mercoledì;08h00
+243.0;1h00;Geografia;Cognome32;1^ D INF;N;mercoledì;08h00
+244.0;1h00;Dir ec pol;Cognome46;1^ F MEC;N;mercoledì;08h00
+245.0;1h00;Sistemi;"Cognome55; Cognome29";3^ F MEC;S;mercoledì;08h00
+246.0;1h00;Lettere;Cognome25;5^ F MEC;N;mercoledì;08h00
+247.0;1h00;Storia;"Cognome64; Cognome40";1^ A MAT;S;mercoledì;08h00
+248.0;1h00;Inglese;Cognome48;3^ B TUR;N;mercoledì;08h00
+249.0;1h00;Informatica;Cognome49;5^ D INF;N;mercoledì;08h00
+250.0;2h00;LTE;"Cognome18; Cognome8";3^ A MAT;S;mercoledì;08h00
+251.0;2h00;Sistemi;"Cognome39; Cognome70";3^ D INF;S;mercoledì;08h00
+252.0;1h00;Inglese;Cognome43;2^G AGR;N;mercoledì;08h00
+253.0;1h00;Lettere;Cognome41;4^ A MAT;N;mercoledì;08h00
+254.0;2h00;A TE/PRO..;Cognome20;1^ C IeFP;N;mercoledì;08h00
+255.0;2h00;A TE/PRO..;"Cognome59; Cognome56";3^ C IeFP;S;mercoledì;08h00
+256.0;2h00;TTIM;"Cognome47; Cognome61; Cognome44";5^ A MAT;S;mercoledì;08h00
+257.0;1h00;A TE/PRO FIS;Cognome36;2^ C IeFP;N;mercoledì;08h00
+258.0;1h00;Estimo;"Cognome58; Cognome14";3^G AGR;S;mercoledì;08h00
+259.0;1h00;Disposizione;Cognome15;Disposizione;N;mercoledì;08h00
+260.0;1h00;TTRG;"Cognome68; Cognome55";2^ F MEC;S;mercoledì;09h00
+261.0;1h00;Tec mec;Cognome33;4^ F MEC;N;mercoledì;09h00
+262.0;1h00;Religione;Cognome42;2^ D INF;N;mercoledì;09h00
+263.0;1h00;Dir leg tur;Cognome38;5^ B TUR;N;mercoledì;09h00
+264.0;1h00;Geografia;"Cognome32; Cognome6";4^ B TUR;S;mercoledì;09h00
+265.0;2h00;Lettere;Cognome25;5^ D INF;N;mercoledì;09h00
+266.0;1h00;Storia;Cognome3;3^ B TUR;N;mercoledì;09h00
+267.0;1h00;Inglese;Cognome4;4^ D INF;N;mercoledì;09h00
+268.0;2h00;A LING ITA;Cognome41;2^ C IeFP;N;mercoledì;09h00
+269.0;1h00;Dir ec pol;"Cognome27; Cognome64";1^ A MAT;S;mercoledì;09h00
+270.0;1h00;Scienze;Cognome63;2^G AGR;N;mercoledì;09h00
+271.0;1h00;TMA;"Cognome24; Cognome29";4^ A MAT;S;mercoledì;09h00
+272.0;1h00;Inglese;Cognome48;5^ F MEC;N;mercoledì;09h00
+273.0;1h00;Matematica;"Cognome23; Cognome73";1^ F MEC;S;mercoledì;09h00
+274.0;1h00;Meccanica;Cognome13;3^ F MEC;N;mercoledì;09h00
+275.0;1h00;Dir ec pol;Cognome46;1^ D INF;N;mercoledì;09h00
+276.0;1h00;Pr. Animali;"Cognome72; Cognome14";3^G AGR;S;mercoledì;09h00
+277.0;1h00;Disposizione;Cognome67;Disposizione;N;mercoledì;09h00
+278.0;1h00;Disposizione;Cognome43;Disposizione;N;mercoledì;09h00
+279.0;1h00;Sc motorie;"Cognome52; Cognome58";1^ G AGR;S;mercoledì;09h00
+280.0;1h00;Storia;Cognome40;2^ D INF;N;mercoledì;10h00
+281.0;1h00;Sistemi;Cognome39;4^ D INF;N;mercoledì;10h00
+282.0;1h00;Informatica;"Cognome49; Cognome2";3^ D INF;N;mercoledì;10h00
+283.0;1h00;Inglese;Cognome48;3^ F MEC;N;mercoledì;10h00
+284.0;3h00;Tec mec;"Cognome33; Cognome59";5^ F MEC;S;mercoledì;10h00
+285.0;1h00;Religione;Cognome42;2^ F MEC;N;mercoledì;10h00
+286.0;1h00;Geografia;Cognome32;5^ B TUR;N;mercoledì;10h00
+287.0;1h00;A TE/PRO FIS;Cognome36;1^ C IeFP;N;mercoledì;10h00
+288.0;2h00;TTRG;"Cognome68; Cognome23";2^G AGR;S;mercoledì;10h00
+289.0;1h00;Chimica;"Cognome63; Cognome58";1^ G AGR;S;mercoledì;10h00
+290.0;1h00;Dir leg tur;Cognome38;3^ B TUR;N;mercoledì;10h00
+291.0;2h00;LTE;Cognome18;4^ A MAT;N;mercoledì;10h00
+292.0;2h00;LTE;"Cognome34; Cognome6";1^ A MAT;S;mercoledì;10h00
+293.0;1h00;Inglese;Cognome67;1^ F MEC;N;mercoledì;10h00
+294.0;1h00;Matematica;"Cognome21; Cognome50";2^ A MAT;S;mercoledì;10h00
+295.0;1h00;Lettere;Cognome60;1^ D INF;N;mercoledì;10h00
+296.0;2h00;Sistemi;"Cognome55; Cognome29";4^ F MEC;S;mercoledì;10h00
+297.0;1h00;Storia;"Cognome8; Cognome35";3^ A MAT;S;mercoledì;10h00
+298.0;2h00;TMA;"Cognome24; Cognome13; Cognome44";5^ A MAT;S;mercoledì;10h00
+299.0;2h00;Pr. Vegetali;"Cognome72; Cognome14";3^G AGR;S;mercoledì;10h00
+300.0;1h00;Tedesco;Cognome71;4^ B TUR;N;mercoledì;10h00
+301.0;1h00;A MA/SCI SCI;"Cognome5; Cognome47";3^ C IeFP;S;mercoledì;10h00
+302.0;1h00;Disposizione;Cognome27;Disposizione;N;mercoledì;10h00
+303.0;2h00;A TE/PRO .;Cognome20;2^ C IeFP;N;mercoledì;11h10
+304.0;1h00;Fisica;"Cognome36; Cognome56";2^ D INF;S;mercoledì;11h10
+305.0;1h00;Matematica;Cognome5;3^ F MEC;N;mercoledì;11h10
+306.0;1h00;Lettere;"Cognome3; Cognome2";3^ D INF;N;mercoledì;11h10
+307.0;2h00;Lettere;Cognome11;4^ D INF;N;mercoledì;11h10
+308.0;1h00;Dir ec pol;Cognome27;2^ F MEC;N;mercoledì;11h10
+309.0;1h00;Chimica;Cognome63;1^ F MEC;N;mercoledì;11h10
+310.0;1h00;Arte;Cognome60;3^ B TUR;N;mercoledì;11h10
+311.0;1h00;Dir leg tur;Cognome38;4^ B TUR;N;mercoledì;11h10
+312.0;2h00;Lettere;"Cognome50; Cognome15";2^ A MAT;S;mercoledì;11h10
+313.0;1h00;A LING REL;Cognome57;3^ C IeFP;N;mercoledì;11h10
+314.0;2h00;Sistemi;"Cognome39; Cognome70";5^ D INF;S;mercoledì;11h10
+315.0;1h00;A LING ING;Cognome67;1^ C IeFP;N;mercoledì;11h10
+316.0;1h00;Inglese;"Cognome43; Cognome64";1^ G AGR;S;mercoledì;11h10
+317.0;1h00;Storia;Cognome25;1^ D INF;N;mercoledì;11h10
+318.0;1h00;Lettere;"Cognome8; Cognome35";3^ A MAT;S;mercoledì;11h10
+319.0;1h00;Tedesco;Cognome71;5^ B TUR;N;mercoledì;11h10
+320.0;1h00;Disposizione;"Cognome48; Cognome32";Disposizione;S;mercoledì;11h10
+321.0;1h00;TTRG;"Cognome68; Cognome24";2^ D INF;S;mercoledì;12h05
+322.0;1h00;Inglese;Cognome48;4^ B TUR;N;mercoledì;12h05
+323.0;2h00;Sc motorie;Cognome52;3^ D INF;N;mercoledì;12h05
+324.0;1h00;A LING REL;Cognome57;1^ C IeFP;N;mercoledì;12h05
+325.0;1h00;Arte;Cognome60;5^ B TUR;N;mercoledì;12h05
+326.0;1h00;Inglese;Cognome43;1^ D INF;N;mercoledì;12h05
+327.0;1h00;Lettere;"Cognome47; Cognome41";5^ A MAT;S;mercoledì;12h05
+328.0;1h00;Fisica;"Cognome36; Cognome44";1^ G AGR;N;mercoledì;12h05
+329.0;1h00;Scienze;Cognome63;1^ F MEC;N;mercoledì;12h05
+330.0;1h00;Inglese;Cognome67;4^ A MAT;N;mercoledì;12h05
+331.0;1h00;Matematica;"Cognome21; Cognome64";1^ A MAT;S;mercoledì;12h05
+332.0;1h00;Matematica;Cognome5;2^ F MEC;N;mercoledì;12h05
+333.0;1h00;Dis prog;Cognome13;3^ F MEC;N;mercoledì;12h05
+334.0;1h00;Meccanica;Cognome29;4^ F MEC;N;mercoledì;12h05
+335.0;1h00;A TE/PRO.;Cognome56;3^ C IeFP;N;mercoledì;12h05
+336.0;1h00;Trasformazioni;"Cognome72; Cognome14";3^G AGR;S;mercoledì;12h05
+337.0;1h00;Disposizione;Cognome40;Disposizione;N;mercoledì;12h05
+338.0;1h00;Storia;Cognome35;2^G AGR;N;mercoledì;12h05
+339.0;1h00;Tedesco;Cognome71;3^ B TUR;N;mercoledì;12h05
+340.0;1h00;TEEA;Cognome9;3^ A MAT;N;mercoledì;12h05
+341.0;1h00;Religione;Cognome57;5^ A MAT;N;mercoledì;13h00
+342.0;1h00;Lettere;Cognome11;3^G AGR;N;mercoledì;13h00
+343.0;1h00;Arte;Cognome60;4^ B TUR;N;mercoledì;13h00
+344.0;1h00;Lettere;Cognome35;3^ F MEC;N;mercoledì;13h00
+345.0;1h00;Storia;Cognome15;4^ F MEC;N;mercoledì;13h00
+346.0;1h00;Inglese;Cognome43;2^ D INF;N;mercoledì;13h00
+347.0;1h00;Chimica;"Cognome63; Cognome72";2^G AGR;S;mercoledì;13h00
+348.0;1h00;Telecom;Cognome9;4^ D INF;N;mercoledì;13h00
+349.0;1h00;Inglese;Cognome67;2^ F MEC;N;mercoledì;13h00
+350.0;1h00;Matematica;Cognome21;3^ A MAT;N;mercoledì;13h00
+351.0;1h00;Lettere;Cognome40;1^ G AGR;N;mercoledì;13h00
+352.0;1h00;Meccanica;Cognome13;5^ F MEC;N;mercoledì;13h00
+353.0;1h00;Matematica;Cognome73;5^ D INF;N;giovedì;08h00
+354.0;1h00;Spagnolo;Cognome66;4^ B TUR;N;giovedì;08h00
+355.0;2h00;A TE/PRO .;"Cognome20; Cognome26";1^ C IeFP;S;giovedì;08h00
+356.0;1h00;Tec inf;"Cognome69; Cognome31";1^ G AGR;S;giovedì;08h00
+357.0;1h00;Inglese;Cognome4;5^ B TUR;N;giovedì;08h00
+358.0;2h00;Sc motorie;Cognome52;2^ D INF;N;giovedì;08h00
+359.0;1h00;Religione;Cognome42;1^ F MEC;N;giovedì;08h00
+360.0;1h00;Lettere;"Cognome3; Cognome62";3^ D INF;S;giovedì;08h00
+361.0;3h00;Dis prog;"Cognome55; Cognome29";4^ F MEC;S;giovedì;08h00
+362.0;1h00;A MA/SCI SCI;Cognome65;2^ C IeFP;N;giovedì;08h00
+363.0;1h00;Lettere;Cognome51;2^ F MEC;N;giovedì;08h00
+364.0;1h00;Lettere;"Cognome10; Cognome41; Cognome44";5^ A MAT;S;giovedì;08h00
+365.0;1h00;A LING ITA;Cognome25;3^ C IeFP;N;giovedì;08h00
+366.0;1h00;TEEA;"Cognome9; Cognome50";3^ A MAT;S;giovedì;08h00
+367.0;1h00;Geografia;"Cognome32; Cognome6";1^ A MAT;S;giovedì;08h00
+368.0;2h00;Sc motorie;Cognome16;3^ F MEC;N;giovedì;08h00
+369.0;1h00;Dir ec pol;"Cognome27; Cognome23";2^G AGR;S;giovedì;08h00
+370.0;1h00;Scienze;"Cognome1; Cognome45";2^ A MAT;N;giovedì;08h00
+371.0;1h00;Matematica;Cognome28;4^ D INF;N;giovedì;08h00
+372.0;2h00;LTE;Cognome18;4^ A MAT;N;giovedì;08h00
+373.0;1h00;Inglese;Cognome48;5^ F MEC;N;giovedì;08h00
+374.0;1h00;Lettere;Cognome60;1^ D INF;N;giovedì;08h00
+375.0;1h00;Disposizione;Cognome11;Disposizione;N;giovedì;08h00
+376.0;1h00;Matematica;"Cognome17; Cognome8";3^ B TUR;S;giovedì;08h00
+377.0;1h00;Pr. Vegetali;Cognome14;3^G AGR;N;giovedì;08h00
+378.0;1h00;Comp. mat.;"Cognome28; Cognome62";3^ D INF;S;giovedì;09h00
+379.0;1h00;Storia;"Cognome3; Cognome6";4^ B TUR;S;giovedì;09h00
+380.0;1h00;Matematica;Cognome17;5^ B TUR;N;giovedì;09h00
+381.0;1h00;Tec mec;Cognome33;5^ F MEC;N;giovedì;09h00
+382.0;1h00;A  ST/SO STO;Cognome41;2^ C IeFP;N;giovedì;09h00
+383.0;1h00;Storia;Cognome51;1^ F MEC;N;giovedì;09h00
+384.0;1h00;Spagnolo;"Cognome66; Cognome8";3^ B TUR;S;giovedì;09h00
+385.0;1h00;Fisica;"Cognome36; Cognome23";2^G AGR;S;giovedì;09h00
+386.0;2h00;TTRG;Cognome68;1^ D INF;N;giovedì;09h00
+387.0;1h00;Scienze;"Cognome64; Cognome65";1^ A MAT;S;giovedì;09h00
+388.0;1h00;Matematica;"Cognome10; Cognome73; Cognome44";5^ A MAT;S;giovedì;09h00
+389.0;2h00;Telecom;"Cognome9; Cognome53";4^ D INF;S;giovedì;09h00
+390.0;1h00;Religione;Cognome42;5^ D INF;N;giovedì;09h00
+391.0;1h00;Inglese;"Cognome50; Cognome37";2^ A MAT;S;giovedì;09h00
+392.0;1h00;Matematica;Cognome5;2^ F MEC;N;giovedì;09h00
+393.0;2h00;Lettere;"Cognome35; Cognome45";3^ A MAT;N;giovedì;09h00
+394.0;1h00;A TE/PRO.;Cognome56;3^ C IeFP;N;giovedì;09h00
+395.0;1h00;Disposizione;Cognome27;Disposizione;N;giovedì;09h00
+396.0;1h00;Biot. Agrarie;"Cognome72; Cognome14";3^G AGR;S;giovedì;09h00
+397.0;1h00;Disposizione;"Cognome54; Cognome48; Cognome32";Disposizione;S;giovedì;09h00
+398.0;1h00;Tec inf;"Cognome69; Cognome58; Cognome31";1^ G AGR;S;giovedì;09h00
+399.0;1h00;Storia;Cognome51;5^ B TUR;N;giovedì;10h00
+400.0;1h00;Matematica;"Cognome17; Cognome6";4^ B TUR;S;giovedì;10h00
+401.0;1h00;Inglese;Cognome43;3^ D INF;N;giovedì;10h00
+402.0;3h00;Tec mec;"Cognome33; Cognome24";3^ F MEC;S;giovedì;10h00
+403.0;1h00;Chimica;"Cognome72; Cognome1";2^ D INF;S;giovedì;10h00
+404.0;1h00;Tec inf;"Cognome69; Cognome31";1^ A MAT;S;giovedì;10h00
+405.0;1h00;Lettere;Cognome11;3^G AGR;N;giovedì;10h00
+406.0;1h00;Inglese;Cognome4;5^ D INF;N;giovedì;10h00
+407.0;1h00;Lettere;"Cognome50; Cognome15";2^ A MAT;S;giovedì;10h00
+408.0;2h00;Sc motorie;Cognome16;5^ F MEC;N;giovedì;10h00
+409.0;1h00;Scienze;Cognome65;2^ F MEC;N;giovedì;10h00
+410.0;1h00;Ec. aziendale;"Cognome8; Cognome12";3^ B TUR;S;giovedì;10h00
+411.0;1h00;LTE;"Cognome18; Cognome44";5^ A MAT;N;giovedì;10h00
+412.0;1h00;A LING ING;Cognome37;2^ C IeFP;N;giovedì;10h00
+413.0;1h00;Matematica;"Cognome23; Cognome73";1^ F MEC;S;giovedì;10h00
+414.0;1h00;Storia;Cognome41;4^ A MAT;N;giovedì;10h00
+415.0;1h00;A  ST/SO STO;Cognome60;1^ C IeFP;N;giovedì;10h00
+416.0;2h00;STA;Cognome7;2^G AGR;N;giovedì;10h00
+417.0;1h00;Disposizione;Cognome27;Disposizione;N;giovedì;10h00
+418.0;1h00;A MA/SCI SCI;"Cognome5; Cognome47";3^ C IeFP;S;giovedì;10h00
+419.0;1h00;Fisica;"Cognome36; Cognome58; Cognome56";1^ G AGR;S;giovedì;10h00
+420.0;1h00;Disposizione;Cognome54;Disposizione;N;giovedì;10h00
+421.0;1h00;Matematica;Cognome28;1^ D INF;N;giovedì;11h10
+422.0;1h00;Matematica;Cognome17;4^ B TUR;N;giovedì;11h10
+423.0;1h00;Spagnolo;"Cognome66; Cognome19";3^ B TUR;N;giovedì;11h10
+424.0;1h00;Comp. mat.;Cognome73;4^ F MEC;N;giovedì;11h10
+425.0;1h00;Chimica;"Cognome72; Cognome65";2^ F MEC;S;giovedì;11h10
+426.0;2h00;Telecom;"Cognome9; Cognome53";3^ D INF;S;giovedì;11h10
+427.0;1h00;Storia;Cognome25;5^ D INF;N;giovedì;11h10
+428.0;1h00;Dir ec pol;"Cognome27; Cognome44";1^ G AGR;N;giovedì;11h10
+429.0;1h00;TMA;Cognome29;4^ A MAT;N;giovedì;11h10
+430.0;1h00;Inglese;Cognome43;2^ D INF;N;giovedì;11h10
+431.0;1h00;Storia;"Cognome47; Cognome41";5^ A MAT;S;giovedì;11h10
+432.0;1h00;Ec. aziendale;Cognome54;5^ B TUR;N;giovedì;11h10
+433.0;1h00;Fisica;"Cognome36; Cognome56";1^ F MEC;S;giovedì;11h10
+434.0;1h00;Geografia;"Cognome32; Cognome45";2^ A MAT;N;giovedì;11h10
+435.0;2h00;Sc motorie;Cognome52;4^ D INF;N;giovedì;11h10
+436.0;1h00;Inglese;"Cognome67; Cognome8";3^ A MAT;S;giovedì;11h10
+437.0;1h00;A MA/SCI MAT;"Cognome1; Cognome62";1^ C IeFP;S;giovedì;11h10
+438.0;1h00;Matematica;"Cognome21; Cognome64";1^ A MAT;S;giovedì;11h10
+439.0;2h00;A TE/PRO..;"Cognome20; Cognome26";2^ C IeFP;S;giovedì;11h10
+440.0;1h00;A LING ING;Cognome37;3^ C IeFP;N;giovedì;11h10
+441.0;1h00;Disposizione;Cognome15;Disposizione;N;giovedì;11h10
+442.0;1h00;Lettere;"Cognome11; Cognome58";3^G AGR;S;giovedì;11h10
+443.0;1h00;Matematica;Cognome28;2^ D INF;N;giovedì;12h05
+444.0;1h00;TTRG;"Cognome68; Cognome55";1^ F MEC;S;giovedì;12h05
+445.0;1h00;Ec. aziendale;Cognome54;4^ B TUR;N;giovedì;12h05
+446.0;1h00;Spagnolo;Cognome66;5^ B TUR;N;giovedì;12h05
+447.0;1h00;Fisica;"Cognome36; Cognome56";2^ F MEC;S;giovedì;12h05
+448.0;1h00;Matematica;Cognome1;4^ A MAT;N;giovedì;12h05
+449.0;1h00;Geografia;"Cognome32; Cognome44";1^ G AGR;N;giovedì;12h05
+450.0;1h00;Lettere;Cognome15;4^ F MEC;N;giovedì;12h05
+451.0;1h00;Chimica;"Cognome72; Cognome65";1^ D INF;S;giovedì;12h05
+452.0;1h00;Inglese;"Cognome47; Cognome67";5^ A MAT;S;giovedì;12h05
+453.0;1h00;A  ST/SO STO;Cognome25;3^ C IeFP;N;giovedì;12h05
+454.0;1h00;Matematica;"Cognome17; Cognome19";3^ B TUR;N;giovedì;12h05
+455.0;1h00;Matematica;Cognome5;5^ F MEC;N;giovedì;12h05
+456.0;1h00;LTE;Cognome18;3^ A MAT;N;giovedì;12h05
+457.0;1h00;Inglese;"Cognome64; Cognome37";1^ A MAT;S;giovedì;12h05
+458.0;1h00;Matematica;"Cognome21; Cognome45";2^ A MAT;N;giovedì;12h05
+459.0;1h00;A LING ITA;"Cognome60; Cognome62";1^ C IeFP;S;giovedì;12h05
+460.0;1h00;GPOI;Cognome31;5^ D INF;N;giovedì;12h05
+461.0;1h00;Lettere;Cognome35;2^G AGR;N;giovedì;12h05
+462.0;1h00;Genio Rurale;"Cognome58; Cognome7";3^G AGR;S;giovedì;12h05
+463.0;1h00;Disposizione;Cognome43;Disposizione;N;giovedì;12h05
+464.0;1h00;Matematica;Cognome28;1^ D INF;N;venerdì;08h00
+465.0;2h00;A TE/PRO..;Cognome20;1^ C IeFP;N;venerdì;08h00
+466.0;1h00;Inglese;Cognome4;5^ B TUR;N;venerdì;08h00
+467.0;1h00;Inglese;"Cognome48; Cognome6";4^ B TUR;S;venerdì;08h00
+468.0;1h00;STA;Cognome33;2^ F MEC;N;venerdì;08h00
+469.0;1h00;Religione;Cognome42;3^G AGR;N;venerdì;08h00
+470.0;1h00;Storia;"Cognome3; Cognome62";3^ D INF;S;venerdì;08h00
+471.0;1h00;Dir leg tur;Cognome38;3^ B TUR;N;venerdì;08h00
+472.0;1h00;Dir ec pol;"Cognome46; Cognome23";1^ F MEC;S;venerdì;08h00
+473.0;1h00;Storia;Cognome11;4^ D INF;N;venerdì;08h00
+474.0;2h00;Sc motorie;Cognome16;4^ F MEC;N;venerdì;08h00
+475.0;1h00;TTRG;"Cognome68; Cognome24";2^ A MAT;S;venerdì;08h00
+476.0;1h00;Scienze;Cognome1;2^ D INF;N;venerdì;08h00
+477.0;1h00;LTE;"Cognome34; Cognome44";1^ A MAT;N;venerdì;08h00
+478.0;1h00;Matematica;"Cognome47; Cognome73";5^ A MAT;S;venerdì;08h00
+479.0;1h00;Matematica;Cognome5;5^ F MEC;N;venerdì;08h00
+480.0;1h00;TTIM;Cognome61;4^ A MAT;N;venerdì;08h00
+481.0;2h00;LTE;"Cognome18; Cognome50";3^ A MAT;S;venerdì;08h00
+482.0;1h00;Storia;Cognome40;1^ G AGR;N;venerdì;08h00
+483.0;1h00;Sistemi;Cognome29;3^ F MEC;N;venerdì;08h00
+484.0;2h00;A TE/PRO.;Cognome26;2^ C IeFP;N;venerdì;08h00
+485.0;2h00;A TE/PRO..;"Cognome59; Cognome56";3^ C IeFP;S;venerdì;08h00
+486.0;2h00;TPSIT;"Cognome39; Cognome70";5^ D INF;S;venerdì;08h00
+487.0;1h00;Matematica;Cognome22;2^G AGR;N;venerdì;08h00
+488.0;1h00;Disposizione;Cognome32;Disposizione;N;venerdì;08h00
+489.0;1h00;Matematica;"Cognome28; Cognome62";3^ D INF;S;venerdì;09h00
+490.0;2h00;Lettere;Cognome3;4^ B TUR;N;venerdì;09h00
+491.0;1h00;Storia;Cognome40;2^ D INF;N;venerdì;09h00
+492.0;2h00;TTRG;Cognome68;2^ F MEC;N;venerdì;09h00
+493.0;1h00;Tec mec;Cognome33;3^ F MEC;N;venerdì;09h00
+494.0;1h00;Religione;Cognome42;5^ F MEC;N;venerdì;09h00
+495.0;1h00;Storia;"Cognome11; Cognome58";3^G AGR;S;venerdì;09h00
+496.0;1h00;Dir leg tur;Cognome38;5^ B TUR;N;venerdì;09h00
+497.0;1h00;Geografia;"Cognome32; Cognome19";3^ B TUR;N;venerdì;09h00
+498.0;1h00;Inglese;Cognome4;4^ D INF;N;venerdì;09h00
+499.0;1h00;Dir ec pol;Cognome27;2^ A MAT;N;venerdì;09h00
+500.0;1h00;TEEA;"Cognome61; Cognome44";5^ A MAT;N;venerdì;09h00
+501.0;1h00;Matematica;"Cognome22; Cognome64";1^ G AGR;S;venerdì;09h00
+502.0;1h00;Inglese;Cognome43;2^G AGR;N;venerdì;09h00
+503.0;1h00;Matematica;"Cognome23; Cognome73";1^ F MEC;S;venerdì;09h00
+504.0;1h00;TMA;"Cognome24; Cognome29";4^ A MAT;S;venerdì;09h00
+505.0;1h00;Dir ec pol;Cognome46;1^ D INF;N;venerdì;09h00
+506.0;1h00;Disposizione;Cognome1;Disposizione;N;venerdì;09h00
+507.0;1h00;Disposizione;Cognome5;Disposizione;N;venerdì;09h00
+508.0;1h00;LTE;"Cognome34; Cognome6";1^ A MAT;S;venerdì;09h00
+509.0;1h00;Matematica;Cognome28;2^ D INF;N;venerdì;10h00
+510.0;2h00;A TE/PRO..;Cognome20;2^ C IeFP;N;venerdì;10h00
+511.0;3h00;Informatica;"Cognome49; Cognome69";4^ D INF;S;venerdì;10h00
+512.0;1h00;Matematica;Cognome5;3^ F MEC;N;venerdì;10h00
+513.0;1h00;Matematica;Cognome73;4^ F MEC;N;venerdì;10h00
+514.0;2h00;Sc motorie;"Cognome30; Cognome44";5^ A MAT;N;venerdì;10h00
+515.0;1h00;Religione;Cognome42;1^ D INF;N;venerdì;10h00
+516.0;3h00;Dis prog;"Cognome59; Cognome13";5^ F MEC;S;venerdì;10h00
+517.0;1h00;Geografia;Cognome32;5^ B TUR;N;venerdì;10h00
+518.0;1h00;Tec inf;Cognome31;1^ F MEC;N;venerdì;10h00
+519.0;1h00;Inglese;"Cognome43; Cognome62";3^ D INF;S;venerdì;10h00
+520.0;1h00;A LING ITA;"Cognome47; Cognome25";3^ C IeFP;S;venerdì;10h00
+521.0;2h00;Lettere;"Cognome64; Cognome40";1^ A MAT;S;venerdì;10h00
+522.0;1h00;Inglese;"Cognome48; Cognome19";3^ B TUR;N;venerdì;10h00
+523.0;2h00;A LING ED. FIS;Cognome16;1^ C IeFP;N;venerdì;10h00
+524.0;1h00;Chimica;"Cognome63; Cognome23";2^G AGR;S;venerdì;10h00
+525.0;2h00;TTIM;"Cognome18; Cognome61";4^ A MAT;S;venerdì;10h00
+526.0;1h00;TMA;"Cognome29; Cognome50";3^ A MAT;S;venerdì;10h00
+527.0;1h00;Sistemi;Cognome39;5^ D INF;N;venerdì;10h00
+528.0;1h00;Inglese;Cognome4;3^G AGR;N;venerdì;10h00
+529.0;1h00;Disposizione;Cognome67;Disposizione;N;venerdì;10h00
+530.0;1h00;Scienze;"Cognome70; Cognome1";2^ A MAT;S;venerdì;10h00
+531.0;1h00;Matematica;"Cognome22; Cognome58";1^ G AGR;S;venerdì;10h00
+532.0;1h00;Lettere;Cognome51;5^ B TUR;N;venerdì;11h10
+533.0;1h00;Lettere;"Cognome3; Cognome19";3^ B TUR;N;venerdì;11h10
+534.0;2h00;STA;Cognome31;2^ D INF;N;venerdì;11h10
+535.0;1h00;Religione;Cognome42;3^ D INF;N;venerdì;11h10
+536.0;1h00;Dir ec pol;Cognome27;2^ F MEC;N;venerdì;11h10
+537.0;1h00;Dir leg tur;Cognome38;4^ B TUR;N;venerdì;11h10
+538.0;1h00;Matematica;Cognome73;5^ D INF;N;venerdì;11h10
+539.0;1h00;TTRG;"Cognome68; Cognome24";2^G AGR;S;venerdì;11h10
+540.0;1h00;Scienze;"Cognome63; Cognome23";1^ F MEC;S;venerdì;11h10
+541.0;1h00;LTE;Cognome34;2^ A MAT;N;venerdì;11h10
+542.0;1h00;Inglese;"Cognome67; Cognome50";3^ A MAT;S;venerdì;11h10
+543.0;1h00;Inglese;"Cognome43; Cognome58";1^ G AGR;S;venerdì;11h10
+544.0;1h00;Storia;Cognome25;1^ D INF;N;venerdì;11h10
+545.0;1h00;Storia;Cognome35;3^ F MEC;N;venerdì;11h10
+546.0;1h00;Dis prog;Cognome29;4^ F MEC;N;venerdì;11h10
+547.0;1h00;Disposizione;Cognome11;Disposizione;N;venerdì;11h10
+548.0;1h00;A TE/PRO.;"Cognome47; Cognome56";3^ C IeFP;S;venerdì;11h10
+549.0;1h00;Matematica;Cognome22;3^G AGR;N;venerdì;11h10
+550.0;1h00;TTRG;"Cognome68; Cognome24; Cognome44";1^ G AGR;S;venerdì;12h05
+551.0;1h00;TPSIT;Cognome39;3^ D INF;N;venerdì;12h05
+552.0;1h00;Inglese;Cognome48;3^ F MEC;N;venerdì;12h05
+553.0;2h00;Sc motorie;Cognome52;5^ B TUR;N;venerdì;12h05
+554.0;2h00;Sc motorie;Cognome30;4^ A MAT;N;venerdì;12h05
+555.0;1h00;Religione;Cognome42;3^ A MAT;N;venerdì;12h05
+556.0;1h00;Chimica;Cognome63;1^ F MEC;N;venerdì;12h05
+557.0;1h00;Lettere;Cognome25;5^ D INF;N;venerdì;12h05
+558.0;1h00;Storia;Cognome51;2^ F MEC;N;venerdì;12h05
+559.0;1h00;Inglese;Cognome43;1^ D INF;N;venerdì;12h05
+560.0;1h00;Scienze;"Cognome70; Cognome65";1^ A MAT;S;venerdì;12h05
+561.0;1h00;Inglese;"Cognome47; Cognome67";5^ A MAT;S;venerdì;12h05
+562.0;1h00;A ST/SO DIR;Cognome27;3^ C IeFP;N;venerdì;12h05
+563.0;1h00;Matematica;"Cognome22; Cognome58";3^G AGR;S;venerdì;12h05
+564.0;1h00;A MA/SCI MAT;Cognome1;2^ C IeFP;N;venerdì;12h05
+565.0;1h00;A TE/PRO.;Cognome26;1^ C IeFP;N;venerdì;12h05
+566.0;1h00;Meccanica;Cognome29;4^ F MEC;N;venerdì;12h05
+567.0;1h00;Lettere;Cognome35;2^G AGR;N;venerdì;12h05
+568.0;1h00;Tedesco;Cognome71;4^ B TUR;N;venerdì;12h05
+569.0;1h00;Disposizione;Cognome11;Disposizione;N;venerdì;12h05
+570.0;1h00;LTE;"Cognome34; Cognome50";2^ A MAT;S;venerdì;12h05
+571.0;1h00;Lettere;Cognome3;3^ B TUR;N;venerdì;12h05
+572.0;1h00;Inglese;Cognome48;4^ F MEC;N;venerdì;13h00
+573.0;1h00;Storia;Cognome25;5^ F MEC;N;venerdì;13h00
+574.0;1h00;Lettere;Cognome51;1^ F MEC;N;venerdì;13h00
+575.0;1h00;Dir ec pol;"Cognome27; Cognome64";1^ A MAT;S;venerdì;13h00
+576.0;1h00;Scienze;Cognome65;1^ D INF;N;venerdì;13h00
+577.0;1h00;Inglese;Cognome67;2^ F MEC;N;venerdì;13h00
+578.0;1h00;Lettere;Cognome35;3^ A MAT;N;venerdì;13h00
+579.0;1h00;Tedesco;Cognome71;3^ B TUR;N;venerdì;13h00
+580.0;1h00;Matematica;Cognome28;3^ D INF;N;sabato;08h00
+581.0;2h00;Lettere;Cognome51;5^ B TUR;N;sabato;08h00
+582.0;2h00;Lettere;Cognome40;2^ D INF;N;sabato;08h00
+583.0;2h00;TPSIT;"Cognome39; Cognome70";4^ D INF;S;sabato;08h00
+584.0;1h00;Tec inf;Cognome31;1^ G AGR;N;sabato;08h00
+585.0;2h00;Sc motorie;Cognome52;4^ B TUR;N;sabato;08h00
+586.0;1h00;Fisica;"Cognome36; Cognome56";2^G AGR;S;sabato;08h00
+587.0;1h00;Matematica;Cognome1;4^ A MAT;N;sabato;08h00
+588.0;1h00;Religione;Cognome42;3^ B TUR;N;sabato;08h00
+589.0;1h00;Meccanica;"Cognome55; Cognome29";4^ F MEC;S;sabato;08h00
+590.0;1h00;Geografia;Cognome32;1^ F MEC;N;sabato;08h00
+591.0;2h00;Lettere;Cognome25;5^ F MEC;N;sabato;08h00
+592.0;1h00;Chimica;Cognome65;1^ D INF;N;sabato;08h00
+593.0;2h00;A LING ED. FIS;Cognome30;2^ C IeFP;N;sabato;08h00
+594.0;2h00;Informatica;"Cognome49; Cognome69";5^ D INF;S;sabato;08h00
+595.0;1h00;TEEA;"Cognome34; Cognome9; Cognome50";3^ A MAT;S;sabato;08h00
+596.0;1h00;TEEA;"Cognome61; Cognome53";5^ A MAT;S;sabato;08h00
+597.0;1h00;Inglese;"Cognome37; Cognome44";1^ A MAT;N;sabato;08h00
+598.0;1h00;Matematica;Cognome21;2^ A MAT;N;sabato;08h00
+599.0;1h00;A  ST/SO STO;Cognome60;1^ C IeFP;N;sabato;08h00
+600.0;1h00;Meccanica;Cognome13;3^ F MEC;N;sabato;08h00
+601.0;1h00;Matematica;Cognome5;2^ F MEC;N;sabato;08h00
+602.0;1h00;Biot. Agrarie;Cognome14;3^G AGR;N;sabato;08h00
+603.1;2h00;A TE/PRO..;Cognome59;3^ C IeFP;N;sabato;08h00
+603.2;1h00;A TE/PRO..;Cognome56;;N;sabato;09h00
+604.0;1h00;Disposizione;Cognome15;Disposizione;N;sabato;08h00
+605.0;1h00;Matematica;Cognome28;1^ D INF;N;sabato;09h00
+606.0;1h00;Religione;Cognome42;1^ A MAT;N;sabato;09h00
+607.0;1h00;Storia;Cognome15;4^ F MEC;N;sabato;09h00
+608.0;1h00;Storia;"Cognome47; Cognome41; Cognome44";5^ A MAT;S;sabato;09h00
+609.0;1h00;Arte;Cognome60;3^ B TUR;N;sabato;09h00
+610.0;1h00;Fisica;"Cognome36; Cognome23";1^ F MEC;S;sabato;09h00
+611.0;1h00;Chimica;Cognome65;2^ F MEC;N;sabato;09h00
+612.0;1h00;Scienze;Cognome63;1^ G AGR;N;sabato;09h00
+613.0;1h00;TTIM;"Cognome34; Cognome61; Cognome50";3^ A MAT;S;sabato;09h00
+614.0;1h00;Telecom;Cognome9;3^ D INF;N;sabato;09h00
+615.0;1h00;Inglese;Cognome37;2^ A MAT;N;sabato;09h00
+616.0;1h00;Inglese;Cognome67;4^ A MAT;N;sabato;09h00
+617.0;1h00;A MA/SCI MAT;"Cognome1; Cognome62";1^ C IeFP;S;sabato;09h00
+618.0;1h00;Disposizione;"Cognome32; Cognome21";Disposizione;S;sabato;09h00
+619.0;1h00;Trasformazioni;"Cognome72; Cognome14";3^G AGR;S;sabato;09h00
+620.0;1h00;Lettere;Cognome35;2^G AGR;N;sabato;09h00
+621.0;1h00;Sistemi;"Cognome55; Cognome29";3^ F MEC;S;sabato;09h00
+622.0;1h00;Disposizione;Cognome54;Disposizione;N;sabato;09h00
+623.0;1h00;Ec. aziendale;Cognome54;4^ B TUR;N;sabato;10h00
+624.0;1h00;TPSIT;"Cognome39; Cognome70";3^ D INF;S;sabato;10h00
+625.0;1h00;Fisica;"Cognome36; Cognome56";1^ D INF;S;sabato;10h00
+626.0;2h00;Sc motorie;Cognome52;3^ B TUR;N;sabato;10h00
+627.0;1h00;Matematica;Cognome5;3^ F MEC;N;sabato;10h00
+628.0;1h00;Chimica;"Cognome63; Cognome72";1^ G AGR;S;sabato;10h00
+629.0;1h00;Arte;Cognome60;5^ B TUR;N;sabato;10h00
+630.0;1h00;Sistemi;"Cognome55; Cognome13";5^ F MEC;S;sabato;10h00
+631.0;1h00;A MA/SCI SCI;"Cognome65; Cognome62";1^ C IeFP;S;sabato;10h00
+632.0;1h00;Lettere;Cognome15;2^ A MAT;N;sabato;10h00
+633.0;1h00;A LING ITA;Cognome41;2^ C IeFP;N;sabato;10h00
+634.0;1h00;Lettere;"Cognome40; Cognome44";1^ A MAT;N;sabato;10h00
+635.0;2h00;Sc motorie;Cognome16;2^ F MEC;N;sabato;10h00
+636.0;1h00;Chimica;Cognome1;2^ D INF;N;sabato;10h00
+637.0;1h00;Matematica;"Cognome47; Cognome73";5^ A MAT;S;sabato;10h00
+638.0;1h00;TEEA;"Cognome9; Cognome53";4^ A MAT;S;sabato;10h00
+639.0;1h00;Inglese;Cognome67;1^ F MEC;N;sabato;10h00
+640.0;1h00;Matematica;"Cognome21; Cognome8";3^ A MAT;S;sabato;10h00
+641.0;1h00;Sistemi;Cognome29;4^ F MEC;N;sabato;10h00
+642.0;1h00;GPOI;Cognome31;5^ D INF;N;sabato;10h00
+643.0;1h00;Informatica;Cognome49;4^ D INF;N;sabato;10h00
+644.0;1h00;Disposizione;Cognome32;Disposizione;N;sabato;10h00
+645.0;1h00;A LING ING;Cognome37;3^ C IeFP;N;sabato;10h00
+646.0;2h00;Pr. Animali;Cognome14;3^G AGR;N;sabato;10h00
+647.0;1h00;Lettere;"Cognome23; Cognome35";2^G AGR;S;sabato;10h00
+648.0;1h00;Sistemi;Cognome39;5^ D INF;N;sabato;11h10
+649.0;2h00;Informatica;"Cognome49; Cognome62";3^ D INF;S;sabato;11h10
+650.0;1h00;Fisica;Cognome36;2^ D INF;N;sabato;11h10
+651.0;1h00;Matematica;Cognome73;4^ F MEC;N;sabato;11h10
+652.0;1h00;Arte;Cognome60;4^ B TUR;N;sabato;11h10
+653.0;2h00;Lettere;Cognome35;3^ F MEC;N;sabato;11h10
+654.0;2h00;Ec. aziendale;Cognome54;5^ B TUR;N;sabato;11h10
+655.0;2h00;Lettere;"Cognome51; Cognome23";1^ F MEC;S;sabato;11h10
+656.0;1h00;STA;Cognome7;2^G AGR;N;sabato;11h10
+657.0;1h00;Scienze;"Cognome70; Cognome1";2^ A MAT;S;sabato;11h10
+658.0;1h00;Matematica;Cognome28;4^ D INF;N;sabato;11h10
+659.0;2h00;TTIM;"Cognome61; Cognome53";5^ A MAT;S;sabato;11h10
+660.0;2h00;Tec inf;"Cognome69; Cognome31";1^ D INF;S;sabato;11h10
+661.0;1h00;TMA;"Cognome24; Cognome29; Cognome8";3^ A MAT;S;sabato;11h10
+662.0;1h00;A LING ING;Cognome67;1^ C IeFP;N;sabato;11h10
+663.0;1h00;Matematica;"Cognome21; Cognome44";1^ A MAT;N;sabato;11h10
+664.0;2h00;Lettere;Cognome40;1^ G AGR;N;sabato;11h10
+665.0;2h00;Lettere;Cognome41;4^ A MAT;N;sabato;11h10
+666.0;1h00;A TE/PRO.;Cognome26;2^ C IeFP;N;sabato;11h10
+667.0;2h00;Meccanica;Cognome13;5^ F MEC;N;sabato;11h10
+668.0;1h00;Disposizione;Cognome5;Disposizione;N;sabato;11h10
+669.0;1h00;A LING ITA;"Cognome47; Cognome25";3^ C IeFP;S;sabato;11h10
+670.0;1h00;Disposizione;Cognome15;Disposizione;N;sabato;11h10
+671.0;1h00;Matematica;Cognome28;2^ D INF;N;sabato;12h05
+672.0;1h00;Sistemi;Cognome39;4^ D INF;N;sabato;12h05
+673.0;1h00;Fisica;Cognome36;2^ F MEC;N;sabato;12h05
+674.0;1h00;Religione;Cognome42;2^ A MAT;N;sabato;12h05
+675.0;1h00;Geografia;Cognome32;4^ B TUR;N;sabato;12h05
+676.0;1h00;Lettere;Cognome15;4^ F MEC;N;sabato;12h05
+677.0;1h00;Lettere;Cognome25;5^ D INF;N;sabato;12h05
+678.0;1h00;Scienze;Cognome63;2^G AGR;N;sabato;12h05
+679.0;1h00;Scienze;"Cognome65; Cognome44";1^ A MAT;N;sabato;12h05
+680.0;1h00;Ec. aziendale;Cognome12;3^ B TUR;N;sabato;12h05
+681.0;1h00;A MA/SCI MAT;Cognome1;2^ C IeFP;N;sabato;12h05
+682.0;1h00;Disposizione;Cognome67;Disposizione;N;sabato;12h05
+683.0;1h00;Genio Rurale;Cognome7;3^G AGR;N;sabato;12h05
+684.0;1h00;A MA/SCI SCI;"Cognome5; Cognome47";3^ C IeFP;S;sabato;12h05
+685.0;1h00;A TE/PRO.;Cognome26;1^ C IeFP;N;sabato;12h05
+686.0;1h00;TMA;"Cognome24; Cognome29";3^ A MAT;S;sabato;12h05
