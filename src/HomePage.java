@@ -6,8 +6,9 @@ import java.awt.event.ActionListener;
 public class HomePage extends JFrame {
     private JLabel scrittaIniziale = new JLabel("Gestione Orari e Sostituzioni - Scuola IS Saraceno-Romegialli");
     public JButton sostituzioni = new JButton("Sostituzioni");
-    public JButton orario = new JButton("Orario");
+    public JComboBox orario = new JComboBox<>();
     public JButton caricaFile = new JButton("Carica File");
+    String[] sceltaOrari = {"Docenti", "Studenti", "Disposizione"};
 
     public HomePage() {
         super("HomePage");
@@ -18,6 +19,10 @@ public class HomePage extends JFrame {
 
         JPanel pannelloBottoni = new JPanel(new GridLayout(1, 3, 5, 0));
         pannelloBottoni.add(sostituzioni);
+        for (int i = 0; i < sceltaOrari.length; i++) {
+            orario.addItem(sceltaOrari[i]);
+        }
+
         pannelloBottoni.add(orario);
         pannelloBottoni.add(caricaFile);
 
