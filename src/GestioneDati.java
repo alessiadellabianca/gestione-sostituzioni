@@ -37,6 +37,18 @@ public class GestioneDati {
         }
     }
 
+    public ArrayList<String> getMaterie() {
+        return materie;
+    }
+
+    public ArrayList<String> getDocenti() {
+        return docenti;
+    }
+
+    public ArrayList<String> getClassi() {
+        return classi;
+    }
+
     @Override
     public String toString() {
         return  "GestioneDati{" +
