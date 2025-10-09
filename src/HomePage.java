@@ -61,10 +61,24 @@ public class HomePage extends JFrame {
         orario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                container.removeAll();
-                container.add(new FrameOrario(), BorderLayout.CENTER);
-                container.revalidate();
-                container.repaint();
+                if(orario.getSelectedItem() == "Docenti") {
+                    container.removeAll();
+                    container.add(new FrameDocenti(), BorderLayout.CENTER);
+                    container.revalidate();
+                    container.repaint();
+                }
+                if(orario.getSelectedItem() == "Studenti") {
+                    container.removeAll();
+                    container.add(new FrameStudenti(), BorderLayout.CENTER);
+                    container.revalidate();
+                    container.repaint();
+                }
+                if(orario.getSelectedItem() == "Disposizione") {
+                    container.removeAll();
+                    container.add(new FrameDisposizioni(), BorderLayout.CENTER);
+                    container.revalidate();
+                    container.repaint();
+                }
             }
         });
 

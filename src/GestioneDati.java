@@ -7,12 +7,12 @@ import java.util.ArrayList;
 
 public class GestioneDati {
 
-    ArrayList<String> docenti = new ArrayList();
-    ArrayList<String> classi = new ArrayList();
-    ArrayList<String> materie = new ArrayList();
+    private static ArrayList<String>  docenti = new ArrayList();
+    private static ArrayList<String> classi = new ArrayList();
+    private static ArrayList<String> materie = new ArrayList();
 
 
-    public void organizzazioneFile(String nomeFile) {
+    public static void organizzazioneFile(String nomeFile) {
         try (BufferedReader br = new BufferedReader(new FileReader(nomeFile))) {
             String linea = null;
             while ((linea = br.readLine()) != null) {
@@ -41,7 +41,7 @@ public class GestioneDati {
         return materie;
     }
 
-    public ArrayList<String> getDocenti() {
+    public static ArrayList<String> getDocenti() {
         return docenti;
     }
 

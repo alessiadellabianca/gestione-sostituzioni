@@ -1,14 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class FrameOrario extends JPanel {
+public class FrameDisposizioni extends JPanel {
 
 
     JComboBox orario = new JComboBox();
-    String[] sceltaOrari = {"bgbf", "rgregrg", "rthrgrgdfgf"};
+    String[] sceltaOrari = {"disp1", "disp33", "disp35"};
 
 
-    public FrameOrario()
+
+    public FrameDisposizioni()
     {
         setLayout(new BorderLayout());
 
@@ -16,5 +17,6 @@ public class FrameOrario extends JPanel {
             orario.addItem(sceltaOrari[i]);
         }
         add(orario, BorderLayout.CENTER);
+
     }
 }
