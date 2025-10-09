@@ -1,3 +1,5 @@
+import javax.xml.validation.SchemaFactoryConfigurationError;
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -7,9 +9,11 @@ public class CreazioneOrario {
     ArrayList<String> docenti = new ArrayList();
     ArrayList<String> classi = new ArrayList();
     ArrayList<String> materie = new ArrayList();
+    ArrayList<Lezione> orarioClassex=new ArrayList();
     String docente;
     String materia;
     String ora;
+    String giorno;
     String durata;
     String classe;
     boolean codocenza;
@@ -28,7 +32,14 @@ public class CreazioneOrario {
         materie=datiGenerali.getMaterie();
     }
 
-     public void crazioneOrarioClasse(String classe) throws FileNotFoundException {
+    @Override
+    public String toString() {
+        return "CreazioneOrario{" +
+                "listaLezioni=" + listaLezioni.toString() +
+                '}';
+    }
+
+    public void crazioneLezione(){
 
          try (BufferedReader br = new BufferedReader(new FileReader(letturaFile))) {
              String linea = null;
@@ -41,25 +52,74 @@ public class CreazioneOrario {
 
                  materia=parti[2];
                  durata=parti[1];
+                 docente=parti[3];
 
                  if(parti[4].contains("Cognome"))
                  {
-                     docenti.add(parti[4]);
-                     classi.add(parti[5]);
+                     docente=docente+parti[4];
+                     classe=parti[5];
+                     if(parti[6].equals("S"))
+                     {
+                         codocenza=true;
+                     }
+                     else{
+                         codocenza=false;
+                     }
+                     giorno=parti[7];
+                     ora=parti[8];
                  } else {
-                     classi.add(parti[4]);
+                     classe=parti[4];
+                     if(parti[5].equals("S"))
+                     {
+                         codocenza=true;
+                     }
+                     else{
+                         codocenza=false;
+                     }
+                     giorno=parti[6];
+                     ora=parti[7];
                  }
+
+                 listaLezioni.add(new Lezione(docente,codocenza,classe,materia,durata,ora,giorno));
 
 
              }
          } catch (IOException e) {
              System.out.println("Errore nella lettura del file: " + e.getMessage());
          }
+
+     }
+
+     public void creazioneOrarioClasse(String classeDiCuiFareOrario)
+     {
+         orarioClassex.clear();
+         for (int i = 0; i < listaLezioni.size(); i++) {
+             if (listaLezioni.get(i).getClasse().equals(classeDiCuiFareOrario)) {
+                 orarioClassex.add(listaLezioni.get(i));
+             }
+         }
+
+
+
+     }
+
+    public String toStringclasse() {
+        return "CreazioneOrario{" +
+                "listaLezioni=" + orarioClassex.toString() +
+                '}';
+    }
+    public static void main(String[] args) {
+        CreazioneOrario x = new CreazioneOrario();
+        x.crazioneLezione();
+        x.creazioneOrarioClasse("3^ F MEC");
+        System.out.println(x.toStringclasse());
+
+    }
      }
 
 
 
-     }
+
 
 
 

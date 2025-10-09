@@ -1,4 +1,3 @@
-NUMERO;DURATA;MAT_NOME;DOC_COGN;CLASSE;CO-DOC.;GIORNO;O.INIZIO
 1.0;1h00;Lettere;Cognome3;4^ B TUR;N;lunedì;08h00
 2.0;2h00;TTRG;Cognome68;2^ D INF;N;lunedì;08h00
 3.0;2h00;A TE/PRO .;"Cognome20; Cognome26";2^ C IeFP;S;lunedì;08h00

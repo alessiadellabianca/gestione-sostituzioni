@@ -41,7 +41,7 @@ public class GestioneDati {
         return materie;
     }
 
-    public static ArrayList<String> getDocenti() {
+    public ArrayList<String> getDocenti() {
         return docenti;
     }
 

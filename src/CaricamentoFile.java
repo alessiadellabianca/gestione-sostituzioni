@@ -26,6 +26,7 @@ public class CaricamentoFile extends JPanel
                 try (BufferedReader br = new BufferedReader(new FileReader(selectedFile));
                      BufferedWriter bw = new BufferedWriter(new FileWriter(letturaFile)))
                 {
+                    br.readLine();
                     String line;
                     while ((line = br.readLine()) != null) {
 

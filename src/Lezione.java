@@ -6,15 +6,32 @@ public class Lezione {
     String durata;
     String classe;
     boolean codocenza;
+    String giorno;
 
-    public Lezione(String docente, boolean codocenza, String classe, String materia, String durata, String ora) {
+    public Lezione(String docente, boolean codocenza, String classe, String materia, String durata, String ora, String giorno) {
         this.docente = docente;
         this.codocenza = codocenza;
         this.classe = classe;
         this.materia = materia;
         this.durata = durata;
         this.ora = ora;
+        this.giorno = giorno;
     }
 
+    public String getClasse() {
+        return classe;
+    }
 
+    @Override
+    public String toString() {
+        return "Lezione{" +
+                "docente='" + docente + '\'' +
+                ", materia='" + materia + '\'' +
+                ", ora='" + ora + '\'' +
+                ", durata='" + durata + '\'' +
+                ", classe='" + classe + '\'' +
+                ", codocenza=" + codocenza +
+                ", giorno='" + giorno + '\'' +
+                '}';
+    }
 }
