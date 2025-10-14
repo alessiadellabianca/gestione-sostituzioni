@@ -8,9 +8,9 @@ public class HomePage extends JFrame {
     public JButton sostituzioni = new JButton("Sostituzioni");
     public JComboBox orario = new JComboBox<>();
     public JButton caricaFile = new JButton("Carica File");
-    String[] sceltaOrari = {"Docenti", "Studenti", "Disposizione"};
+    String[] sceltaOrari = {"Docenti", "Classe", "Disposizione"};
 
-    public HomePage() {
+    public HomePage(GestioneDati gestore) {
         super("HomePage");
         getContentPane().setLayout(new BorderLayout(10, 10));
         JPanel pannelloScritta = new JPanel(new GridLayout(2, 1));
@@ -52,7 +52,7 @@ public class HomePage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 container.removeAll();
-                container.add(new FrameSostituzioni(), BorderLayout.CENTER);
+                container.add(new FrameSostituzioni(gestore), BorderLayout.CENTER);
                 container.revalidate();
                 container.repaint();
             }
@@ -63,19 +63,19 @@ public class HomePage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(orario.getSelectedItem() == "Docenti") {
                     container.removeAll();
-                    container.add(new FrameDocenti(), BorderLayout.CENTER);
+                    container.add(new FrameDocenti(gestore), BorderLayout.CENTER);
                     container.revalidate();
                     container.repaint();
                 }
-                if(orario.getSelectedItem() == "Studenti") {
+                if(orario.getSelectedItem() == "Classe") {
                     container.removeAll();
-                    container.add(new FrameStudenti(), BorderLayout.CENTER);
+                    container.add(new FrameClassi(gestore), BorderLayout.CENTER);
                     container.revalidate();
                     container.repaint();
                 }
                 if(orario.getSelectedItem() == "Disposizione") {
                     container.removeAll();
-                    container.add(new FrameDisposizioni(), BorderLayout.CENTER);
+                    container.add(new FrameDisposizioni(gestore), BorderLayout.CENTER);
                     container.revalidate();
                     container.repaint();
                 }

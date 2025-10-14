@@ -5,7 +5,7 @@ public class FrameSostituzioni extends JPanel
 {
     JButton sostituire = new JButton("sossssss");
 
-    public FrameSostituzioni()
+    public FrameSostituzioni(GestioneDati gestore)
     {
         setLayout(new BorderLayout());
         add(sostituire, BorderLayout.CENTER);

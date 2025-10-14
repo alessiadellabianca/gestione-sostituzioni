@@ -9,7 +9,7 @@ public class FrameDisposizioni extends JPanel {
 
 
 
-    public FrameDisposizioni()
+    public FrameDisposizioni(GestioneDati gestore)
     {
         setLayout(new BorderLayout());
 

@@ -4,19 +4,18 @@ import java.util.ArrayList;
 
 public class FrameDocenti extends JPanel {
 
-    JComboBox<String> orario = new JComboBox<>();
-    GestioneDati docentx=new GestioneDati();
-    ArrayList<String> listaDocenti=new ArrayList<>();
+    JComboBox<String> orarioDocente = new JComboBox<>();
 
-    public FrameDocenti() {
+    public FrameDocenti(GestioneDati gestore) {
         setLayout(new BorderLayout());
 
-        for(int i=0;i<docentx.getDocenti().size();i++)
-        {
-            listaDocenti.add(docentx.getDocenti().get(i));
-            orario.addItem(listaDocenti.get(i));
+        for (String docente : gestore.getDocenti()) {
+            String senzaVirgolette = docente.replace("\"", "").trim();
+            if (!senzaVirgolette.isEmpty()) {
+                orarioDocente.addItem(senzaVirgolette);
+            }
         }
 
-        add(orario, BorderLayout.CENTER);
+        add(orarioDocente, BorderLayout.CENTER);
     }
 }

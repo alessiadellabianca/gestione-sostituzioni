@@ -12,25 +12,51 @@ public class GestioneDati {
     private static ArrayList<String> materie = new ArrayList();
 
 
-    public static void organizzazioneFile(String nomeFile) {
+    public void organizzazioneFile(String nomeFile) {
         try (BufferedReader br = new BufferedReader(new FileReader(nomeFile))) {
             String linea = null;
             while ((linea = br.readLine()) != null) {
                 String[] parti = linea.split(";");
 
-                materie.add(parti[2]);
-
-                if (parti.length > 3) {
-                    docenti.add(parti[3]);
+                if(!materie.contains(parti[2]))
+                {
+                    materie.add(parti[2]);
                 }
+
+                    if(!docenti.contains(parti[3]))
+                    {
+                        docenti.add(parti[3]);
+                    }
 
                 if(parti[4].contains("Cognome"))
                 {
-                    docenti.add(parti[4]);
-                    classi.add(parti[5]);
-                } else {
-                    classi.add(parti[4]);
+                    if(parti[5].contains("Cognome"))
+                    {
+                            if (!docenti.contains(parti[5])) {
+                                docenti.add(parti[5]);
+                            }
+
+                            if (!classi.contains(parti[6])) {
+                                classi.add(parti[6]);
+                            }
+
+                    }
+                    else{
+                            if (!docenti.contains(parti[4])) {
+                                docenti.add(parti[4]);
+                            }
+
+                            if (!classi.contains(parti[5])) {
+                                classi.add(parti[5]);
+                            }
+
+                    }
                 }
+                else if(!classi.contains(parti[4]))
+                        {
+                            classi.add(parti[4]);
+                        }
+
             }
         } catch (IOException e) {
             System.out.println("Errore nella lettura del file: " + e.getMessage());
@@ -54,5 +80,11 @@ public class GestioneDati {
         return  "GestioneDati{" +
                 "docenti=" + classi +
                 '}';
+    }
+
+    public static void main(String[] args) {
+        GestioneDati g = new GestioneDati();
+        g.organizzazioneFile("letturaFile.txt");
+        System.out.println(g.toString());
     }
 }
