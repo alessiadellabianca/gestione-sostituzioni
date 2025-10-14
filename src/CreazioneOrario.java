@@ -6,9 +6,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.BorderFactory;
 
-public class CreazioneOrario {
-
-    GestioneDati datiGenerali=new GestioneDati();
+public class CreazioneOrario{
     ArrayList<String> docenti = new ArrayList();
     ArrayList<String> classi = new ArrayList();
     ArrayList<String> materie = new ArrayList();
@@ -32,12 +30,12 @@ public class CreazioneOrario {
     File letturaFile = new File("letturaFile.txt");
 
 
+    public CreazioneOrario(GestioneDati gestore) {
 
-    public CreazioneOrario() {
-
-        docenti=datiGenerali.getDocenti();
-        classi=datiGenerali.getClassi();
-        materie=datiGenerali.getMaterie();
+        docenti=gestore.getDocenti();
+        classi=gestore.getClassi();
+        materie=gestore.getMaterie();
+        crazioneLezione();
     }
 
     @Override
@@ -53,10 +51,9 @@ public class CreazioneOrario {
              String linea = null;
              while ((linea = br.readLine()) != null) {
 
-
                  String[][] dati=new String[6][6];
-
                  String[] parti = linea.split(";");
+
 
                  materia=parti[2];
                  durata=parti[1];
@@ -64,18 +61,36 @@ public class CreazioneOrario {
 
                  if(parti[4].contains("Cognome"))
                  {
-                     docente=docente+parti[4];
-                     classe=parti[5];
-                     if(parti[6].equals("S"))
+                     if(parti[5].contains("Cognome"))
                      {
-                         codocenza=true;
+                         docente=docente+parti[4]+parti[5];
+                         classe=parti[6];
+                         if(parti[7].equals("S"))
+                         {
+                             codocenza=true;
+                         }
+                         else{
+                             codocenza=false;
+                         }
+                         giorno=parti[8];
+                         ora=parti[9];
                      }
                      else{
-                         codocenza=false;
+                         docente=docente+parti[4];
+                         classe=parti[5];
+                         if(parti[6].equals("S"))
+                         {
+                             codocenza=true;
+                         }
+                         else{
+                             codocenza=false;
+                         }
+                         giorno=parti[7];
+                         ora=parti[8];
                      }
-                     giorno=parti[7];
-                     ora=parti[8];
-                 } else {
+
+                 }
+                 {
                      classe=parti[4];
                      if(parti[5].equals("S"))
                      {
@@ -126,22 +141,11 @@ public class CreazioneOrario {
             for (int j = 1; j < giorni.length; j++) { //celle delle lezioni
 
                 JPanel panelloCella = new JPanel();
-                panelloCella.setLayout(new GridLayout(2, 1));
-                if(orarioClassex.get(i-1).giorno.equals(giorni[j]))
-                {
-                    if(orarioClassex.get(i-1).ora.equals(ore[j]))
-                    {
-                        JLabel mat = new JLabel(orarioClassex.get(i-1).materia, SwingConstants.CENTER);
-                        panelloCella.add(mat);
-                        JLabel docente = new JLabel(orarioClassex.get(i-1).docente, SwingConstants.CENTER);
-                    }
-                }
                 panelloCella.setBorder(bordo);
                 panelloOrario.add(panelloCella);
 
             }
         }
-
         panelloOrario.revalidate();
         panelloOrario.repaint();
     }
@@ -156,6 +160,7 @@ public class CreazioneOrario {
                 "listaLezioni=" + orarioClassex.toString() +
                 '}';
     }
+    /*
     public static void main(String[] args) { //Main
         CreazioneOrario x = new CreazioneOrario();
         x.crazioneLezione();
@@ -166,7 +171,7 @@ public class CreazioneOrario {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600,600);
         frame.setVisible(true);
-    }
+    }*/
 }
 
 

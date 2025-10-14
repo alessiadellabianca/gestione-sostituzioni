@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class FrameClassi extends JPanel {
 
@@ -20,5 +22,15 @@ public class FrameClassi extends JPanel {
 
         add(orarioClasse, BorderLayout.CENTER);
 
+        orarioClasse.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                CreazioneOrario orario = new CreazioneOrario(gestore);
+                orario.creazioneOrarioClasse(orarioClasse.getSelectedItem().toString());
+            }
+        });
+
     }
+
+
 }
