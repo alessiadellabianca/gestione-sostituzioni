@@ -8,8 +8,6 @@ public class FrameClassi extends JPanel {
 
     JComboBox orarioClasse = new JComboBox();
 
-
-
     public FrameClassi(GestioneDati gestore)
     {
         setLayout(new BorderLayout());
@@ -23,7 +21,6 @@ public class FrameClassi extends JPanel {
         add(orarioClasse, BorderLayout.CENTER);
 
         orarioClasse.addActionListener(new ActionListener() {
-
             public void actionPerformed(ActionEvent e) {
                 CreazioneOrario orario = new CreazioneOrario(gestore);
                 orario.creazioneOrarioClasse(orarioClasse.getSelectedItem().toString());

@@ -22,6 +22,27 @@ public class Lezione {
         return classe;
     }
 
+    public String getDocente() {
+        return docente;
+    }
+
+    public String getMateria() {
+        return materia;
+    }
+
+    public String getOra() {
+        return ora;
+    }
+
+    public String getDurata() {
+        return durata;
+    }
+
+
+    public String getGiorno() {
+        return giorno;
+    }
+
     @Override
     public String toString() {
         return "Lezione{" +
