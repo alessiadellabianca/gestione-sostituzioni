@@ -30,6 +30,9 @@ public class GestioneDati {
 
                 if(parti[4].contains("Cognome"))
                 {
+                    if (!docenti.contains(parti[4])) {
+                        docenti.add(parti[4]);
+                    }
                     if(parti[5].contains("Cognome"))
                     {
                             if (!docenti.contains(parti[5])) {
@@ -42,9 +45,6 @@ public class GestioneDati {
 
                     }
                     else{
-                            if (!docenti.contains(parti[4])) {
-                                docenti.add(parti[4]);
-                            }
 
                             if (!classi.contains(parti[5])) {
                                 classi.add(parti[5]);

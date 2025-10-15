@@ -1,4 +1,3 @@
-import javax.xml.validation.SchemaFactoryConfigurationError;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -6,204 +5,156 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.BorderFactory;
 
-public class CreazioneOrario extends JPanel{
-    ArrayList<String> docenti = new ArrayList();
-    ArrayList<String> classi = new ArrayList();
-    ArrayList<String> materie = new ArrayList();
-    ArrayList<Lezione> orarioClassex=new ArrayList();
-    String docente;
-    String materia;
-    String ora;
-    String giorno;
-    String durata;
-    String classe;
-    boolean codocenza;
-    String[] giorni = {"Ora", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"};
-    String[] oreStampa = {"8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00"};
-    String[] ore = {"8:00", "9:00", "10:00", "11:00", "12:00", "13:00"};
-
-    ArrayList<Lezione> listaLezioni = new ArrayList();
+public class CreazioneOrario extends JPanel {
+    ArrayList<Lezione> listaLezioni = new ArrayList<>();
+    ArrayList<Lezione> orarioClassex = new ArrayList<>();
     JPanel panelloOrario = new JPanel();
-
-
-
     File letturaFile = new File("letturaFile.txt");
+    GestioneDati gestore=new GestioneDati();
 
-
+    String[] giorni = {"Ora", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"};
+    String[] giorniPerFile = {"lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"};
+    String[] oreStampa = {"8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00"};
+    String[] orePerFile = {"8", "9", "10", "11", "12", "13"};
 
     public CreazioneOrario(GestioneDati gestore) {
-
         setLayout(new BorderLayout());
-        docenti=gestore.getDocenti();
-        classi=gestore.getClassi();
-        materie=gestore.getMaterie();
-        crazioneLezione();
+        this.gestore=gestore;
+        add(panelloOrario, BorderLayout.CENTER);
+        caricaLezioni();
     }
 
-    @Override
-    public String toString() {
-        return "CreazioneOrario{" +
-                "listaLezioni=" + listaLezioni.toString() +
-                '}';
-    }
-
-    public void crazioneLezione(){
-
-         try (BufferedReader br = new BufferedReader(new FileReader(letturaFile))) {
-             String linea = null;
-             while ((linea = br.readLine()) != null) {
-
-                 String[][] dati=new String[6][6];
-                 String[] parti = linea.split(";");
-
-
-                 materia=parti[2];
+    private void caricaLezioni() {
+        String durata;
+        String giorno=null;
+        String ora=null;
+        boolean codocenza=true;
+        String materia=null;
+        String classe=null;
+        String docente=null;
+        try (BufferedReader br = new BufferedReader(new FileReader(letturaFile))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] parti = linea.split(";");
                  durata=parti[1];
+                 materia=parti[2];
                  docente=parti[3];
+                if(parti[4].contains("Cognome"))
+                {
+                    if(parti[5].contains("Cognome"))
+                    {
+                        docente=docente+" "+parti[4]+" "+parti[5];
+                        classe=parti[6];
+                        if(parti[7].contains("S"))
+                        {
+                            codocenza=true;
+                        }
+                        else {
+                            codocenza=false;
+                        }
+                        giorno=parti[8];
+                        ora=parti[9];
 
-                 if(parti[4].contains("Cognome"))
-                 {
-                     if(parti[5].contains("Cognome"))
-                     {
-                         docente=docente+parti[4]+parti[5];
-                         classe=parti[6];
-                         if(parti[7].equals("S"))
-                         {
-                             codocenza=true;
-                         }
-                         else{
-                             codocenza=false;
-                         }
-                         giorno=parti[8];
-                         ora=parti[9];
-                     }
-                     else{
-                         docente=docente+parti[4];
-                         classe=parti[5];
-                         if(parti[6].equals("S"))
-                         {
-                             codocenza=true;
-                         }
-                         else{
-                             codocenza=false;
-                         }
-                         giorno=parti[7];
-                         ora=parti[8];
-                     }
-                 }
-                 {
-                     classe=parti[4];
-                     if(parti[5].equals("S"))
-                     {
-                         codocenza=true;
-                     }
-                     else{
-                         codocenza=false;
-                     }
-                     giorno=parti[6];
-                     ora=parti[7];
-                 }
+                    }
+                    else{
+                        docente=docente+" "+parti[4];
+                        if(parti[6].contains("S"))
+                        {
+                            codocenza=true;
+                        }
+                        else {
+                            codocenza=false;
+                        }
+                        giorno=parti[7];
+                        ora=parti[8];
 
-                 listaLezioni.add(new Lezione(docente,codocenza,classe,materia,durata,ora,giorno));
-
-
-             }
-         } catch (IOException e) {
-             System.out.println("Errore nella lettura del file: " + e.getMessage());
-         }
-
-     }
-
-    /*public void creazioneOrarioClasse(String classeDiCuiFareOrario)
-    {
-
-        orarioClassex.clear();
-        for (int i = 0; i < listaLezioni.size(); i++) {
-            if (listaLezioni.get(i).getClasse().equals(classeDiCuiFareOrario)) {
-                orarioClassex.add(listaLezioni.get(i));  //Lezioni di ogni classe
-            }
-        }
-        panelloOrario.removeAll();
-        panelloOrario.setLayout(new GridLayout(7, 7));
-
-        Border bordo = BorderFactory.createLineBorder(Color.BLACK);
-
-
-        for (int i = 0; i < giorni.length; i++) { //imposta prima riga
-            JLabel label = new JLabel(giorni[i], SwingConstants.CENTER);
-            label.setBorder(bordo);
-            panelloOrario.add(label);
-        }
-        for (int i = 0; i < ore.length; i++) { //imposta all'inizio di ogni riga l'ora
-            JLabel labelOra = new JLabel(oreStampa[i], SwingConstants.CENTER);
-            labelOra.setBorder(bordo);
-            panelloOrario.add(labelOra);
-
-            for (Lezione lezione : orarioClassex) {
-                if (lezione.getGiorno().equals(giorni[j]) && lezione.getOra().equals(ore[i])) {
-                    JLabel lezioneLabel = new JLabel(lezione.getMateria() + " - " + lezione.getDocente(), SwingConstants.CENTER);
-                    panelloCella.add(lezioneLabel);
+                    }
                 }
+                else
+                {
+                    classe=parti[4];
+                    if(parti[5].contains("S"))
+                    {
+                        codocenza=true;
+                    }
+                    else {
+                        codocenza=false;
+                    }
+                    giorno=parti[6];
+                    ora=parti[7];
+                }
+                listaLezioni.add(new Lezione(docente, codocenza, classe, materia,durata, ora, giorno));
+
             }
+        } catch (IOException e) {
+            System.out.println("Errore nella lettura del file: " + e.getMessage());
         }
-        add(panelloOrario, BorderLayout.SOUTH);
-        revalidate();
-        repaint();
-    }*/
+    }
 
-    public void creazioneOrarioClasse(String classeDiCuiFareOrario) {
-        // Pulisce il pannello principale prima di ricreare il layout
-        remove(panelloOrario);
 
-        // Reset dati
+
+    public void creazioneOrarioClasse(String classeSelezionata) {
+        panelloOrario.removeAll();
         orarioClassex.clear();
-        for (Lezione lezione : listaLezioni) {
-            if (lezione.getClasse().equals(classeDiCuiFareOrario)) {
-                orarioClassex.add(lezione);
+
+        // Filtra le lezioni della classe selezionata
+        for (Lezione l : listaLezioni) {
+            if (l.getClasse().equals(classeSelezionata)) {
+                orarioClassex.add(l);
             }
         }
 
-        // Ricostruisce il panello dell’orario
-        panelloOrario = new JPanel(); // Ricreazione per forzare il layout nuovo
-        panelloOrario.setLayout(new GridLayout(7, 7));
+        // Trova tutte le ore presenti nella classe (normalizzate)
+        ArrayList<String> oreClasse = new ArrayList<>();
+        for (Lezione l : orarioClassex) {
+            String oraNorm = l.getOra().split("h")[0]; // "08h00" -> "08"
+            oraNorm = String.valueOf(Integer.parseInt(oraNorm)); // "08" -> "8"
+            if (!oreClasse.contains(oraNorm)) {
+                oreClasse.add(oraNorm);
+            }
+        }
+        oreClasse.sort((a, b) -> Integer.parseInt(a) - Integer.parseInt(b)); // ordina numericamente
+
+        panelloOrario.setLayout(new GridLayout(oreClasse.size() + 1, giorni.length));
         Border bordo = BorderFactory.createLineBorder(Color.BLACK);
 
-        // Prima riga: Giorni
-        for (String giorno : giorni) {
-            JLabel label = new JLabel(giorno, SwingConstants.CENTER);
+        // Intestazione giorni
+        for (String g : giorni) {
+            JLabel label = new JLabel(g, SwingConstants.CENTER);
             label.setBorder(bordo);
             panelloOrario.add(label);
         }
 
-        // Riga per ciascuna ora
-        for (int i = 0; i < ore.length; i++) {
-            // Etichetta ora (prima colonna)
-            JLabel labelOra = new JLabel(oreStampa[i], SwingConstants.CENTER);
+        // Popola la tabella
+        for (String ora : oreClasse) {
+            // Label ora
+            JLabel labelOra = new JLabel(ora + ":00", SwingConstants.CENTER);
             labelOra.setBorder(bordo);
             panelloOrario.add(labelOra);
 
-            // Crea celle vuote per ogni giorno della settimana
-            for (int j = 1; j < giorni.length; j++) {
-                JPanel panelloCella = new JPanel(new BorderLayout());
-                panelloCella.setBorder(bordo);
+            // Celle per ogni giorno
+            for (String giornoFile : giorniPerFile) {
+                JPanel cella = new JPanel(new BorderLayout());
+                cella.setBorder(bordo);
+                String testoCella = "";
 
-                // Cerca se c'è una lezione in questo slot
-                for (Lezione lezione : orarioClassex) {
-                    if (lezione.getGiorno().equals(giorni[j]) && lezione.getOra().equals(ore[i])) {
-                        JLabel lezioneLabel = new JLabel("<html>" + lezione.getMateria() + "<br>" + lezione.getDocente() + "</html>", SwingConstants.CENTER);
-                        panelloCella.add(lezioneLabel, BorderLayout.CENTER);
+                for (Lezione l : orarioClassex) {
+                    String oraNorm = l.getOra().split("h")[0];
+                    oraNorm = String.valueOf(Integer.parseInt(oraNorm));
+
+                    if (l.getGiorno().equalsIgnoreCase(giornoFile) && oraNorm.equals(ora)) {
+                        testoCella = l.getMateria() + " - " + l.getDocente();
                         break;
                     }
                 }
 
-                panelloOrario.add(panelloCella);
+                JLabel labelLezione = new JLabel(testoCella, SwingConstants.CENTER);
+                cella.add(labelLezione, BorderLayout.CENTER);
+                panelloOrario.add(cella);
             }
         }
 
-        // Aggiungi il pannello in basso (SOUTH)
-        add(panelloOrario, BorderLayout.SOUTH);
-
-        // Rinfresca l’interfaccia
+        panelloOrario.setPreferredSize(new Dimension(700, 300));
         revalidate();
         repaint();
     }
@@ -211,11 +162,5 @@ public class CreazioneOrario extends JPanel{
 
     public JPanel getPanelloOrario() {
         return panelloOrario;
-    }
-
-    public String toStringclasse() {
-        return "CreazioneOrario{" +
-                "listaLezioni=" + orarioClassex.toString() +
-                '}';
     }
 }
