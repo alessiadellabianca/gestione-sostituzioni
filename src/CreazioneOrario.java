@@ -10,12 +10,12 @@ public class CreazioneOrario extends JPanel {
     ArrayList<Lezione> orarioClassex = new ArrayList<>();
     JPanel panelloOrario = new JPanel();
     File letturaFile = new File("letturaFile.txt");
-    GestioneDati gestore=new GestioneDati();
+    GestioneDati gestore = new GestioneDati();
 
     String[] giorni = {"Ora", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"};
     String[] giorniPerFile = {"lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"};
     String[] oreStampa = {"8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00"};
-    String[] orePerFile = {"8", "9", "10", "11", "12", "13"};
+    String[] orePerFile = {"08h00", "09h00", "10h00", "11h00", "12h00", "13h00"};
 
     public CreazioneOrario(GestioneDati gestore) {
         setLayout(new BorderLayout());
@@ -32,7 +32,6 @@ public class CreazioneOrario extends JPanel {
         String materia=null;
         String classe=null;
         String docente=null;
-        //ciao
         try (BufferedReader br = new BufferedReader(new FileReader(letturaFile))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -98,64 +97,29 @@ public class CreazioneOrario extends JPanel {
         panelloOrario.removeAll();
         orarioClassex.clear();
 
-        // Filtra le lezioni della classe selezionata
         for (Lezione l : listaLezioni) {
             if (l.getClasse().equals(classeSelezionata)) {
                 orarioClassex.add(l);
             }
         }
 
-        // Trova tutte le ore presenti nella classe (normalizzate)
-        ArrayList<String> oreClasse = new ArrayList<>();
-        for (Lezione l : orarioClassex) {
-            String oraNorm = l.getOra().split("h")[0]; // "08h00" -> "08"
-            oraNorm = String.valueOf(Integer.parseInt(oraNorm)); // "08" -> "8"
-            if (!oreClasse.contains(oraNorm)) {
-                oreClasse.add(oraNorm);
-            }
-        }
-        oreClasse.sort((a, b) -> Integer.parseInt(a) - Integer.parseInt(b)); // ordina numericamente
-
-        panelloOrario.setLayout(new GridLayout(oreClasse.size() + 1, giorni.length));
+        GridBagConstraints tabella = new GridBagConstraints();
+        panelloOrario.setLayout(new GridBagLayout());
         Border bordo = BorderFactory.createLineBorder(Color.BLACK);
 
-        // Intestazione giorni
-        for (String g : giorni) {
-            JLabel label = new JLabel(g, SwingConstants.CENTER);
+        for(int i=0; i< giorni.length;i++)
+        {
+            tabella.gridx=i;
+            tabella.gridy=0;
+            tabella.ipadx = 50;  // aumenta larghezza minima
+            tabella.ipady = 30;  // aumenta altezza minima
+            JLabel label = new JLabel(giorni[i],SwingConstants.CENTER);
             label.setBorder(bordo);
-            panelloOrario.add(label);
+            panelloOrario.add(label,tabella);
         }
 
-        // Popola la tabella
-        for (String ora : oreClasse) {
-            // Label ora
-            JLabel labelOra = new JLabel(ora + ":00", SwingConstants.CENTER);
-            labelOra.setBorder(bordo);
-            panelloOrario.add(labelOra);
 
-            // Celle per ogni giorno
-            for (String giornoFile : giorniPerFile) {
-                JPanel cella = new JPanel(new BorderLayout());
-                cella.setBorder(bordo);
-                String testoCella = "";
-
-                for (Lezione l : orarioClassex) {
-                    String oraNorm = l.getOra().split("h")[0];
-                    oraNorm = String.valueOf(Integer.parseInt(oraNorm));
-
-                    if (l.getGiorno().equalsIgnoreCase(giornoFile) && oraNorm.equals(ora)) {
-                        testoCella = l.getMateria() + " - " + l.getDocente();
-                        break;
-                    }
-                }
-
-                JLabel labelLezione = new JLabel(testoCella, SwingConstants.CENTER);
-                cella.add(labelLezione, BorderLayout.CENTER);
-                panelloOrario.add(cella);
-            }
-        }
-
-        panelloOrario.setPreferredSize(new Dimension(700, 300));
+        panelloOrario.setPreferredSize(new Dimension(800, 500));
         revalidate();
         repaint();
     }

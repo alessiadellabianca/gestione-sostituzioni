@@ -41,7 +41,7 @@ public class HomePage extends JFrame {
 
         getContentPane().add(container, BorderLayout.CENTER);
 
-        setSize(700, 500);
+        setSize(900, 700);
         setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
