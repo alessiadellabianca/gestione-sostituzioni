@@ -32,6 +32,7 @@ public class CreazioneOrario extends JPanel {
         String materia=null;
         String classe=null;
         String docente=null;
+        //ciao
         try (BufferedReader br = new BufferedReader(new FileReader(letturaFile))) {
             String linea;
             while ((linea = br.readLine()) != null) {
