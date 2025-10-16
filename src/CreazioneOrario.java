@@ -6,6 +6,7 @@ import javax.swing.border.Border;
 import javax.swing.BorderFactory;
 
 public class CreazioneOrario extends JPanel {
+
     ArrayList<Lezione> listaLezioni = new ArrayList<>();
     ArrayList<Lezione> orarioClassex = new ArrayList<>();
     JPanel panelloOrario = new JPanel();
@@ -16,214 +17,157 @@ public class CreazioneOrario extends JPanel {
     String[] giorni = {"Ora", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"};
     String[] giorniPerFile = {"lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"};
     String[] oreStampa = {"8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00"};
-    String[] orePerFile = {"08h00", "09h00", "10h00", "11h00", "12h00", "13h00"};
 
     public CreazioneOrario(GestioneDati gestore) {
         setLayout(new BorderLayout());
-        this.gestore=gestore;
-        add(panelloOrario, BorderLayout.CENTER);
+        this.gestore = gestore;
+        JScrollPane scrollPane = new JScrollPane(panelloOrario);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
+        scrollPane.getViewport().setBackground(Color.WHITE);
+        add(scrollPane, BorderLayout.CENTER);
         caricaLezioni();
     }
 
     private void caricaLezioni() {
-        String durata;
-        String giorno=null;
-        String ora=null;
-        boolean codocenza=true;
-        String materia=null;
-        String classe=null;
-        String docente=null;
         try (BufferedReader br = new BufferedReader(new FileReader(letturaFile))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] parti = linea.split(";");
-                 durata=parti[1];
-                 materia=parti[2];
-                 docente=parti[3];
-                if(parti[4].contains("Cognome"))
-                {
-                    if(parti[5].contains("Cognome"))
-                    {
-                        docente=docente+" "+parti[4]+" "+parti[5];
-                        classe=parti[6];
-                        if(parti[7].contains("S"))
-                        {
-                            codocenza=true;
-                        }
-                        else {
-                            codocenza=false;
-                        }
-                        giorno=parti[8];
-                        ora=parti[9];
+                String durata = parti[1];
+                String materia = parti[2];
+                String docente = parti[3];
+                String classe;
+                String giorno;
+                String ora;
+                boolean codocenza;
 
+                if (parti[4].contains("Cognome")) {
+                    if (parti[5].contains("Cognome")) {
+                        docente += " " + parti[4] + " " + parti[5];
+                        classe = parti[6];
+                        codocenza = parti[7].contains("S");
+                        giorno = parti[8];
+                        ora = parti[9];
+                    } else {
+                        docente += " " + parti[4];
+                        codocenza = parti[6].contains("S");
+                        giorno = parti[7];
+                        ora = parti[8];
+                        classe = parti[5];
                     }
-                    else{
-                        docente=docente+" "+parti[4];
-                        if(parti[6].contains("S"))
-                        {
-                            codocenza=true;
-                        }
-                        else {
-                            codocenza=false;
-                        }
-                        giorno=parti[7];
-                        ora=parti[8];
-
-                    }
+                } else {
+                    classe = parti[4];
+                    codocenza = parti[5].contains("S");
+                    giorno = parti[6];
+                    ora = parti[7];
                 }
-                else
-                {
-                    classe=parti[4];
-                    if(parti[5].contains("S"))
-                    {
-                        codocenza=true;
-                    }
-                    else {
-                        codocenza=false;
-                    }
-                    giorno=parti[6];
-                    ora=parti[7];
-                }
-                listaLezioni.add(new Lezione(docente, codocenza, classe, materia,durata, ora, giorno));
 
+                listaLezioni.add(new Lezione(docente, codocenza, classe, materia, durata, ora, giorno));
             }
         } catch (IOException e) {
             System.out.println("Errore nella lettura del file: " + e.getMessage());
         }
     }
 
-
-
     public void creazioneOrarioClasse(String classeSelezionata) {
-
-        int indiceora=0;
         panelloOrario.removeAll();
         orarioClassex.clear();
 
         for (Lezione l : listaLezioni) {
-            if (l.getClasse().equals(classeSelezionata)) {
+            if (l.getClasse().equalsIgnoreCase(classeSelezionata)) {
                 orarioClassex.add(l);
             }
         }
 
-        GridBagConstraints tabella = new GridBagConstraints();
         panelloOrario.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.BOTH;
+        c.weightx = 1.0;
+        c.weighty = 1.0;
 
-
-        for(int i=0; i< giorni.length;i++)
-        {
-            tabella.gridx=i;
-            tabella.gridy=0;
-            tabella.ipadx = 50;
-            tabella.ipady = 30;
-            tabella.gridheight = 1;
-            JLabel label = new JLabel(giorni[i],SwingConstants.CENTER);
-            label.setBorder(bordo);
-            panelloOrario.add(label,tabella);
+        for (int i = 0; i < giorni.length; i++) {
+            c.gridx = i;
+            c.gridy = 0;
+            c.gridheight = 1;
+            JLabel label = new JLabel(giorni[i], SwingConstants.CENTER);
+            label.setFont(new Font("Segoe UI", Font.BOLD, 12));
+            label.setOpaque(true);
+            label.setBackground(new Color(70, 130, 180));
+            label.setForeground(Color.WHITE);
+            label.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+            panelloOrario.add(label, c);
         }
 
-        tabella.gridx=0;
-        tabella.gridy=1;
-        tabella.ipadx = 50;
-        tabella.ipady = 30;
-        tabella.gridheight = 1;
-        JLabel label2 = new JLabel(oreStampa[0],SwingConstants.CENTER);
-        label2.setBorder(bordo);
-        panelloOrario.add(label2,tabella);
-        tabella.gridx=0;
-        tabella.gridy=2;
-        tabella.ipadx = 50;
-        tabella.ipady = 30;
-        tabella.gridheight = 1;
-        JLabel label1 = new JLabel(oreStampa[1],SwingConstants.CENTER);
-        label1.setBorder(bordo);
-        panelloOrario.add(label1,tabella);
-        tabella.gridx=0;
-        tabella.gridy=3;
-        tabella.ipadx = 50;
-        tabella.ipady = 30;
-        tabella.gridheight = 1;
-        JLabel label3 = new JLabel(oreStampa[2],SwingConstants.CENTER);
-        label3.setBorder(bordo);
-        panelloOrario.add(label3,tabella);
-        tabella.gridx=0;
-        tabella.gridy=4;
-        tabella.ipadx = 50;
-        tabella.ipady = 30;
-        tabella.gridheight = 1;
-        JLabel label4 = new JLabel(oreStampa[3],SwingConstants.CENTER);
-        label4.setBorder(bordo);
-        panelloOrario.add(label4,tabella);
-        tabella.gridx=0;
-        tabella.gridy=5;
-        tabella.ipadx = 50;
-        tabella.ipady = 30;
-        tabella.gridheight = 1;
-        JLabel label5 = new JLabel(oreStampa[4],SwingConstants.CENTER);
-        label5.setBorder(bordo);
-        panelloOrario.add(label5,tabella);
-        tabella.gridx=0;
-        tabella.gridy=6;
-        tabella.ipadx =50;
-        tabella.ipady = 30;
-        tabella.gridheight = 1;
-        JLabel label6 = new JLabel(oreStampa[5],SwingConstants.CENTER);
-        label6.setBorder(bordo);
-        panelloOrario.add(label6,tabella);
+        for (int i = 0; i < oreStampa.length; i++) {
+            c.gridx = 0;
+            c.gridy = i + 1;
+            c.gridheight = 1;
+            JLabel labelOra = new JLabel(oreStampa[i], SwingConstants.CENTER);
+            labelOra.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+            labelOra.setOpaque(true);
+            labelOra.setBackground(new Color(200, 200, 200));
+            labelOra.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+            panelloOrario.add(labelOra, c);
+        }
 
+        for (int col = 1; col < giorni.length; col++) {
+            String giornoAttuale = giorniPerFile[col - 1];
+            int riga = 1;
 
-        for (int i = 1; i <7; i++) {
-            for (int j = 1; j < 7; j++) {
-                tabella.gridx = j;
-                tabella.gridy = i;
-                tabella.ipadx = 50;
-                tabella.ipady = 30;
-                tabella.gridheight = 1;
-                if (indiceora < orarioClassex.size()) {
-                    if (controllaDurata(orarioClassex, indiceora)) {
-                        double durata = Double.parseDouble(orarioClassex.get(indiceora).getDurata().replace('h', '.'));
-                        tabella.gridheight = (int) Math.round(durata);
-                    }
-                    panelloOrario.add(creaPannelloLezione(orarioClassex, indiceora), tabella);
-                    indiceora++;
-                } else {
-                    JPanel vuoto = new JPanel();
-                    vuoto.setBorder(bordo);
-                    panelloOrario.add(vuoto, tabella);
-                }
-                }
+            for (Lezione lezione : orarioClassex) {
+                if (!lezione.getGiorno().equalsIgnoreCase(giornoAttuale)) continue;
+
+                int altezza = calcolaDurataBlocchi(lezione);
+                c.gridx = col;
+                c.gridy = riga;
+                c.gridheight = altezza;
+                panelloOrario.add(creaPannelloLezione(lezione), c);
+                riga += altezza;
             }
 
+            while (riga <= 6) {
+                c.gridx = col;
+                c.gridy = riga;
+                c.gridheight = 1;
+                JPanel vuoto = new JPanel();
+                vuoto.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+                panelloOrario.add(vuoto, c);
+                riga++;
+            }
+        }
 
-        panelloOrario.setPreferredSize(new Dimension(800, 500));
+        for (Component comp : panelloOrario.getComponents()) {
+            if (comp instanceof JPanel) {
+                comp.setPreferredSize(new Dimension(120, 60));
+            }
+        }
+
+        panelloOrario.setPreferredSize(new Dimension(800, 400));
         revalidate();
         repaint();
     }
 
+    private int calcolaDurataBlocchi(Lezione lezione) {
+        try {
+            return Integer.parseInt(lezione.getDurata().split("h")[0].trim());
+        } catch (Exception e) {
+            return 1;
+        }
+    }
+
+    public JPanel creaPannelloLezione(Lezione l) {
+        JPanel panel = new JPanel(new BorderLayout());
+        JLabel docente = new JLabel(l.getDocente(), SwingConstants.CENTER);
+        JLabel materia = new JLabel(l.getMateria(), SwingConstants.CENTER);
+        panel.add(docente, BorderLayout.NORTH);
+        panel.add(materia, BorderLayout.CENTER);
+        panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        panel.setBackground(new Color(173, 216, 230));
+        panel.setPreferredSize(new Dimension(120, 60));
+        return panel;
+    }
 
     public JPanel getPanelloOrario() {
         return panelloOrario;
-    }
-
-    public JPanel creaPannelloLezione(ArrayList<Lezione> listaLezioniClasee,int indice) {
-        JPanel lezione= new JPanel();
-        lezione.setLayout(new BorderLayout());
-        JLabel cognome=new JLabel(listaLezioniClasee.get(indice).getDocente(),SwingConstants.CENTER);
-        JLabel materia=new JLabel(listaLezioniClasee.get(indice).getMateria(),SwingConstants.CENTER);
-        lezione.add(cognome,BorderLayout.NORTH);
-        lezione.add(materia,BorderLayout.CENTER);
-        lezione.setBorder(bordo);
-        lezione.setPreferredSize(new Dimension(120,60));
-        return lezione;
-
-    }
-
-    public boolean controllaDurata(ArrayList<Lezione> listaLezioniClasee,int indice)
-    {
-        if(!listaLezioniClasee.get(indice).getDurata().contains("1"))
-        {
-            return true;
-        }
-        return false;
     }
 }

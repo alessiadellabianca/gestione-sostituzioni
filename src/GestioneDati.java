@@ -82,15 +82,4 @@ public class GestioneDati {
                 '}';
     }
 
-
-
-
-    public static void main(String[] args) {
-        GestioneDati g = new GestioneDati();
-        g.organizzazioneFile("letturaFile.txt");
-        System.out.println(g.toString());
-
-
-
-    }
 }
