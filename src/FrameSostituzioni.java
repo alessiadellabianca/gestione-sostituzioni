@@ -1,30 +1,5 @@
-/*import javax.swing.*;
-import java.awt.*;
-
-public class FrameSostituzioni extends JPanel
-{
-    JComboBox<String> sceltaDocente = new JComboBox<>();
-
-    public FrameSostituzioni(GestioneDati gestore)
-    {
-        setLayout(new BorderLayout());
-
-        for (String docente : gestore.getDocenti()) {
-            String senzaVirgolette = docente.replace("\"", "").trim();
-            if (!senzaVirgolette.isEmpty()) {
-                sceltaDocente.addItem(senzaVirgolette);
-            }
-        }
-
-        add(sceltaDocente, BorderLayout.CENTER);
-
-
-
-
-    }
-}*/
-
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,31 +9,66 @@ public class FrameSostituzioni extends JPanel {
     private final List<JCheckBox> checkBoxList = new ArrayList<>();
 
     public FrameSostituzioni(GestioneDati gestore) {
-        setLayout(new BorderLayout());
+        setLayout(new BorderLayout(10, 10));
+        setBorder(new EmptyBorder(15, 15, 15, 15));
 
-        JPanel panelCheckbox = new JPanel(new GridLayout(1, 2));
+        JButton conferma = new JButton("CONFERMA");
+        conferma.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        conferma.setBackground(new Color(135, 206, 250));
+        conferma.setForeground(Color.BLACK);
+        conferma.setFocusPainted(false);
+
+        JPanel pannelloConferma = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pannelloConferma.add(conferma);
+
+        add(pannelloConferma, BorderLayout.NORTH);
+
+        JPanel panelCheckbox = new JPanel(new GridLayout(0, 1, 10, 10));
+
+        List<String> cognomiAggiunti = new ArrayList<>();
 
         for (String docente : gestore.getDocenti()) {
             String senzaVirgolette = docente.replace("\"", "").trim();
             if (!senzaVirgolette.isEmpty()) {
-                JCheckBox checkBox = new JCheckBox(senzaVirgolette);
-                checkBoxList.add(checkBox);
-                panelCheckbox.add(checkBox);
+
+                String[] parti = senzaVirgolette.split("\\s+");
+                String cognome = parti[parti.length - 1];
+
+                boolean giaPresente = false;
+                for (String c : cognomiAggiunti) {
+                    if (c.equals(cognome)) {
+                        giaPresente = true;
+                        break;
+                    }
+                }
+
+                if (!giaPresente) {
+                    cognomiAggiunti.add(cognome);
+                    JCheckBox checkBox = new JCheckBox(senzaVirgolette);
+
+                    checkBox.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+                    panelCheckbox.add(checkBox);
+                    checkBoxList.add(checkBox);
+                }
             }
         }
 
-        JScrollPane scrollPane = new JScrollPane(panelCheckbox);
-        add(scrollPane, BorderLayout.CENTER);
-    }
+        JScrollPane check = new JScrollPane(panelCheckbox);
+        check.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200), 1));
 
-    public List<String> getDocentiSelezionati() {
-        List<String> selezionati = new ArrayList<>();
-        for (JCheckBox cb : checkBoxList) {
-            if (cb.isSelected()) {
-                selezionati.add(cb.getText());
+        check.getVerticalScrollBar().setUnitIncrement(16);
+
+        add(check, BorderLayout.CENTER);
+
+        // Esempio ActionListener per il bottone conferma (da personalizzare)
+        conferma.addActionListener(e -> {
+            List<String> selezionati = new ArrayList<>();
+            for (JCheckBox cb : checkBoxList) {
+                if (cb.isSelected()) {
+                    selezionati.add(cb.getText());
+                }
             }
-        }
-        return selezionati;
+            JOptionPane.showMessageDialog(this, "Hai selezionato: " + selezionati);
+        });
     }
 }
-

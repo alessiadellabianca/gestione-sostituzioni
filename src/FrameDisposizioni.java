@@ -1,22 +1,24 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class FrameDisposizioni extends JPanel {
 
-
-    JComboBox orario = new JComboBox();
+    JComboBox<String> orario = new JComboBox<>();
     String[] sceltaOrari = {"disp1", "disp33", "disp35"};
 
+    public FrameDisposizioni(GestioneDati gestore) {
+        setLayout(new BorderLayout(10, 10));
+        setBorder(new EmptyBorder(20, 20, 20, 20));
 
-
-    public FrameDisposizioni(GestioneDati gestore)
-    {
-        setLayout(new BorderLayout());
-
-        for (int i = 0; i < sceltaOrari.length; i++) {
-            orario.addItem(sceltaOrari[i]);
+        for (String disp : sceltaOrari) {
+            orario.addItem(disp);
         }
-        add(orario, BorderLayout.CENTER);
 
+        orario.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        orario.setBackground(new Color(135, 206, 250));
+        orario.setForeground(Color.BLACK);
+
+        add(orario, BorderLayout.NORTH);
     }
 }
