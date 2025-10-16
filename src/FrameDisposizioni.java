@@ -5,13 +5,13 @@ import java.awt.*;
 public class FrameDisposizioni extends JPanel {
 
     JComboBox<String> orario = new JComboBox<>();
-    String[] sceltaOrari = {"disp1", "disp33", "disp35"};
+    String[] sceltaGiorno = {"Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"};
 
     public FrameDisposizioni(GestioneDati gestore) {
         setLayout(new BorderLayout(10, 10));
         setBorder(new EmptyBorder(20, 20, 20, 20));
 
-        for (String disp : sceltaOrari) {
+        for (String disp : sceltaGiorno) {
             orario.addItem(disp);
         }
 

@@ -78,13 +78,19 @@ public class GestioneDati {
     @Override
     public String toString() {
         return  "GestioneDati{" +
-                "docenti=" + classi +
+                "docenti=" + materie +
                 '}';
     }
+
+
+
 
     public static void main(String[] args) {
         GestioneDati g = new GestioneDati();
         g.organizzazioneFile("letturaFile.txt");
         System.out.println(g.toString());
+
+
+
     }
 }
