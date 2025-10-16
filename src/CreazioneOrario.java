@@ -114,8 +114,9 @@ public class CreazioneOrario extends JPanel {
         {
             tabella.gridx=i;
             tabella.gridy=0;
-            tabella.ipadx = 50;  // aumenta larghezza minima
-            tabella.ipady = 30;  // aumenta altezza minima
+            tabella.ipadx = 50;
+            tabella.ipady = 30;
+            tabella.gridheight = 1;
             JLabel label = new JLabel(giorni[i],SwingConstants.CENTER);
             label.setBorder(bordo);
             panelloOrario.add(label,tabella);
@@ -125,49 +126,73 @@ public class CreazioneOrario extends JPanel {
         tabella.gridy=1;
         tabella.ipadx = 50;
         tabella.ipady = 30;
+        tabella.gridheight = 1;
         JLabel label2 = new JLabel(oreStampa[0],SwingConstants.CENTER);
         label2.setBorder(bordo);
         panelloOrario.add(label2,tabella);
-        tabella.gridx=1;
-        tabella.gridy=1;
+        tabella.gridx=0;
+        tabella.gridy=2;
         tabella.ipadx = 50;
         tabella.ipady = 30;
-        panelloOrario.add(creaPannelloLezione(orarioClassex,indiceora),tabella);
-        indiceora++;
-        tabella.gridx=2;
-        tabella.gridy=1;
+        tabella.gridheight = 1;
+        JLabel label1 = new JLabel(oreStampa[1],SwingConstants.CENTER);
+        label1.setBorder(bordo);
+        panelloOrario.add(label1,tabella);
+        tabella.gridx=0;
+        tabella.gridy=3;
         tabella.ipadx = 50;
         tabella.ipady = 30;
-        panelloOrario.add(creaPannelloLezione(orarioClassex,indiceora),tabella);
-        indiceora++;
-        tabella.gridx=3;
-        tabella.gridy=1;
+        tabella.gridheight = 1;
+        JLabel label3 = new JLabel(oreStampa[2],SwingConstants.CENTER);
+        label3.setBorder(bordo);
+        panelloOrario.add(label3,tabella);
+        tabella.gridx=0;
+        tabella.gridy=4;
         tabella.ipadx = 50;
         tabella.ipady = 30;
-        panelloOrario.add(creaPannelloLezione(orarioClassex,indiceora),tabella);
-        indiceora++;
-        tabella.gridx=4;
-        tabella.gridy=1;
+        tabella.gridheight = 1;
+        JLabel label4 = new JLabel(oreStampa[3],SwingConstants.CENTER);
+        label4.setBorder(bordo);
+        panelloOrario.add(label4,tabella);
+        tabella.gridx=0;
+        tabella.gridy=5;
         tabella.ipadx = 50;
         tabella.ipady = 30;
-        panelloOrario.add(creaPannelloLezione(orarioClassex,indiceora),tabella);
-        indiceora++;
-        tabella.gridx=5;
-        tabella.gridy=1;
-        tabella.ipadx = 50;
+        tabella.gridheight = 1;
+        JLabel label5 = new JLabel(oreStampa[4],SwingConstants.CENTER);
+        label5.setBorder(bordo);
+        panelloOrario.add(label5,tabella);
+        tabella.gridx=0;
+        tabella.gridy=6;
+        tabella.ipadx =50;
         tabella.ipady = 30;
-        panelloOrario.add(creaPannelloLezione(orarioClassex,indiceora),tabella);
-        indiceora++;
-        tabella.gridx=6;
-        tabella.gridy=1;
-        tabella.ipadx = 50;
-        tabella.ipady = 30;
-        panelloOrario.add(creaPannelloLezione(orarioClassex,indiceora),tabella);
-        indiceora++;
+        tabella.gridheight = 1;
+        JLabel label6 = new JLabel(oreStampa[5],SwingConstants.CENTER);
+        label6.setBorder(bordo);
+        panelloOrario.add(label6,tabella);
 
 
-
-
+        for (int i = 1; i <7; i++) {
+            for (int j = 1; j < 7; j++) {
+                tabella.gridx = j;
+                tabella.gridy = i;
+                tabella.ipadx = 50;
+                tabella.ipady = 30;
+                tabella.gridheight = 1;
+                if (indiceora < orarioClassex.size()) {
+                    if (controllaDurata(orarioClassex, indiceora)) {
+                        double durata = Double.parseDouble(orarioClassex.get(indiceora).getDurata().replace('h', '.'));
+                        tabella.gridheight = (int) Math.round(durata);
+                    }
+                    panelloOrario.add(creaPannelloLezione(orarioClassex, indiceora), tabella);
+                    indiceora++;
+                } else {
+                    JPanel vuoto = new JPanel();
+                    vuoto.setBorder(bordo);
+                    panelloOrario.add(vuoto, tabella);
+                }
+                }
+            }
 
 
         panelloOrario.setPreferredSize(new Dimension(800, 500));
@@ -180,7 +205,6 @@ public class CreazioneOrario extends JPanel {
         return panelloOrario;
     }
 
-
     public JPanel creaPannelloLezione(ArrayList<Lezione> listaLezioniClasee,int indice) {
         JPanel lezione= new JPanel();
         lezione.setLayout(new BorderLayout());
@@ -189,7 +213,17 @@ public class CreazioneOrario extends JPanel {
         lezione.add(cognome,BorderLayout.NORTH);
         lezione.add(materia,BorderLayout.CENTER);
         lezione.setBorder(bordo);
+        lezione.setPreferredSize(new Dimension(120,60));
         return lezione;
 
+    }
+
+    public boolean controllaDurata(ArrayList<Lezione> listaLezioniClasee,int indice)
+    {
+        if(!listaLezioniClasee.get(indice).getDurata().contains("1"))
+        {
+            return true;
+        }
+        return false;
     }
 }
