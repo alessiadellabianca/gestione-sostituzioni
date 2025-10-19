@@ -78,8 +78,12 @@ public class GestioneDati {
     @Override
     public String toString() {
         return  "GestioneDati{" +
-                "docenti=" + materie +
+                "Materie=" + classi +
                 '}';
     }
 
+    /*public static void main(String[] args) {
+        GestioneDati gestore = new GestioneDati();
+        System.out.println(gestore.toString());
+    }*/
 }

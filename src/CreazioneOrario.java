@@ -162,10 +162,173 @@ public class CreazioneOrario extends JPanel {
         panel.add(docente, BorderLayout.NORTH);
         panel.add(materia, BorderLayout.CENTER);
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        panel.setBackground(new Color(173, 216, 230));
+        this.sfonfoMaterie(l, panel);
+        //panel.setBackground(new Color(173, 216, 230));
         panel.setPreferredSize(new Dimension(120, 60));
         return panel;
     }
+
+    public void sfonfoMaterie(Lezione l, JPanel panel) {
+        String materia = l.getMateria();
+
+        if (materia.equals("Lettere")) {
+            panel.setBackground(new Color(255, 204, 204));
+        }
+        else if (materia.equals("TTRG")) {
+            panel.setBackground(new Color(204, 255, 255));
+        }
+        else if (materia.equals("A TE/PRO .")) {
+            panel.setBackground(new Color(255, 255, 204));
+        }
+        else if (materia.equals("TPSIT")) {
+            panel.setBackground(new Color(204, 255, 204));
+        }
+        else if (materia.equals("Informatica")) {
+            panel.setBackground(new Color(153, 204, 255));
+        }
+        else if (materia.equals("GPOI")) {
+            panel.setBackground(new Color(255, 153, 204));
+        }
+        else if (materia.equals("Tec mec")) {
+            panel.setBackground(new Color(192, 192, 192));
+        }
+        else if (materia.equals("A LING ED. FIS")) {
+            panel.setBackground(new Color(255, 204, 153));
+        }
+        else if (materia.equals("Religione")) {
+            panel.setBackground(new Color(204, 153, 255));
+        }
+        else if (materia.equals("Meccanica")) {
+            panel.setBackground(new Color(153, 153, 255));
+        }
+        else if (materia.equals("Inglese")) {
+            panel.setBackground(new Color(250, 86, 86));
+        }
+        else if (materia.equals("Storia")) {
+            panel.setBackground(new Color(255, 255, 153));
+        }
+        else if (materia.equals("Dir ec pol")) {
+            panel.setBackground(new Color(255, 153, 153));
+        }
+        else if (materia.equals("Chimica")) {
+            panel.setBackground(new Color(204, 255, 153));
+        }
+        else if (materia.equals("Scienze")) {
+            panel.setBackground(new Color(153, 255, 204));
+        }
+        else if (materia.equals("LTE")) {
+            panel.setBackground(new Color(255, 204, 255));
+        }
+        else if (materia.equals("Dir leg tur")) {
+            panel.setBackground(new Color(255, 230, 204));
+        }
+        else if (materia.equals("A TE/PRO FIS")) {
+            panel.setBackground(new Color(204, 255, 230));
+        }
+        else if (materia.equals("TTIM")) {
+            panel.setBackground(new Color(204, 204, 255));
+        }
+        else if (materia.equals("Matematica")) {
+            panel.setBackground(new Color(255, 204, 102));
+        }
+        else if (materia.equals("Estimo")) {
+            panel.setBackground(new Color(255, 255, 102));
+        }
+        else if (materia.equals("Disposizione")) {
+            panel.setBackground(new Color(240, 240, 240));
+        }
+        else if (materia.equals("Fisica")) {
+            panel.setBackground(new Color(67, 170, 170));
+        }
+        else if (materia.equals("Sistemi")) {
+            panel.setBackground(new Color(204, 255, 204));
+        }
+        else if (materia.equals("A MA/SCI MAT")) {
+            panel.setBackground(new Color(255, 230, 230));
+        }
+        else if (materia.equals("Tec inf")) {
+            panel.setBackground(new Color(204, 255, 153));
+        }
+        else if (materia.equals("Pr. Vegetali")) {
+            panel.setBackground(new Color(204, 255, 102));
+        }
+        else if (materia.equals("Tedesco")) {
+            panel.setBackground(new Color(255, 153, 102));
+        }
+        else if (materia.equals("Sc motorie")) {
+            panel.setBackground(new Color(153, 255, 153));
+        }
+        else if (materia.equals("A MA/SCI SCI")) {
+            panel.setBackground(new Color(255, 204, 255));
+        }
+        else if (materia.equals("TEEA")) {
+            panel.setBackground(new Color(204, 204, 204));
+        }
+        else if (materia.equals("A TE/PRO.")) {
+            panel.setBackground(new Color(255, 229, 204));
+        }
+        else if (materia.equals("A TE/PRO..")) {
+            panel.setBackground(new Color(255, 229, 255));
+        }
+        else if (materia.equals("STA")) {
+            panel.setBackground(new Color(204, 229, 255));
+        }
+        else if (materia.equals("A LING REL")) {
+            panel.setBackground(new Color(229, 204, 255));
+        }
+        else if (materia.equals("Dis prog")) {
+            panel.setBackground(new Color(255, 255, 229));
+        }
+        else if (materia.equals("Comp. mat.")) {
+            panel.setBackground(new Color(229, 255, 204));
+        }
+        else if (materia.equals("Spagnolo")) {
+            panel.setBackground(new Color(255, 178, 102));
+        }
+        else if (materia.equals("Geografia")) {
+            panel.setBackground(new Color(204, 229, 204));
+        }
+        else if (materia.equals("TMA")) {
+            panel.setBackground(new Color(255, 204, 204));
+        }
+        else if (materia.equals("A LING ITA")) {
+            panel.setBackground(new Color(255, 229, 229));
+        }
+        else if (materia.equals("Ec. aziendale")) {
+            panel.setBackground(new Color(255, 255, 204));
+        }
+        else if (materia.equals("A ST/SO DIR")) {
+            panel.setBackground(new Color(229, 229, 255));
+        }
+        else if (materia.equals("A LING ING")) {
+            panel.setBackground(new Color(36, 255, 255));
+        }
+        else if (materia.equals("A  ST/SO STO")) {
+            panel.setBackground(new Color(255, 204, 229));
+        }
+        else if (materia.equals("Pr. Animali")) {
+            panel.setBackground(new Color(204, 255, 153));
+        }
+        else if (materia.equals("Arte")) {
+            panel.setBackground(new Color(255, 204, 255));
+        }
+        else if (materia.equals("Trasformazioni")) {
+            panel.setBackground(new Color(204, 255, 204));
+        }
+        else if (materia.equals("Telecom")) {
+            panel.setBackground(new Color(153, 204, 255));
+        }
+        else if (materia.equals("Biot. Agrarie")) {
+            panel.setBackground(new Color(204, 255, 204));
+        }
+        else if (materia.equals("Genio Rurale")) {
+            panel.setBackground(new Color(229, 255, 204));
+        }
+        else {
+            panel.setBackground(new Color(255, 255, 255));
+        }
+    }
+
 
     public JPanel getPanelloOrario() {
         return panelloOrario;

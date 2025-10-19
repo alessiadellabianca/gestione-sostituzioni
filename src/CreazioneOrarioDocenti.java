@@ -163,12 +163,97 @@ public class CreazioneOrarioDocenti extends JPanel{
             panel.add(docente, BorderLayout.NORTH);
             panel.add(materia, BorderLayout.CENTER);
             panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            panel.setBackground(new Color(173, 216, 230));
+            this.mettiColori(l, panel);
+            //panel.setBackground(new Color(173, 216, 230));
             panel.setPreferredSize(new Dimension(120, 60));
             return panel;
         }
 
-        public JPanel getPanelloOrario() {
+    public void mettiColori(Lezione l, JPanel panel) {  //rivedere bene che colori mettere
+        String classe = l.getClasse();
+
+        if (classe.equals("4^ B TUR")) {
+            panel.setBackground(new Color(244, 67, 54));
+        }
+        else if (classe.equals("2^ D INF")) {
+            panel.setBackground(new Color(33, 150, 243));
+        }
+        else if (classe.equals("2^ C IeFP")) {
+            panel.setBackground(new Color(76, 175, 80));
+        }
+        else if (classe.equals("4^ D INF")) {
+            panel.setBackground(new Color(255, 152, 0));
+        }
+        else if (classe.equals("3^ D INF")) {
+            panel.setBackground(new Color(156, 39, 176));
+        }
+        else if (classe.equals("5^ D INF")) {
+            panel.setBackground(new Color(0, 188, 212));
+        }
+        else if (classe.equals("4^ F MEC")) {
+            panel.setBackground(new Color(121, 85, 72));
+        }
+        else if (classe.equals("3^ C IeFP")) {
+            panel.setBackground(new Color(139, 195, 74));
+        }
+        else if (classe.equals("5^ B TUR")) {
+            panel.setBackground(new Color(103, 58, 183));
+        }
+        else if (classe.equals("1^ G AGR")) {
+            panel.setBackground(new Color(255, 193, 7));
+        }
+        else if (classe.equals("3^ F MEC")) {
+            panel.setBackground(new Color(63, 81, 181));
+        }
+        else if (classe.equals("5^ F MEC")) {
+            panel.setBackground(new Color(205, 220, 57));
+        }
+        else if (classe.equals("1^ D INF")) {
+            panel.setBackground(new Color(0, 150, 136));
+        }
+        else if (classe.equals("1^ F MEC")) {
+            panel.setBackground(new Color(255, 87, 34));
+        }
+        else if (classe.equals("2^G AGR")) {
+            panel.setBackground(new Color(96, 125, 139));
+        }
+        else if (classe.equals("2^ F MEC")) {
+            panel.setBackground(new Color(233, 30, 99));
+        }
+        else if (classe.equals("2^ A MAT")) {
+            panel.setBackground(new Color(3, 169, 244));
+        }
+        else if (classe.equals("1^ A MAT")) {
+            panel.setBackground(new Color(158, 158, 158));
+        }
+        else if (classe.equals("3^ B TUR")) {
+            panel.setBackground(new Color(0, 188, 212));
+        }
+        else if (classe.equals("1^ C IeFP")) {
+            panel.setBackground(new Color(255, 235, 59));
+        }
+        else if (classe.equals("5^ A MAT")) {
+            panel.setBackground(new Color(255, 111, 0));
+        }
+        else if (classe.equals("3^ A MAT")) {
+            panel.setBackground(new Color(0, 121, 107));
+        }
+        else if (classe.equals("4^ A MAT")) {
+            panel.setBackground(new Color(186, 104, 200));
+        }
+        else if (classe.equals("3^G AGR")) {
+            panel.setBackground(new Color(124, 179, 66));
+        }
+        else if (classe.equals("Disposizione")) {
+            panel.setBackground(new Color(189, 189, 189));
+        }
+        else {
+            panel.setBackground(new Color(255, 255, 255));
+        }
+    }
+
+
+    public JPanel getPanelloOrario() {
             return panelloOrario;
         }
     }
