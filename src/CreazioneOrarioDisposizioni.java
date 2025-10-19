@@ -15,11 +15,11 @@ public class CreazioneOrarioDisposizioni extends JPanel
     String[] oreStampa = {"8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00"};
     Border bordo = BorderFactory.createLineBorder(Color.BLACK);
 
-    public CreazioneOrarioDisposizioni() {
+    public CreazioneOrarioDisposizioni() {  //problema risolto x le ripetizioni, c'è due volte il metodo caricaLezioni
         setLayout(new BorderLayout());
         add(panelloOrarioDisposizioni, BorderLayout.CENTER);
         caricaLezioni();
-        caricaLezioni();
+        //caricaLezioni();
     }
 
     private void caricaLezioni() {
