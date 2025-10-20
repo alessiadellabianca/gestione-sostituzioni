@@ -42,7 +42,6 @@ public class CreazioneOrarioDocenti extends JPanel{
                     String giorno;
                     String ora;
                     boolean codocenza;
-
                     if (parti[4].contains("Cognome")) {
                         if (parti[5].contains("Cognome")) {
                             docente += " " + parti[4] + " " + parti[5];
@@ -74,9 +73,11 @@ public class CreazioneOrarioDocenti extends JPanel{
         public void creazioneOrarioTabella(String docenteSelezionato) {
             panelloOrario.removeAll();
             orarioClassex.clear();
+            String doc=new String();
+            doc=docenteSelezionato+";";
 
             for (Lezione l : listaLezioni) {
-                if (l.getDocente().equals(docenteSelezionato)) {
+                if (l.getDocente().contains(doc)) {
                     orarioClassex.add(l);
                 }
             }
