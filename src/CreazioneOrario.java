@@ -28,6 +28,7 @@ public class CreazioneOrario extends JPanel {
         caricaLezioni();
     }
 
+
     private void caricaLezioni() {
         try (BufferedReader br = new BufferedReader(new FileReader(letturaFile))) {
             String linea;
@@ -330,7 +331,10 @@ public class CreazioneOrario extends JPanel {
     }
 
 
+
+
     public JPanel getPanelloOrario() {
         return panelloOrario;
     }
+
 }

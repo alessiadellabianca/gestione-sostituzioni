@@ -63,7 +63,7 @@ public class CreazioneOrarioDocenti extends JPanel{
                         ora = parti[7];
                     }
 
-                    listaLezioni.add(new Lezione(docente, codocenza, classe, materia, durata, ora, giorno));
+                    //listaLezioni.add(new Lezione(docente, codocenza, classe, materia, durata, ora, giorno));
                 }
             } catch (IOException e) {
                 System.out.println("Errore nella lettura del file: " + e.getMessage());

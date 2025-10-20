@@ -15,11 +15,10 @@ public class CreazioneOrarioDisposizioni extends JPanel
     String[] oreStampa = {"8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00"};
     Border bordo = BorderFactory.createLineBorder(Color.BLACK);
 
-    public CreazioneOrarioDisposizioni() {  //problema risolto x le ripetizioni, c'è due volte il metodo caricaLezioni
+    public CreazioneOrarioDisposizioni() {
         setLayout(new BorderLayout());
         add(panelloOrarioDisposizioni, BorderLayout.CENTER);
         caricaLezioni();
-        //caricaLezioni();
     }
 
     private void caricaLezioni() {
@@ -31,6 +30,7 @@ public class CreazioneOrarioDisposizioni extends JPanel
         String materia = null;
         String classe = null;
         String docente = null;
+        String num = null;
         try (BufferedReader br = new BufferedReader(new FileReader(letturaFile))) {
             String linea;
 
@@ -76,7 +76,7 @@ public class CreazioneOrarioDisposizioni extends JPanel
         listaDisposizioniGiornox.clear();
 
         for (Lezione l : listaDisposizioni) {
-            if (l.getGiorno().equalsIgnoreCase(giornoselezionato) && l.getMateria().equalsIgnoreCase("Disposizione")) {
+            if (l.getGiorno().equalsIgnoreCase(giornoselezionato)) {
                 listaDisposizioniGiornox.add(l);
             }
         }
@@ -99,18 +99,17 @@ public class CreazioneOrarioDisposizioni extends JPanel
         }
 
         String[] oreNumeriche = {"8h", "9h", "10h", "11h", "12h", "13h"};
-
         for (int riga = 0; riga < oreNumeriche.length; riga++) {
             String oraCorrente = oreNumeriche[riga];
             int colonna = 1;
-
-            for (Lezione lezione : listaDisposizioniGiornox) {
-                if (lezione.getOra().startsWith(oraCorrente)) {
-                    int durata = calcolaDurataBlocchi(lezione);
+            for(int i = 0; i < listaDisposizioniGiornox.size(); i++)
+            {
+                if (listaDisposizioniGiornox.get(i).getOra().contains(oraCorrente)) {
+                    int durata = calcolaDurataBlocchi(listaDisposizioniGiornox.get(i));
                     c.gridx = colonna;
                     c.gridy = riga + 1;
                     c.gridheight = durata;
-                    panelloOrario.add(creaPannelloLezione(lezione), c);
+                    panelloOrario.add(creaPannelloLezione(listaDisposizioniGiornox.get(i)), c);
                     colonna++;
                 }
             }
