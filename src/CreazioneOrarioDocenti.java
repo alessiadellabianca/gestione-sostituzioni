@@ -63,10 +63,12 @@ public class CreazioneOrarioDocenti extends JPanel{
                         ora = parti[7];
                     }
 
-                    //listaLezioni.add(new Lezione(docente, codocenza, classe, materia, durata, ora, giorno));
+                    listaLezioni.add(new Lezione(docente, codocenza, classe, materia, durata, ora, giorno));
+                    System.out.println(docente);
                 }
             } catch (IOException e) {
                 System.out.println("Errore nella lettura del file: " + e.getMessage());
+
             }
         }
 
@@ -74,10 +76,13 @@ public class CreazioneOrarioDocenti extends JPanel{
             panelloOrario.removeAll();
             orarioClassex.clear();
             String doc=new String();
-            doc=docenteSelezionato+";";
+            doc=docenteSelezionato+" ";
 
             for (Lezione l : listaLezioni) {
                 if (l.getDocente().contains(doc)) {
+                    orarioClassex.add(l);
+                }
+                else if(l.getDocente().equals(docenteSelezionato)) {
                     orarioClassex.add(l);
                 }
             }
@@ -257,6 +262,4 @@ public class CreazioneOrarioDocenti extends JPanel{
     public JPanel getPanelloOrario() {
             return panelloOrario;
         }
-    }
-
-
+}
