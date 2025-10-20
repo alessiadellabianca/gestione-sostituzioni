@@ -19,6 +19,7 @@ public class CreazioneOrarioDocenti extends JPanel{
         String[] giorni = {"Ora", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"};
         String[] giorniPerFile = {"lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"};
         String[] oreStampa = {"8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00"};
+        String[] oreControllo = {"8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00"};
 
         public CreazioneOrarioDocenti(GestioneDati gestore) {
             setLayout(new BorderLayout());
@@ -118,6 +119,7 @@ public class CreazioneOrarioDocenti extends JPanel{
                 panelloOrario.add(labelOra, c);
             }
 
+            String[] oreNumeriche = {"8h", "9h", "10h", "11h", "12h", "13h"};
             for (int col = 1; col < giorni.length; col++) {
                 String giornoAttuale = giorniPerFile[col - 1];
                 int riga = 1;
@@ -125,11 +127,11 @@ public class CreazioneOrarioDocenti extends JPanel{
                     if (!lezione.getGiorno().equalsIgnoreCase(giornoAttuale)) continue;
 
                     int altezza = calcolaDurataBlocchi(lezione);
-                    c.gridx = col;
-                    c.gridy = riga;
-                    c.gridheight = altezza;
-                    panelloOrario.add(creaPannelloLezione(lezione), c);
-                    riga += altezza;
+                        c.gridx = col;
+                        c.gridy = riga;
+                        c.gridheight = altezza;
+                        panelloOrario.add(creaPannelloLezione(lezione), c);
+                        riga += altezza;
                 }
 
                 while (riga <= 6) {
