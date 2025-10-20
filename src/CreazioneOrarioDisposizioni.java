@@ -80,7 +80,6 @@ public class CreazioneOrarioDisposizioni extends JPanel
                 listaDisposizioniGiornox.add(l);
             }
         }
-
         panelloOrario.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
@@ -150,6 +149,9 @@ public class CreazioneOrarioDisposizioni extends JPanel
     public JPanel getPanelloOrarioDisposizioni() {
         return panelloOrarioDisposizioni;
     }
+
+
+
 }
 
 
