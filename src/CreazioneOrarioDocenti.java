@@ -76,7 +76,7 @@ public class CreazioneOrarioDocenti extends JPanel{
             orarioClassex.clear();
 
             for (Lezione l : listaLezioni) {
-                if (l.getDocente().contains(docenteSelezionato)) {
+                if (l.getDocente().equals(docenteSelezionato)) {
                     orarioClassex.add(l);
                 }
             }
