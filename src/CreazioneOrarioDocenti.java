@@ -20,7 +20,7 @@ public class CreazioneOrarioDocenti extends JPanel{
         String[] giorniPerFile = {"lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"};
         String[] oreStampa = {"8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00"};
         String[] oreControllo = {"8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00"};
-
+//te
         public CreazioneOrarioDocenti(GestioneDati gestore) {
             setLayout(new BorderLayout());
             this.gestore = gestore;
