@@ -36,7 +36,8 @@ public class CreazioneOrario extends JPanel {
                 String[] parti = linea.split(";");
                 String durata = parti[1];
                 String materia = parti[2];
-                String docente = parti[3];
+                ArrayList<String> docente = new ArrayList<>();
+                docente.add(parti[3]);
                 String classe;
                 String giorno;
                 String ora;
@@ -44,13 +45,14 @@ public class CreazioneOrario extends JPanel {
 
                 if (parti[4].contains("Cognome")) {
                     if (parti[5].contains("Cognome")) {
-                        docente += " " + parti[4] + " " + parti[5];
+                        docente.add(parti[4]);
+                        docente.add(parti[5]);
                         classe = parti[6];
                         codocenza = parti[7].contains("S");
                         giorno = parti[8];
                         ora = parti[9];
                     } else {
-                        docente += " " + parti[4];
+                        docente.add(parti[4]);
                         codocenza = parti[6].contains("S");
                         giorno = parti[7];
                         ora = parti[8];
@@ -62,8 +64,10 @@ public class CreazioneOrario extends JPanel {
                     giorno = parti[6];
                     ora = parti[7];
                 }
-
                 listaLezioni.add(new Lezione(docente, codocenza, classe, materia, durata, ora, giorno));
+
+                Docente ciaa = new Docente(listaLezioni,"Cognome3");
+                System.out.println(ciaa);
             }
         } catch (IOException e) {
             System.out.println("Errore nella lettura del file: " + e.getMessage());
@@ -158,7 +162,13 @@ public class CreazioneOrario extends JPanel {
 
     public JPanel creaPannelloLezione(Lezione l) {
         JPanel panel = new JPanel(new BorderLayout());
-        JLabel docente = new JLabel(l.getDocente(), SwingConstants.CENTER);
+        ArrayList<String> docentiVari = l.getDocente();
+        String robeDaMettere="";
+
+        for(String x: docentiVari) {
+            robeDaMettere=robeDaMettere+" "+x;
+        }
+        JLabel docente = new JLabel(robeDaMettere, SwingConstants.CENTER);
         JLabel materia = new JLabel(l.getMateria(), SwingConstants.CENTER);
         panel.add(docente, BorderLayout.NORTH);
         panel.add(materia, BorderLayout.CENTER);

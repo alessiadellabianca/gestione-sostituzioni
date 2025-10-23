@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+
 public class Lezione {
 
-    String docente;
+    ArrayList<String> docente=new ArrayList();
     String materia;
     String ora;
     String durata;
@@ -8,7 +10,7 @@ public class Lezione {
     boolean codocenza;
     String giorno;
 
-    public Lezione(String docente, boolean codocenza, String classe, String materia, String durata, String ora, String giorno) {
+    public Lezione(ArrayList<String> docente, boolean codocenza, String classe, String materia, String durata, String ora, String giorno) {
         this.docente = docente;
         this.codocenza = codocenza;
         this.classe = classe;
@@ -22,7 +24,7 @@ public class Lezione {
         return classe;
     }
 
-    public String getDocente() {
+    public ArrayList<String> getDocente() {
         return docente;
     }
 

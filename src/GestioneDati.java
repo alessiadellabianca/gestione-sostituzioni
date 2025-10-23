@@ -8,9 +8,9 @@ import java.util.ArrayList;
 public class GestioneDati {
 
     private static ArrayList<String>  docenti = new ArrayList();
+    private static ArrayList<String>  docentimodificati = new ArrayList();
     private static ArrayList<String> classi = new ArrayList();
     private static ArrayList<String> materie = new ArrayList();
-
 
     public void organizzazioneFile(String nomeFile) {
         try (BufferedReader br = new BufferedReader(new FileReader(nomeFile))) {
@@ -68,19 +68,22 @@ public class GestioneDati {
     }
 
     public ArrayList<String> getDocenti() {
-        return docenti;
+
+        for (String docente : docenti) {
+            String senzaVirgolette = docente.replace("\"", "").trim();
+            if (!senzaVirgolette.isEmpty()) {
+                docentimodificati.add(senzaVirgolette);
+            }
+
+        }
+    return docentimodificati;
     }
 
-    public ArrayList<String> getClassi() {
-        return classi;
-    }
+        public ArrayList<String> getClassi () {
+            return classi;
+        }
 
-    @Override
-    public String toString() {
-        return  "GestioneDati{" +
-                "Materie=" + classi +
-                '}';
-    }
+
 
     /*public static void main(String[] args) {
         GestioneDati gestore = new GestioneDati();

@@ -22,14 +22,13 @@ public class CreazioneOrarioDisposizioni extends JPanel
     }
 
     private void caricaLezioni() {
-
         String durata;
         String giorno = null;
         String ora = null;
         boolean codocenza = true;
         String materia = null;
         String classe = null;
-        String docente = null;
+        ArrayList<String> docente = new ArrayList<>();
         String num = null;
         try (BufferedReader br = new BufferedReader(new FileReader(letturaFile))) {
             String linea;
@@ -40,17 +39,19 @@ public class CreazioneOrarioDisposizioni extends JPanel
                 if (parti[2].contains("Disposizione")) {
                     durata = parti[1];
                     materia = parti[2];
-                    docente = parti[3];
+                   docente.add(parti[3]);
 
                     if (parti[4].contains("Cognome")) {
                         if (parti[5].contains("Cognome")) {
-                            docente = docente + " " + parti[4] + " " + parti[5];
+                            docente.add(parti[4]);
+                            docente.add(parti[5]);
+
                             classe = parti[6];
                             codocenza = parti[7].contains("S");
                             giorno = parti[8];
                             ora = parti[9];
                         } else {
-                            docente = docente + " " + parti[4];
+                            docente.add(parti[4]);
                             codocenza = parti[6].contains("S");
                             giorno = parti[7];
                             ora = parti[8];
@@ -70,6 +71,7 @@ public class CreazioneOrarioDisposizioni extends JPanel
         }
 
     }
+
 
     public void tabellaDisposizioni(String giornoselezionato) {
         panelloOrario.removeAll();
@@ -134,14 +136,22 @@ public class CreazioneOrarioDisposizioni extends JPanel
             return 1;
         }
     }
-        public JPanel creaPannelloLezione(Lezione l) {
+
+
+    public JPanel creaPannelloLezione(Lezione l) {
         JPanel panel = new JPanel(new BorderLayout());
-        JLabel docente = new JLabel(l.getDocente(), SwingConstants.CENTER);
+        ArrayList<String> docentiVari= new ArrayList<>();
+        docentiVari.equals(l.getDocente());
+        String robeDaMettere=null;
+        for(String x: docentiVari) {
+            robeDaMettere= robeDaMettere+" "+x;
+        }
+        JLabel docente = new JLabel(robeDaMettere, SwingConstants.CENTER);
         JLabel materia = new JLabel(l.getMateria(), SwingConstants.CENTER);
         panel.add(docente, BorderLayout.NORTH);
         panel.add(materia, BorderLayout.CENTER);
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        panel.setBackground(new Color(173, 216, 230));
+        //panel.setBackground(new Color(173, 216, 230));
         panel.setPreferredSize(new Dimension(120, 60));
         return panel;
     }
