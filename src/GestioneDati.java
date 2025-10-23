@@ -74,12 +74,12 @@ public class GestioneDati {
             if (!senzaVirgolette.isEmpty()) {
                 docentimodificati.add(senzaVirgolette);
             }
-
         }
     return docentimodificati;
     }
 
-        public ArrayList<String> getClassi () {
+
+    public ArrayList<String> getClassi () {
             return classi;
         }
 

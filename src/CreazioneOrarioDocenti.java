@@ -38,8 +38,16 @@ public class CreazioneOrarioDocenti extends JPanel{
                 String[] parti = linea.split(";");
                 String durata = parti[1];
                 String materia = parti[2];
+
                 ArrayList<String> docente = new ArrayList<>();
-                docente.add(parti[3]);
+
+                // ✅ Qui gestisci i casi in cui dentro parti[3] ci sono più docenti separati da ";"
+                String[] docentiSplit = parti[3].split(";");
+                for (String d : docentiSplit) {
+                    String pulito = d.replace("\"", "").trim();
+                    if (!pulito.isEmpty()) docente.add(pulito);
+                }
+
                 String classe;
                 String giorno;
                 String ora;
@@ -47,14 +55,19 @@ public class CreazioneOrarioDocenti extends JPanel{
 
                 if (parti[4].contains("Cognome")) {
                     if (parti[5].contains("Cognome")) {
-                        docente.add(parti[4]);
-                        docente.add(parti[5]);
+                        // aggiungi anche questi eventuali docenti
+                        String[] altriDoc = {parti[4], parti[5]};
+                        for (String d : altriDoc) {
+                            String pulito = d.replace("\"", "").trim();
+                            if (!pulito.isEmpty()) docente.add(pulito);
+                        }
                         classe = parti[6];
                         codocenza = parti[7].contains("S");
                         giorno = parti[8];
                         ora = parti[9];
                     } else {
-                        docente.add(parti[4]);
+                        String pulito = parti[4].replace("\"", "").trim();
+                        if (!pulito.isEmpty()) docente.add(pulito);
                         codocenza = parti[6].contains("S");
                         giorno = parti[7];
                         ora = parti[8];
@@ -72,7 +85,6 @@ public class CreazioneOrarioDocenti extends JPanel{
             }
         } catch (IOException e) {
             System.out.println("Errore nella lettura del file: " + e.getMessage());
-
         }
     }
 
@@ -184,13 +196,7 @@ public class CreazioneOrarioDocenti extends JPanel{
 
     public JPanel creaPannelloLezione(Lezione l) {
         JPanel panel = new JPanel(new BorderLayout());
-        ArrayList<String> docentiVari= new ArrayList<>();
-        docentiVari.equals(l.getDocente());
-        String robeDaMettere=null;
-        for(String x: docentiVari) {
-            robeDaMettere= robeDaMettere+" "+x;
-        }
-        JLabel docente = new JLabel(robeDaMettere, SwingConstants.CENTER);
+        JLabel docente = new JLabel(l.getClasse(), SwingConstants.CENTER);
         JLabel materia = new JLabel(l.getMateria(), SwingConstants.CENTER);
         panel.add(docente, BorderLayout.NORTH);
         panel.add(materia, BorderLayout.CENTER);

@@ -5,7 +5,6 @@ public class Docente {
     ArrayList<Lezione> lezioniDiQuestoDoc=new ArrayList<>();
     String nome;
 
-
     public Docente(ArrayList<Lezione> lezione,String docente) {
         this.lezioni = lezione;
         this.nome=docente;
@@ -14,22 +13,15 @@ public class Docente {
 
     public void CreaDocente()
     {
-        String doc=nome+" ";
-        String doc1=" "+nome;
-        for(Lezione l: lezioni)
+        for(Lezione l:lezioni)
         {
-          if(l.getDocente().equals(nome))
-          {
-              lezioniDiQuestoDoc.add(l);
-          }
-          else if(l.getDocente().contains(doc))
-          {
-              lezioniDiQuestoDoc.add(l);
-          }
-          else if(l.getDocente().contains(doc1))
-          {
-              lezioniDiQuestoDoc.add(l);
-          }
+            for(String z:l.getDocente())
+            {
+                if(z.equals(nome))
+                {
+
+                }
+            }
         }
     }
 
