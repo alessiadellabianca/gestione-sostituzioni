@@ -76,16 +76,20 @@ public class CreazioneOrarioDocenti extends JPanel{
     public void creazioneOrarioTabella(String docenteSelezionato) {
         panelloOrario.removeAll();
         orarioClassex.clear();
-        String doc=new String();
-        doc=docenteSelezionato+" ";
+        String doc1=new String();
+        String doc2=new String();
+        doc1=docenteSelezionato+" ";
+        doc2=" "+docenteSelezionato;
 
-        for (Lezione l : listaLezioni) {
-            if (l.getDocente().contains(doc)) {
-                orarioClassex.add(l);
+
+        for (Lezione l1 : listaLezioni) {
+            if (l1.getDocente().contains(doc1)) {
+                orarioClassex.add(l1);
             }
-            else if(l.getDocente().equals(docenteSelezionato)) {
-                orarioClassex.add(l);
+            else if(l1.getDocente().equals(docenteSelezionato)) {
+                orarioClassex.add(l1);
             }
+
         }
 
         panelloOrario.setLayout(new GridBagLayout());
