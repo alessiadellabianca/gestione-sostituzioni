@@ -66,6 +66,7 @@ public class CreazioneOrarioDocenti extends JPanel{
                     giorno = parti[6];
                     ora = parti[7];
                 }
+
                 listaLezioni.add(new Lezione(docente, codocenza, classe, materia, durata, ora, giorno));
                 System.out.println(docente);
             }
@@ -78,21 +79,17 @@ public class CreazioneOrarioDocenti extends JPanel{
     public void creazioneOrarioTabella(String docenteSelezionato) {
         panelloOrario.removeAll();
         orarioClassex.clear();
-        String doc1=new String();
-        String doc2=new String();
-        doc1=docenteSelezionato+" ";
-        doc2=" "+docenteSelezionato;
 
-
-        for (Lezione l1 : listaLezioni) {
-            if (l1.getDocente().contains(doc1)) {
-                orarioClassex.add(l1);
+        for(Lezione l: listaLezioni)
+        {
+            for(String s: l.getDocente()){
+                if(s.equals(docenteSelezionato))
+                {
+                    orarioClassex.add(l);
+                }
             }
-            else if(l1.getDocente().equals(docenteSelezionato)) {
-                orarioClassex.add(l1);
-            }
-
         }
+
 
         panelloOrario.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
