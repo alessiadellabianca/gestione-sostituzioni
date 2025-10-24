@@ -20,7 +20,7 @@ public class GestoreSostituzioni extends JFrame{
         this.giorno = giorno;
     }
 
-    /*public void creaOrarioAssenti()
+   /* public void creaOrarioAssenti()
     {
 
         panelloOrario.setLayout(new GridBagLayout());
@@ -30,7 +30,7 @@ public class GestoreSostituzioni extends JFrame{
         c.weighty = 1.0;
         for(String doc:docentiAssenti)
         {
-            lezioniDaSostituire=caricaLezioni(doc,giorno);
+
         }
 
         for(Lezione l:lezioniDaSostituire)
@@ -39,7 +39,7 @@ public class GestoreSostituzioni extends JFrame{
             {
                 for(String controlla: docentiAssenti)
                 {
-                    //controllare se è assente quello in codocenza
+
                 }
             }
             else
