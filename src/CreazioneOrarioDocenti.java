@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
+//ciao boss
 public class CreazioneOrarioDocenti extends JPanel{
 
     ArrayList<Lezione> listaLezioni = new ArrayList<>();
@@ -19,7 +19,6 @@ public class CreazioneOrarioDocenti extends JPanel{
     String[] giorni = {"Ora", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"};
     String[] giorniPerFile = {"lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"};
     String[] oreStampa = {"8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00"};
-    String[] oreControllo = {"8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00"};
 
     public CreazioneOrarioDocenti(GestioneDati gestore) {
         setLayout(new BorderLayout());
@@ -95,7 +94,7 @@ public class CreazioneOrarioDocenti extends JPanel{
         for(Lezione l: listaLezioni)
         {
             for(String s: l.getDocente()){
-                if(s.equals(docenteSelezionato))
+                if(s.contains(docenteSelezionato))
                 {
                     orarioClassex.add(l);
                 }
@@ -141,11 +140,13 @@ public class CreazioneOrarioDocenti extends JPanel{
             int riga = 1;
 
 
-            for (int cont = 0; cont < oreNumeriche.length; cont++) {
+            /*for (int cont = 0; cont < oreNumeriche.length; cont++) {
                 boolean lezioneTrovata = false;
 
                 for (Lezione lezione : orarioClassex) {
                     if (!lezione.getGiorno().equalsIgnoreCase(giornoAttuale)) continue;
+
+                    controlloOra(lezione.getOra(), oreNumeriche[cont]);
 
                     if (lezione.getOra().contains(oreNumeriche[cont])) {
                         int altezza = calcolaDurataBlocchi(lezione);
@@ -170,7 +171,38 @@ public class CreazioneOrarioDocenti extends JPanel{
                         riga++;
                     }
                 }
+            }*/
+
+            for (int cont = 0; cont < oreNumeriche.length; cont++) {
+                boolean lezioneTrovata = false;
+
+                int oraCorrente = 8 + cont;
+
+                for (Lezione lezione : orarioClassex) {
+                    if (!lezione.getGiorno().equalsIgnoreCase(giornoAttuale)) continue;
+                    controlloOra(lezione.getOra(), oreNumeriche[cont], lezione);
+                    int oraLezione = estraiOra(lezione.getOra());
+                    if (oraLezione == oraCorrente) {
+                        int altezza = calcolaDurataBlocchi(lezione);
+                        c.gridx = col;
+                        c.gridy = cont + 1;
+                        c.gridheight = altezza;
+
+                        panelloOrario.add(creaPannelloLezione(lezione), c);
+                        lezioneTrovata = true;
+                        break;
+                    }
+                }
+                if (!lezioneTrovata) {
+                    c.gridx = col;
+                    c.gridy = cont + 1;
+                    c.gridheight = 1;
+                    JPanel vuoto = new JPanel();
+                    vuoto.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+                    panelloOrario.add(vuoto, c);
+                }
             }
+
 
         }
 
@@ -184,6 +216,25 @@ public class CreazioneOrarioDocenti extends JPanel{
         revalidate();
         repaint();
     }
+    private int estraiOra(String oraStringa) {  //da riguardare
+        if (oraStringa == null) return -1;
+        oraStringa = oraStringa.toLowerCase().trim();
+
+        oraStringa = oraStringa.replaceAll("[^0-9]", ""); // tiene i numeri
+
+        try {
+            if (oraStringa.length() >= 3) {
+                // es. 1205 -> 12
+                return Integer.parseInt(oraStringa.substring(0, oraStringa.length() - 2));
+            } else if (oraStringa.length() > 0) {
+                return Integer.parseInt(oraStringa);
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
 
     private int calcolaDurataBlocchi(Lezione lezione) {
         try {
@@ -191,8 +242,15 @@ public class CreazioneOrarioDocenti extends JPanel{
         } catch (Exception e) {
             return 1;
         }
+
     }
 
+    private void controlloOra(String ora, String oraPresa, Lezione l) {
+        if(ora.contains(oraPresa)){
+            System.out.println("Ora corrispondente trovata: " + oraPresa + " in " + ora + "\n Durata: " + l.getDurata());
+        }
+
+    }
 
     public JPanel creaPannelloLezione(Lezione l) {
         JPanel panel = new JPanel(new BorderLayout());
