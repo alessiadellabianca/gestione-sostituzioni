@@ -25,7 +25,7 @@ public class Docente {
                 }
             }
         }
-        CreaListe(); // Chiama CreaListe dopo aver popolato le lezioni
+        CreaListe();
     }
 
     public void CreaListe()

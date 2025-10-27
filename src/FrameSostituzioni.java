@@ -77,6 +77,7 @@ public class FrameSostituzioni extends JPanel {
         conferma.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
+
               //  new GestoreSostituzioni();
             }
         });

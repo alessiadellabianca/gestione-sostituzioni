@@ -20,7 +20,7 @@ public class GestoreSostituzioni extends JFrame{
         this.giorno = giorno;
     }
 
-   /* public void creaOrarioAssenti()
+    public void creaOrarioAssenti()
     {
 
         panelloOrario.setLayout(new GridBagLayout());
@@ -28,40 +28,32 @@ public class GestoreSostituzioni extends JFrame{
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 1.0;
         c.weighty = 1.0;
-        for(String doc:docentiAssenti)
-        {
 
-        }
+    for(String docente:docentiAssenti) {
+        lezioniDaSostituire.clear();
 
-        for(Lezione l:lezioniDaSostituire)
-        {
-            if(l.codocenza)
-            {
-                for(String controlla: docentiAssenti)
-                {
+        for (Lezione l : lezioniDaSostituire) {
+            if (l.codocenza) {
+                for (String controlla : docentiAssenti) {
 
                 }
-            }
-            else
-            {
-                if(l.classe.contains("5"))
-                {
-                    for(Lezione cerca:listaDisposizioni)
-                    {
-                        if(l.ora.equals(cerca.ora))
-                        {
-                            panelloOrario.add(creaPannelloLezione(l),c);
+            } else {
+                if (l.classe.contains("5")) {
+                    for (Lezione cerca : listaDisposizioni) {
+                        if (l.ora.equals(cerca.ora)) {
+                            panelloOrario.add(creaPannelloLezione(l), c);
                         }
                     }
                 }
             }
         }
+    }
 
         setSize(900, 700);
         setLocationRelativeTo(null);
         setVisible(true);
 
-    }*/
+    }
 
     private void caricaLezioni() {
 
