@@ -3,18 +3,6 @@
   <component name="GhostTextManager">
     <option name="inputs">
       <map>
-        <entry key="@&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt;">
-          <value>
-            <GhostTextMetaData>
-              <option name="count" value="1.0" />
-              <option name="timestamps">
-                <list>
-                  <option value="1761552089833" />
-                </list>
-              </option>
-            </GhostTextMetaData>
-          </value>
-        </entry>
         <entry key="@&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt;">
           <value>
             <GhostTextMetaData>
@@ -22,30 +10,6 @@
               <option name="timestamps">
                 <list>
                   <option value="1761551245102" />
-                </list>
-              </option>
-            </GhostTextMetaData>
-          </value>
-        </entry>
-        <entry key="aggiungimi qui un metodo per la ricerca dei docenti tramite classe e uno tramite materia">
-          <value>
-            <GhostTextMetaData>
-              <option name="count" value="1.0" />
-              <option name="timestamps">
-                <list>
-                  <option value="1761555210947" />
-                </list>
-              </option>
-            </GhostTextMetaData>
-          </value>
-        </entry>
-        <entry key="ciao, per favore riesci a sistemare il mio programma in modo  che ogni docente abbia all'interno una lista di lezioni che sono le sue lezioni senza modificare altre cose">
-          <value>
-            <GhostTextMetaData>
-              <option name="count" value="1.0" />
-              <option name="timestamps">
-                <list>
-                  <option value="1761552146179" />
                 </list>
               </option>
             </GhostTextMetaData>
@@ -94,30 +58,6 @@
               <option name="timestamps">
                 <list>
                   <option value="1761550197593" />
-                </list>
-              </option>
-            </GhostTextMetaData>
-          </value>
-        </entry>
-        <entry key="fai in modo che fa girare la lista dei docenti che saranno assenti e poi trova tutte le lezioni a lui assegnare da sostituire e le mette in un array list di lezioni">
-          <value>
-            <GhostTextMetaData>
-              <option name="count" value="1.0" />
-              <option name="timestamps">
-                <list>
-                  <option value="1761554174027" />
-                </list>
-              </option>
-            </GhostTextMetaData>
-          </value>
-        </entry>
-        <entry key="ora fai in modo di poter fare un algoritmo con la lista dei docenti assenti in modo possa sostituirli secondo dei parametri che gestirò io">
-          <value>
-            <GhostTextMetaData>
-              <option name="count" value="1.0" />
-              <option name="timestamps">
-                <list>
-                  <option value="1761553260575" />
                 </list>
               </option>
             </GhostTextMetaData>

@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-//ciao boss
 public class CreazioneOrarioDocenti extends JPanel{
 
     ArrayList<Lezione> listaLezioni = new ArrayList<>();
