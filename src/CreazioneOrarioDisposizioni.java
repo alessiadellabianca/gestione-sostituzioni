@@ -140,12 +140,11 @@ public class CreazioneOrarioDisposizioni extends JPanel
 
     public JPanel creaPannelloLezione(Lezione l) {
         JPanel panel = new JPanel(new BorderLayout());
-        ArrayList<String> docentiVari= new ArrayList<>();
-        docentiVari.equals(l.getDocente());
-        String robeDaMettere=null;
-        for(String x: docentiVari) {
-            robeDaMettere= robeDaMettere+" "+x;
+        for(int i = 0; i < l.getDocente().size(); i++)
+        {
+
         }
+
         JLabel docente = new JLabel(robeDaMettere, SwingConstants.CENTER);
         JLabel materia = new JLabel(l.getMateria(), SwingConstants.CENTER);
         panel.add(docente, BorderLayout.NORTH);
