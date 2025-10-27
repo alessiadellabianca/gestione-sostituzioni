@@ -1,21 +1,26 @@
 import java.util.ArrayList;
 
 public class Docente {
-    ArrayList<Lezione> lezioni;
-    ArrayList<String> classiDiQuestoDoc=new ArrayList<>();
-    ArrayList<String> MaterieDiQuestoDoc=new ArrayList<>();
-    ArrayList<Lezione> lezioniDiQuestoDoc=new ArrayList<>();
-    String nome;
+    private ArrayList<Lezione> tutteLezioni;
+    private ArrayList<String> classiDiQuestoDoc = new ArrayList<>();
+    private ArrayList<String> materieDiQuestoDoc = new ArrayList<>();
+    private ArrayList<Lezione> lezioniDiQuestoDoc = new ArrayList<>();
+    private String nome;
 
-    public Docente(ArrayList<Lezione> lezione,String docente) {
-        this.lezioni = lezione;
-        this.nome=docente;
+    public Docente(String nome) {
+        this.nome = nome;
+        this.tutteLezioni = new ArrayList<>();
+    }
+
+    public Docente(String nome, ArrayList<Lezione> tutteLezioni) {
+        this.nome = nome;
+        this.tutteLezioni = tutteLezioni;
         CreaDocente();
     }
 
     public void CreaDocente()
     {
-        for(Lezione l:lezioni)
+        for(Lezione l:tutteLezioni)
         {
             for(String z:l.getDocente())
             {
@@ -33,9 +38,9 @@ public class Docente {
         for(Lezione l:lezioniDiQuestoDoc)
         {
             String materia = l.getMateria();
-            if(materia != null && !MaterieDiQuestoDoc.contains(materia))
+            if(materia != null && !materieDiQuestoDoc.contains(materia))
             {
-                MaterieDiQuestoDoc.add(materia);
+                materieDiQuestoDoc.add(materia);
             }
 
             String classe = l.getClasse();
@@ -44,6 +49,35 @@ public class Docente {
                 classiDiQuestoDoc.add(classe);
             }
         }
+    }
+
+    public void aggiungiLezione(Lezione lezione) {
+        if (lezione != null && !lezioniDiQuestoDoc.contains(lezione)) {
+            lezioniDiQuestoDoc.add(lezione);
+            aggiornaListe(lezione);
+        }
+    }
+
+    private void aggiornaListe(Lezione lezione) {
+        String materia = lezione.getMateria();
+        if(materia != null && !materieDiQuestoDoc.contains(materia))
+        {
+            materieDiQuestoDoc.add(materia);
+        }
+
+        String classe = lezione.getClasse();
+        if(!classiDiQuestoDoc.contains(classe))
+        {
+            classiDiQuestoDoc.add(classe);
+        }
+    }
+
+    public void setTutteLezioni(ArrayList<Lezione> tutteLezioni) {
+        this.tutteLezioni = tutteLezioni;
+        lezioniDiQuestoDoc.clear();
+        classiDiQuestoDoc.clear();
+        materieDiQuestoDoc.clear();
+        CreaDocente();
     }
 
     public ArrayList<Lezione> getLezioniDiQuestoDoc() {
@@ -55,17 +89,21 @@ public class Docente {
     }
 
     public ArrayList<String> getMaterieDiQuestoDoc() {
-        return MaterieDiQuestoDoc;
+        return materieDiQuestoDoc;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     @Override
     public String toString() {
         return "Docente{" +
-                "lezioniDiQuestoDoc=" + lezioniDiQuestoDoc +
+                "nome='" + nome + '\'' +
+                ", lezioniDiQuestoDoc=" + lezioniDiQuestoDoc.size() +
+                ", classiDiQuestoDoc=" + classiDiQuestoDoc +
+                ", materieDiQuestoDoc=" + materieDiQuestoDoc +
                 '}';
     }
 }
-
-/*gestore.getdocenti la metto in un array list
-passo il nome*/
 

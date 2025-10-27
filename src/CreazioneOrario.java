@@ -12,6 +12,7 @@ public class CreazioneOrario extends JPanel {
     JPanel panelloOrario = new JPanel();
     File letturaFile = new File("letturaFile.txt");
     GestioneDati gestore = new GestioneDati();
+    GestoreDocenti gestoreDocenti = new GestoreDocenti();
     Border bordo = BorderFactory.createLineBorder(Color.BLACK);
 
     String[] giorni = {"Ora", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"};
@@ -65,9 +66,13 @@ public class CreazioneOrario extends JPanel {
                     ora = parti[7];
                 }
                 listaLezioni.add(new Lezione(docente, codocenza, classe, materia, durata, ora, giorno));
+            }
 
-                Docente ciaa = new Docente(listaLezioni,"Cognome3");
-                System.out.println(ciaa);
+            gestoreDocenti.setTutteLezioni(listaLezioni);
+
+            System.out.println("Docenti creati: " + gestoreDocenti.getDocenti().size());
+            for (Docente d : gestoreDocenti.getDocenti()) {
+                System.out.println(d);
             }
         } catch (IOException e) {
             System.out.println("Errore nella lettura del file: " + e.getMessage());
@@ -345,6 +350,10 @@ public class CreazioneOrario extends JPanel {
 
     public JPanel getPanelloOrario() {
         return panelloOrario;
+    }
+
+    public GestoreDocenti getGestoreDocenti() {
+        return gestoreDocenti;
     }
 
 }

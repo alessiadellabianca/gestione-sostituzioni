@@ -20,6 +20,10 @@ public class Lezione {
         this.giorno = giorno;
     }
 
+    public boolean isCodocenza() {
+        return codocenza;
+    }
+
     public String getClasse() {
         return classe;
     }

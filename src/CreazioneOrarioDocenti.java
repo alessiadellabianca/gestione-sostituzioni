@@ -14,6 +14,7 @@ public class CreazioneOrarioDocenti extends JPanel{
     JPanel panelloOrario = new JPanel();
     File letturaFile = new File("letturaFile.txt");
     GestioneDati gestore = new GestioneDati();
+    GestoreDocenti gestoreDocenti = new GestoreDocenti();
     Border bordo = BorderFactory.createLineBorder(Color.BLACK);
 
     String[] giorni = {"Ora", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"};
@@ -40,7 +41,6 @@ public class CreazioneOrarioDocenti extends JPanel{
 
                 ArrayList<String> docente = new ArrayList<>();
 
-                // ✅ Qui gestisci i casi in cui dentro parti[3] ci sono più docenti separati da ";"
                 String[] docentiSplit = parti[3].split(";");
                 for (String d : docentiSplit) {
                     String pulito = d.replace("\"", "").trim();
@@ -85,18 +85,24 @@ public class CreazioneOrarioDocenti extends JPanel{
         } catch (IOException e) {
             System.out.println("Errore nella lettura del file: " + e.getMessage());
         }
+
     }
 
     public void creazioneOrarioTabella(String docenteSelezionato) {
         panelloOrario.removeAll();
         orarioClassex.clear();
 
-        for(Lezione l: listaLezioni)
-        {
-            for(String s: l.getDocente()){
-                if(s.contains(docenteSelezionato))
-                {
-                    orarioClassex.add(l);
+        Docente docente = gestoreDocenti.trovaDocente(docenteSelezionato);
+        if (docente != null) {
+            orarioClassex.addAll(docente.getLezioniDiQuestoDoc());
+        } else {
+            for(Lezione l: listaLezioni)
+            {
+                for(String s: l.getDocente()){
+                    if(s.contains(docenteSelezionato))
+                    {
+                        orarioClassex.add(l);
+                    }
                 }
             }
         }
@@ -351,5 +357,9 @@ public class CreazioneOrarioDocenti extends JPanel{
 
     public JPanel getPanelloOrario() {
         return panelloOrario;
+    }
+
+    public GestoreDocenti getGestoreDocenti() {
+        return gestoreDocenti;
     }
 }
