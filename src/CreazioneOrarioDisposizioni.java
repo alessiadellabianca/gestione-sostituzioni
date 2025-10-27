@@ -22,39 +22,47 @@ public class CreazioneOrarioDisposizioni extends JPanel
     }
 
     private void caricaLezioni() {
-        String durata;
-        String giorno = null;
-        String ora = null;
-        boolean codocenza = true;
-        String materia = null;
-        String classe = null;
-        ArrayList<String> docente = new ArrayList<>();
-        String num = null;
         try (BufferedReader br = new BufferedReader(new FileReader(letturaFile))) {
             String linea;
-
             while ((linea = br.readLine()) != null) {
                 String[] parti = linea.split(";");
+                String durata = parti[1];
+                String materia;
 
-                if (parti[2].contains("Disposizione")) {
-                    durata = parti[1];
+                ArrayList<String> docente = new ArrayList<>();
+
+                String[] docentiSplit = parti[3].split(";");
+                for (String d : docentiSplit) {
+                    String pulito = d.replace("\"", "").trim();
+                    if (!pulito.isEmpty()) docente.add(pulito);
+                }
+
+                String classe;
+                String giorno;
+                String ora;
+                boolean codocenza;
+
+                if(parti[2].contains("Disposizione")) {
                     materia = parti[2];
-                   docente.add(parti[3]);
 
                     if (parti[4].contains("Cognome")) {
                         if (parti[5].contains("Cognome")) {
-                            docente.add(parti[4]);
-                            docente.add(parti[5]);
-
+                            String[] altriDoc = {parti[4], parti[5]};
+                            for (String d : altriDoc) {
+                                String pulito = d.replace("\"", "").trim();
+                                if (!pulito.isEmpty()) docente.add(pulito);
+                            }
                             classe = parti[6];
                             codocenza = parti[7].contains("S");
                             giorno = parti[8];
                             ora = parti[9];
                         } else {
-                            docente.add(parti[4]);
+                            String pulito = parti[4].replace("\"", "").trim();
+                            if (!pulito.isEmpty()) docente.add(pulito);
                             codocenza = parti[6].contains("S");
                             giorno = parti[7];
                             ora = parti[8];
+                            classe = parti[5];
                         }
                     } else {
                         classe = parti[4];
@@ -63,15 +71,13 @@ public class CreazioneOrarioDisposizioni extends JPanel
                         ora = parti[7];
                     }
                     listaDisposizioni.add(new Lezione(docente, codocenza, classe, materia, durata, ora, giorno));
+                    System.out.println(docente);
                 }
-
             }
         } catch (IOException e) {
             System.out.println("Errore nella lettura del file: " + e.getMessage());
         }
-
     }
-
 
     public void tabellaDisposizioni(String giornoselezionato) {
         panelloOrario.removeAll();
@@ -140,12 +146,8 @@ public class CreazioneOrarioDisposizioni extends JPanel
 
     public JPanel creaPannelloLezione(Lezione l) {
         JPanel panel = new JPanel(new BorderLayout());
-        for(int i = 0; i < l.getDocente().size(); i++)
-        {
-
-        }
-
-        JLabel docente = new JLabel(robeDaMettere, SwingConstants.CENTER);
+        String risultato = String.join(" ", l.getDocente());
+        JLabel docente = new JLabel(risultato, SwingConstants.CENTER);
         JLabel materia = new JLabel(l.getMateria(), SwingConstants.CENTER);
         panel.add(docente, BorderLayout.NORTH);
         panel.add(materia, BorderLayout.CENTER);
