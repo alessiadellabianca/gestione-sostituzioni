@@ -152,7 +152,7 @@ public class CreazioneOrarioDisposizioni extends JPanel
         panel.add(docente, BorderLayout.NORTH);
         panel.add(materia, BorderLayout.CENTER);
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        //panel.setBackground(new Color(173, 216, 230));
+        panel.setBackground(new Color(135, 206, 250));
         panel.setPreferredSize(new Dimension(120, 60));
         return panel;
     }
