@@ -63,6 +63,18 @@
             </GhostTextMetaData>
           </value>
         </entry>
+        <entry key="fai in modo che sia visibile l'orario e in modo corretto">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761727281477" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
         <entry key="rifallo ora">
           <value>
             <GhostTextMetaData>
