@@ -35,13 +35,15 @@ public class FrameSostituzioni extends JPanel {
         int giorno;
         giorno = LocalDate.now().getDayOfWeek().getValue();
         caricaLezioni();
+
+        // Inizializza i docenti dopo aver caricato le lezioni
+        gestoreDocenti.creaDocentiDaLezioni();
+
         JButton conferma = new JButton("CONFERMA");
         conferma.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         conferma.setBackground(new Color(135, 206, 250));
         conferma.setForeground(Color.BLACK);
         conferma.setFocusPainted(false);
-        panel.add(descrizioni);
-        panel.add(conferma);
         panel.add(descrizioni);
         panel.add(conferma);
 
@@ -52,8 +54,9 @@ public class FrameSostituzioni extends JPanel {
 
         JPanel panelCheckbox = new JPanel(new GridLayout(0, 1, 10, 10));
 
-
-        for (String docente : gestore.getDocenti()) {
+        // Ottieni la lista dei docenti dal GestoreDocenti invece che da GestioneDati
+        ArrayList<String> nomiDocenti = gestoreDocenti.getNomiDocenti();
+        for (String docente : nomiDocenti) {
             String senzaVirgolette = docente.replace("\"", "").trim();
             if (!senzaVirgolette.isEmpty()) {
 
@@ -88,8 +91,20 @@ public class FrameSostituzioni extends JPanel {
 
         conferma.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                List<String> docentiSelezionati = new ArrayList<>();
+                for (JCheckBox checkBox : checkBoxList) {
+                    if (checkBox.isSelected()) {
+                        docentiSelezionati.add(checkBox.getText());
+                    }
+                }
 
-                new GestoreSostituzioni(cognomiAggiunti, gestoreDocenti, controllaGiorno(giorno));
+                if (!docentiSelezionati.isEmpty()) {
+                    new GestoreSostituzioni(docentiSelezionati, gestoreDocenti, controllaGiorno(giorno));
+                } else {
+                    JOptionPane.showMessageDialog(FrameSostituzioni.this,
+                        "Seleziona almeno un docente assente!",
+                        "Attenzione", JOptionPane.WARNING_MESSAGE);
+                }
             }
         });
 
@@ -101,6 +116,8 @@ public class FrameSostituzioni extends JPanel {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] parti = linea.split(";");
+                if (parti.length < 8) continue; // Salta linee incomplete
+
                 String durata = parti[1];
                 String materia = parti[2];
 
@@ -118,39 +135,61 @@ public class FrameSostituzioni extends JPanel {
                 boolean codocenza;
 
                 if (parti[4].contains("Cognome")) {
-                    if (parti[5].contains("Cognome")) {
+                    if (parti.length > 5 && parti[5].contains("Cognome")) {
                         // aggiungi anche questi eventuali docenti
                         String[] altriDoc = {parti[4], parti[5]};
                         for (String d : altriDoc) {
                             String pulito = d.replace("\"", "").trim();
                             if (!pulito.isEmpty()) docente.add(pulito);
                         }
-                        classe = parti[6];
-                        codocenza = parti[7].contains("S");
-                        giorno = parti[8];
-                        ora = parti[9];
+                        if (parti.length > 9) {
+                            classe = parti[6];
+                            codocenza = parti[7].contains("S");
+                            giorno = parti[8];
+                            ora = parti[9];
+                        } else {
+                            continue; // Salta linee incomplete
+                        }
                     } else {
                         String pulito = parti[4].replace("\"", "").trim();
                         if (!pulito.isEmpty()) docente.add(pulito);
-                        codocenza = parti[6].contains("S");
-                        giorno = parti[7];
-                        ora = parti[8];
-                        classe = parti[5];
+                        if (parti.length > 8) {
+                            codocenza = parti[6].contains("S");
+                            giorno = parti[7];
+                            ora = parti[8];
+                            classe = parti[5];
+                        } else {
+                            continue; // Salta linee incomplete
+                        }
                     }
                 } else {
-                    classe = parti[4];
-                    codocenza = parti[5].contains("S");
-                    giorno = parti[6];
-                    ora = parti[7];
+                    if (parti.length > 7) {
+                        classe = parti[4];
+                        codocenza = parti[5].contains("S");
+                        giorno = parti[6];
+                        ora = parti[7];
+                    } else {
+                        continue; // Salta linee incomplete
+                    }
                 }
 
-                listaLezioni.add(new Lezione(docente, codocenza, classe, materia, durata, ora, giorno));
-                System.out.println(docente);
+                // Pulisci i dati
+                classe = classe.replace("\"", "").trim();
+                giorno = giorno.replace("\"", "").trim();
+                ora = ora.replace("\"", "").trim();
+                materia = materia.replace("\"", "").trim();
+                durata = durata.replace("\"", "").trim();
+
+                if (!classe.isEmpty() && !giorno.isEmpty() && !ora.isEmpty() && !materia.isEmpty() && !docente.isEmpty()) {
+                    listaLezioni.add(new Lezione(docente, codocenza, classe, materia, durata, ora, giorno));
+                    System.out.println("Lezione caricata: " + docente + " - " + materia + " - " + classe + " - " + giorno + " " + ora);
+                }
             }
         } catch (IOException e) {
             System.out.println("Errore nella lettura del file: " + e.getMessage());
         }
         gestoreDocenti.setTutteLezioni(listaLezioni);
+        System.out.println("Totale lezioni caricate: " + listaLezioni.size());
     }
 
     public String controllaGiorno(int giorno) {

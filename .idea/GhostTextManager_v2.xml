@@ -15,6 +15,54 @@
             </GhostTextMetaData>
           </value>
         </entry>
+        <entry key="@&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; fai in modo che il programma stampi la tabella delle sostituzioni con dentro le varie lezioni che sostitutiscono">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761760483277" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="@&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; ciao, per favore sistema la classe sostituzioni in modo che venga generata una tabella come quella per orario con la prima colonna le ore e in alto il docente selezionato con sotto le relative sostituzioni, fallo tutto IN UNA CLASSE che è @&lt;file_name&gt; e tieni ciò che è già stato fatto implementando questo algortimo Logica di assegnazione sostituzioni&#10;Per ogni docente assente e per ogni ora di assenza:&#10;Compresenza&#10;Se il docente assente è in compresenza, sostituto = collega presente.&#10;Disponibilità da disposizioni&#10;Cercare nei docenti liberi in quell’ora:&#10;Docente della stessa classe&#10;Docente di materia affine&#10;Qualsiasi altro docente libero&#10;Compresenze non quinte&#10;Prima docenti della classe o affini.&#10;Poi altri docenti non delle quinte.&#10;Compresenze quinte&#10;Prima materia affine.&#10;Poi qualsiasi materia.&#10;Ore libere a pagamento&#10;Se ancora irrisolto, cercare docenti liberi in quell’ora.&#10;Priorità a chi ha lezione nell’ora precedente o successiva.">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761758361581" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="PER FAVORE stampa le sostituzioni nella tabella, le trovi giuste fai in modo che si stampi il nome del sostituto nella tabella">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761759663530" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="continua a non stampare, per favore impeganti in modo che stampi, le sostituzioni le trova ma non le mette nella gui e nella tabella">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761759344342" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
         <entry key="cosa devo fare?">
           <value>
             <GhostTextMetaData>
@@ -70,6 +118,66 @@
               <option name="timestamps">
                 <list>
                   <option value="1761727281477" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="fai in modo che vada la tabella delle sostituzioni@&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt;">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761760683913" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="fai in modo che venga stampato nella tabella le varie sostituzioni">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761759103706" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="la tabella si stampa vuota, gentilmente inserisci le lezioni sostituitive che trovi">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761760103552" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="non funziona, per favore fallo andare!">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761760579104" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="qualcosa non va dato che non stampa nessuna lezione (concentrati soprattutto in quelle presenti nella lista delle disposizioni) poi sul resto tenendo conto delle durate, TUTTO IN UNA CLASSE">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761758715848" />
                 </list>
               </option>
             </GhostTextMetaData>
