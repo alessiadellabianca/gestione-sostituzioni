@@ -26,73 +26,89 @@ public class FrameSostituzioni extends JPanel {
     GestoreDocenti gestoreDocenti = new GestoreDocenti();
 
     public FrameSostituzioni(GestioneDati gestore) {
-
+        try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {}
 
         List<String> cognomiAggiunti = new ArrayList<>();
         setLayout(new BorderLayout(10, 10));
-        setBorder(new EmptyBorder(15, 15, 15, 15));
-        JPanel panel = new JPanel();
-        panel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        String data;
-        data = LocalDate.now().toString();
-        JLabel descrizioni = new JLabel("Seleziona i docenti assenti nella giornata di: " + data + "  ");
+        setBorder(new EmptyBorder(20, 20, 20, 20));
+        setBackground(Color.WHITE);
 
-        int giorno;
-        giorno = LocalDate.now().getDayOfWeek().getValue();
+        JPanel panelTop = new JPanel(new BorderLayout());
+        panelTop.setBackground(new Color(135, 206, 250));
+        panelTop.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+
+        String data = LocalDate.now().toString();
+        JLabel descrizione = new JLabel("Seleziona i docenti assenti nella giornata di " + data, SwingConstants.CENTER);
+        descrizione.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        descrizione.setForeground(Color.BLACK);
+        panelTop.add(descrizione, BorderLayout.CENTER);
+        add(panelTop, BorderLayout.NORTH);
+
+        int giorno = LocalDate.now().getDayOfWeek().getValue();
         caricaLezioni();
-
-        // Inizializza i docenti dopo aver caricato le lezioni
         gestoreDocenti.creaDocentiDaLezioni();
 
-        JButton conferma = new JButton("CONFERMA");
-        conferma.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        conferma.setBackground(new Color(135, 206, 250));
-        conferma.setForeground(Color.BLACK);
-        conferma.setFocusPainted(false);
-        panel.add(descrizioni);
-        panel.add(conferma);
+        JPanel panelCentro = new JPanel(new BorderLayout(10, 10));
+        panelCentro.setBackground(Color.WHITE);
 
-        JPanel pannelloConferma = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        pannelloConferma.add(panel);
+        JPanel panelCheckbox = new JPanel(new GridLayout(0, 2, 12, 12));
+        panelCheckbox.setBackground(Color.WHITE);
+        panelCheckbox.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        add(pannelloConferma, BorderLayout.NORTH);
-
-        JPanel panelCheckbox = new JPanel(new GridLayout(0, 1, 10, 10));
-
-        // Ottieni la lista dei docenti dal Gestori.GestoreDocenti invece che da Gestori.GestioneDati
         ArrayList<String> nomiDocenti = gestoreDocenti.getNomiDocenti();
         for (String docente : nomiDocenti) {
             String senzaVirgolette = docente.replace("\"", "").trim();
             if (!senzaVirgolette.isEmpty()) {
-
                 String[] parti = senzaVirgolette.split("\\s+");
                 String cognome = parti[parti.length - 1];
-
-                boolean giaPresente = false;
-                for (String c : cognomiAggiunti) {
-                    if (c.equals(cognome)) {
-                        giaPresente = true;
-                        break;
-                    }
-                }
-
+                boolean giaPresente = cognomiAggiunti.contains(cognome);
                 if (!giaPresente) {
                     cognomiAggiunti.add(cognome);
                     JCheckBox checkBox = new JCheckBox(senzaVirgolette);
-
                     checkBox.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-                    panelCheckbox.add(checkBox);
+                    checkBox.setBackground(Color.WHITE);
+                    checkBox.setFocusPainted(false);
                     checkBoxList.add(checkBox);
+                    panelCheckbox.add(checkBox);
                 }
             }
         }
 
-        JScrollPane check = new JScrollPane(panelCheckbox);
-        check.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200), 1));
+        JScrollPane scroll = new JScrollPane(panelCheckbox);
+        scroll.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200)));
+        scroll.getVerticalScrollBar().setUnitIncrement(16);
+        panelCentro.add(scroll, BorderLayout.CENTER);
+        add(panelCentro, BorderLayout.CENTER);
 
-        check.getVerticalScrollBar().setUnitIncrement(16);
+        JPanel panelBottoni = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 10));
+        panelBottoni.setBackground(Color.WHITE);
 
-        add(check, BorderLayout.CENTER);
+        JButton conferma = new JButton("CONFERMA");
+        conferma.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        conferma.setBackground(new Color(70, 130, 180));
+        conferma.setForeground(Color.WHITE);
+        conferma.setFocusPainted(false);
+        conferma.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        conferma.setBorder(BorderFactory.createEmptyBorder(8, 16, 8, 16));
+
+        JButton annulla = new JButton("ANNULLA");
+        annulla.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        annulla.setBackground(new Color(220, 220, 220));
+        annulla.setForeground(Color.BLACK);
+        annulla.setFocusPainted(false);
+        annulla.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        annulla.setBorder(BorderFactory.createEmptyBorder(8, 16, 8, 16));
+
+        panelBottoni.add(conferma);
+        panelBottoni.add(annulla);
+        add(panelBottoni, BorderLayout.SOUTH);
 
         conferma.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -102,18 +118,19 @@ public class FrameSostituzioni extends JPanel {
                         docentiSelezionati.add(checkBox.getText());
                     }
                 }
-
                 if (!docentiSelezionati.isEmpty()) {
                     new GestoreSostituzioni(docentiSelezionati, gestoreDocenti, controllaGiorno(giorno));
                 } else {
                     JOptionPane.showMessageDialog(FrameSostituzioni.this,
-                        "Seleziona almeno un docente assente!",
-                        "Attenzione", JOptionPane.WARNING_MESSAGE);
+                            "Seleziona almeno un docente assente!",
+                            "Attenzione", JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
 
-
+        annulla.addActionListener(e -> {
+            for (JCheckBox checkBox : checkBoxList) checkBox.setSelected(false);
+        });
     }
 
     public void caricaLezioni() {
@@ -121,27 +138,21 @@ public class FrameSostituzioni extends JPanel {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] parti = linea.split(";");
-                if (parti.length < 8) continue; // Salta linee incomplete
-
+                if (parti.length < 8) continue;
                 String durata = parti[1];
                 String materia = parti[2];
-
                 ArrayList<String> docente = new ArrayList<>();
-
                 String[] docentiSplit = parti[3].split(";");
                 for (String d : docentiSplit) {
                     String pulito = d.replace("\"", "").trim();
                     if (!pulito.isEmpty()) docente.add(pulito);
                 }
-
                 String classe;
                 String giorno;
                 String ora;
                 boolean codocenza;
-
                 if (parti[4].contains("Cognome")) {
                     if (parti.length > 5 && parti[5].contains("Cognome")) {
-                        // aggiungi anche questi eventuali docenti
                         String[] altriDoc = {parti[4], parti[5]};
                         for (String d : altriDoc) {
                             String pulito = d.replace("\"", "").trim();
@@ -152,9 +163,7 @@ public class FrameSostituzioni extends JPanel {
                             codocenza = parti[7].contains("S");
                             giorno = parti[8];
                             ora = parti[9];
-                        } else {
-                            continue; // Salta linee incomplete
-                        }
+                        } else continue;
                     } else {
                         String pulito = parti[4].replace("\"", "").trim();
                         if (!pulito.isEmpty()) docente.add(pulito);
@@ -163,9 +172,7 @@ public class FrameSostituzioni extends JPanel {
                             giorno = parti[7];
                             ora = parti[8];
                             classe = parti[5];
-                        } else {
-                            continue; // Salta linee incomplete
-                        }
+                        } else continue;
                     }
                 } else {
                     if (parti.length > 7) {
@@ -173,44 +180,32 @@ public class FrameSostituzioni extends JPanel {
                         codocenza = parti[5].contains("S");
                         giorno = parti[6];
                         ora = parti[7];
-                    } else {
-                        continue; // Salta linee incomplete
-                    }
+                    } else continue;
                 }
-
-                // Pulisci i dati
                 classe = classe.replace("\"", "").trim();
                 giorno = giorno.replace("\"", "").trim();
                 ora = ora.replace("\"", "").trim();
                 materia = materia.replace("\"", "").trim();
                 durata = durata.replace("\"", "").trim();
-
                 if (!classe.isEmpty() && !giorno.isEmpty() && !ora.isEmpty() && !materia.isEmpty() && !docente.isEmpty()) {
                     listaLezioni.add(new Lezione(docente, codocenza, classe, materia, durata, ora, giorno));
-                    System.out.println("Classi.Lezione caricata: " + docente + " - " + materia + " - " + classe + " - " + giorno + " " + ora);
                 }
             }
         } catch (IOException e) {
             System.out.println("Errore nella lettura del file: " + e.getMessage());
         }
         gestoreDocenti.setTutteLezioni(listaLezioni);
-        System.out.println("Totale lezioni caricate: " + listaLezioni.size());
     }
 
     public String controllaGiorno(int giorno) {
-        if (giorno == 1) {
-            return "Lunedì";
-        } else if (giorno == 2) {
-            return "Martedì";
-        } else if (giorno == 3) {
-            return "Mercoledì";
-        } else if (giorno == 4) {
-            return "Giovedì";
-        } else if (giorno == 5) {
-            return "Venerdì";
-        } else if (giorno == 6) {
-            return "Sabato";
-        }
-        return "nulla";
+        return switch (giorno) {
+            case 1 -> "Lunedì";
+            case 2 -> "Martedì";
+            case 3 -> "Mercoledì";
+            case 4 -> "Giovedì";
+            case 5 -> "Venerdì";
+            case 6 -> "Sabato";
+            default -> "nulla";
+        };
     }
 }
