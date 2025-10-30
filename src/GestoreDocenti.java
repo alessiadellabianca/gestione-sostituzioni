@@ -83,9 +83,7 @@ public class GestoreDocenti {
         return tutteLezioni;
     }
 
-    /**
-     * Trova tutti i docenti che insegnano in una determinata classe
-     */
+
     public ArrayList<Docente> trovaDocentiPerClasse(String classe) {
         ArrayList<Docente> docentiPerClasse = new ArrayList<>();
 
