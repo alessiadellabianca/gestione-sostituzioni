@@ -15,6 +15,18 @@
             </GhostTextMetaData>
           </value>
         </entry>
+        <entry key="@&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; sistema la classe gestore sostituzione facendo in modo che si stampi la tabella seguendo in ordine queste condizioni: Per ogni docente assente e per ogni ora di assenza:&#10;Compresenza&#10;Se il docente assente è in compresenza, sostituto = collega presente.&#10;Disponibilità da disposizioni&#10;Cercare nei docenti liberi in quell’ora:&#10;Docente della stessa classe&#10;Docente di materia affine&#10;Qualsiasi altro docente libero&#10;Compresenze non quinte&#10;Prima docenti della classe o affini.&#10;Poi altri docenti non delle quinte.&#10;Compresenze quinte&#10;Prima materia affine.&#10;Poi qualsiasi materia.&#10;Ore libere a pagamento&#10;Se ancora irrisolto, cercare docenti liberi in quell’ora.&#10;Priorità a chi ha lezione nell’ora precedente o successiva.&#10;FALLO TUTTO IN UNA CLASSE e metti dei print per verificare che vada e per controllare">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761815022189" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
         <entry key="@&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; fai in modo che il programma stampi la tabella delle sostituzioni con dentro le varie lezioni che sostitutiscono">
           <value>
             <GhostTextMetaData>

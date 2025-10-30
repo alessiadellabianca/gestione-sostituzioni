@@ -105,80 +105,254 @@ public class GestoreSostituzioni extends JFrame {
     }
 
     private void assegnaSostituzioni() {
+        System.out.println("\n=========================================");
+        System.out.println("INIZIO PROCESSO DI ASSEGNAZIONE SOSTITUZIONI");
+        System.out.println("Giorno: " + giorno);
+        System.out.println("Docenti assenti: " + docentiAssenti);
+        System.out.println("Lezioni da sostituire: " + lezioniDaSostituire.size());
+        System.out.println("=========================================");
+
         lezioniSostituite.clear();
         sostituzioniAssegnate.clear();
-        for (Lezione lezioneDaSostituire : lezioniDaSostituire) {
+
+        for (int i = 0; i < lezioniDaSostituire.size(); i++) {
+            Lezione lezioneDaSostituire = lezioniDaSostituire.get(i);
+            System.out.println("\n--- LEZIONE " + (i + 1) + " di " + lezioniDaSostituire.size() + " ---");
+
             Lezione sostituzione = assegnaSostituzionePerLezione(lezioneDaSostituire);
             if (sostituzione != null) {
                 lezioniSostituite.add(lezioneDaSostituire);
                 sostituzioniAssegnate.add(sostituzione);
+                System.out.println("✓ SOSTITUZIONE REGISTRATA CON SUCCESSO");
+            } else {
+                System.out.println("✗ IMPOSSIBILE TROVARE SOSTITUUTO");
             }
         }
+
+        System.out.println("\n=========================================");
+        System.out.println("RIEPILOGO SOSTITUZIONI");
+        System.out.println("Lezioni da sostituire: " + lezioniDaSostituire.size());
+        System.out.println("Sostituzioni assegnate: " + sostituzioniAssegnate.size());
+        System.out.println("Lezioni non coperte: " + (lezioniDaSostituire.size() - sostituzioniAssegnate.size()));
+
+        System.out.println("\nDETTAGLIO SOSTITUZIONI:");
+        for (int i = 0; i < sostituzioniAssegnate.size(); i++) {
+            Lezione originale = lezioniSostituite.get(i);
+            Lezione sostituzione = sostituzioniAssegnate.get(i);
+            System.out.println((i + 1) + ". " + originale.getMateria() + " (" + originale.getClasse() +
+                             ") → " + sostituzione.getDocente() + " [" + sostituzione.getMateria() + "]");
+        }
+        System.out.println("=========================================");
     }
 
     private Lezione assegnaSostituzionePerLezione(Lezione lezioneDaSostituire) {
+        System.out.println("\n=== ANALISI SOSTITUZIONE ===");
+        System.out.println("Lezione da sostituire: " + lezioneDaSostituire.getMateria() +
+                          " - " + lezioneDaSostituire.getClasse() + " - " + lezioneDaSostituire.getOra());
+        System.out.println("Docenti assenti: " + lezioneDaSostituire.getDocente());
+        System.out.println("È compresenza: " + lezioneDaSostituire.isCodocenza());
+
+        // 1. COMPRESOZA - Se il docente assente è in compresenza, sostituto = collega presente
         if (lezioneDaSostituire.isCodocenza()) {
+            System.out.println("\n--- CONTROLLO 1: COMPRESOZA ---");
             ArrayList<String> sostituti = new ArrayList<>();
             for (String docente : lezioneDaSostituire.getDocente()) {
                 if (!docentiAssenti.contains(docente)) {
                     sostituti.add(docente);
+                    System.out.println("Trovato collega presente in compresenza: " + docente);
                 }
             }
             if (!sostituti.isEmpty()) {
+                System.out.println("✓ SOSTITUZIONE ASSEGNATA (Compresenza): " + sostituti);
                 return new Lezione(sostituti, false, lezioneDaSostituire.getClasse(),
                         lezioneDaSostituire.getMateria() + " (Compresenza)",
                         lezioneDaSostituire.getDurata(), lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno());
             }
+            System.out.println("✗ Nessun collega presente in compresenza");
         }
+
+        // 2. DISPONIBILITÀ DA DISPOSIZIONI - Cercare nei docenti liberi in quell'ora
+        System.out.println("\n--- CONTROLLO 2: DISPONIBILITÀ DA DISPOSIZIONI ---");
         for (Lezione disposizione : listaDisposizioni) {
             if (disposizione.getOra().equals(lezioneDaSostituire.getOra()) &&
                     disposizione.getGiorno().equalsIgnoreCase(lezioneDaSostituire.getGiorno())) {
+                System.out.println("Trovata disposizione per ora " + lezioneDaSostituire.getOra());
                 ArrayList<String> sostitutiValidi = new ArrayList<>();
                 for (String docente : disposizione.getDocente()) {
                     if (!docentiAssenti.contains(docente)) {
                         sostitutiValidi.add(docente);
+                        System.out.println("  Docente disponibile da disposizioni: " + docente);
                     }
                 }
                 if (!sostitutiValidi.isEmpty()) {
+                    System.out.println("✓ SOSTITUZIONE ASSEGNATA (Disposizione): " + sostitutiValidi);
                     return new Lezione(sostitutiValidi, false, lezioneDaSostituire.getClasse(),
                             lezioneDaSostituire.getMateria() + " (Disposizione)",
                             lezioneDaSostituire.getDurata(), lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno());
                 }
             }
         }
+        System.out.println("✗ Nessuna disposizione disponibile");
+
+        // 3. DOCENTI LIBERI - Priorità: stessa classe -> materia affine -> qualsiasi altro
+        System.out.println("\n--- CONTROLLO 3: DOCENTI LIBERI ---");
+
+        // 3a. Docente della stessa classe
+        System.out.println("3a. Ricerca docenti della stessa classe: " + lezioneDaSostituire.getClasse());
         ArrayList<Docente> docentiClasse = gestoreDocenti.trovaDocentiPerClasse(lezioneDaSostituire.getClasse());
         for (Docente docente : docentiClasse) {
             if (!docentiAssenti.contains(docente.getNome()) &&
                     isDocenteDisponibile(docente, lezioneDaSostituire.getOra())) {
                 ArrayList<String> sostituto = new ArrayList<>();
                 sostituto.add(docente.getNome());
+                System.out.println("✓ SOSTITUZIONE ASSEGNATA (Stessa classe): " + docente.getNome());
                 return new Lezione(sostituto, false, lezioneDaSostituire.getClasse(),
                         lezioneDaSostituire.getMateria() + " (Stessa classe)",
                         lezioneDaSostituire.getDurata(), lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno());
             }
         }
+        System.out.println("✗ Nessun docente disponibile della stessa classe");
+
+        // 3b. Docente di materia affine
+        System.out.println("3b. Ricerca docenti di materia affine: " + lezioneDaSostituire.getMateria());
         ArrayList<Docente> docentiMateriaAffine = gestoreDocenti.trovaDocentiPerMateria(lezioneDaSostituire.getMateria());
         for (Docente docente : docentiMateriaAffine) {
             if (!docentiAssenti.contains(docente.getNome()) &&
                     isDocenteDisponibile(docente, lezioneDaSostituire.getOra())) {
                 ArrayList<String> sostituto = new ArrayList<>();
                 sostituto.add(docente.getNome());
+                System.out.println("✓ SOSTITUZIONE ASSEGNATA (Materia affine): " + docente.getNome());
                 return new Lezione(sostituto, false, lezioneDaSostituire.getClasse(),
                         lezioneDaSostituire.getMateria() + " (Materia affine)",
                         lezioneDaSostituire.getDurata(), lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno());
             }
         }
+        System.out.println("✗ Nessun docente disponibile di materia affine");
+
+        // 3c. Qualsiasi altro docente libero
+        System.out.println("3c. Ricerca qualsiasi altro docente libero");
+        for (Docente docente : gestoreDocenti.getDocenti()) {
+            if (!docentiAssenti.contains(docente.getNome()) &&
+                    isDocenteDisponibile(docente, lezioneDaSostituire.getOra())) {
+                ArrayList<String> sostituto = new ArrayList<>();
+                sostituto.add(docente.getNome());
+                System.out.println("✓ SOSTITUZIONE ASSEGNATA (Altro docente libero): " + docente.getNome());
+                return new Lezione(sostituto, false, lezioneDaSostituire.getClasse(),
+                        lezioneDaSostituire.getMateria() + " (Altro libero)",
+                        lezioneDaSostituire.getDurata(), lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno());
+            }
+        }
+        System.out.println("✗ Nessun altro docente libero disponibile");
+
+        // 4. GESTIONE COMPRESOZE NON QUINTE
+        if (lezioneDaSostituire.isCodocenza() && !lezioneDaSostituire.getClasse().contains("5")) {
+            System.out.println("\n--- CONTROLLO 4: COMPRESOZE NON QUINTE ---");
+
+            // Prima docenti della classe o affini
+            System.out.println("4a. Compresenze non quinte - docenti classe/affini");
+            for (Docente docente : docentiClasse) {
+                if (!docentiAssenti.contains(docente.getNome()) &&
+                        isDocenteDisponibile(docente, lezioneDaSostituire.getOra())) {
+                    ArrayList<String> sostituto = new ArrayList<>();
+                    sostituto.add(docente.getNome());
+                    System.out.println("✓ SOSTITUZIONE ASSEGNATA (Compresenza non quinta - classe): " + docente.getNome());
+                    return new Lezione(sostituto, false, lezioneDaSostituire.getClasse(),
+                            lezioneDaSostituire.getMateria() + " (Comp. non quinta - classe)",
+                            lezioneDaSostituire.getDurata(), lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno());
+                }
+            }
+
+            for (Docente docente : docentiMateriaAffine) {
+                if (!docentiAssenti.contains(docente.getNome()) &&
+                        isDocenteDisponibile(docente, lezioneDaSostituire.getOra())) {
+                    ArrayList<String> sostituto = new ArrayList<>();
+                    sostituto.add(docente.getNome());
+                    System.out.println("✓ SOSTITUZIONE ASSEGNATA (Compresenza non quinta - affine): " + docente.getNome());
+                    return new Lezione(sostituto, false, lezioneDaSostituire.getClasse(),
+                            lezioneDaSostituire.getMateria() + " (Comp. non quinta - affine)",
+                            lezioneDaSostituire.getDurata(), lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno());
+                }
+            }
+
+            // Poi altri docenti non delle quinte
+            System.out.println("4b. Compresenze non quinte - altri docenti non quinte");
+            for (Docente docente : gestoreDocenti.getDocenti()) {
+                if (!docentiAssenti.contains(docente.getNome()) &&
+                        isDocenteDisponibile(docente, lezioneDaSostituire.getOra()) &&
+                        !insegnaInQuinte(docente)) {
+                    ArrayList<String> sostituto = new ArrayList<>();
+                    sostituto.add(docente.getNome());
+                    System.out.println("✓ SOSTITUZIONE ASSEGNATA (Compresenza non quinta - altro): " + docente.getNome());
+                    return new Lezione(sostituto, false, lezioneDaSostituire.getClasse(),
+                            lezioneDaSostituire.getMateria() + " (Comp. non quinta - altro)",
+                            lezioneDaSostituire.getDurata(), lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno());
+                }
+            }
+        }
+
+        // 5. GESTIONE COMPRESOZE QUINTE
+        if (lezioneDaSostituire.isCodocenza() && lezioneDaSostituire.getClasse().contains("5")) {
+            System.out.println("\n--- CONTROLLO 5: COMPRESOZE QUINTE ---");
+
+            // Prima materia affine
+            System.out.println("5a. Compresenze quinte - materia affine");
+            for (Docente docente : docentiMateriaAffine) {
+                if (!docentiAssenti.contains(docente.getNome()) &&
+                        isDocenteDisponibile(docente, lezioneDaSostituire.getOra())) {
+                    ArrayList<String> sostituto = new ArrayList<>();
+                    sostituto.add(docente.getNome());
+                    System.out.println("✓ SOSTITUZIONE ASSEGNATA (Compresenza quinta - affine): " + docente.getNome());
+                    return new Lezione(sostituto, false, lezioneDaSostituire.getClasse(),
+                            lezioneDaSostituire.getMateria() + " (Comp. quinta - affine)",
+                            lezioneDaSostituire.getDurata(), lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno());
+                }
+            }
+
+            // Poi qualsiasi materia
+            System.out.println("5b. Compresenze quinte - qualsiasi materia");
+            for (Docente docente : gestoreDocenti.getDocenti()) {
+                if (!docentiAssenti.contains(docente.getNome()) &&
+                        isDocenteDisponibile(docente, lezioneDaSostituire.getOra())) {
+                    ArrayList<String> sostituto = new ArrayList<>();
+                    sostituto.add(docente.getNome());
+                    System.out.println("✓ SOSTITUZIONE ASSEGNATA (Compresenza quinta - qualsiasi): " + docente.getNome());
+                    return new Lezione(sostituto, false, lezioneDaSostituire.getClasse(),
+                            lezioneDaSostituire.getMateria() + " (Comp. quinta - qualsiasi)",
+                            lezioneDaSostituire.getDurata(), lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno());
+                }
+            }
+        }
+
+        // 6. ORE LIBERE A PAGAMENTO - Se ancora irrisolto, cercare docenti liberi con priorità a chi ha lezione adiacente
+        System.out.println("\n--- CONTROLLO 6: ORE LIBERE A PAGAMENTO ---");
+        System.out.println("6a. Ricerca docenti liberi con lezione adiacente");
         for (Docente docente : gestoreDocenti.getDocenti()) {
             if (!docentiAssenti.contains(docente.getNome()) &&
                     isDocenteDisponibile(docente, lezioneDaSostituire.getOra()) &&
                     haLezioneAdiacente(docente, lezioneDaSostituire.getOra())) {
                 ArrayList<String> sostituto = new ArrayList<>();
                 sostituto.add(docente.getNome());
+                System.out.println("✓ SOSTITUZIONE ASSEGNATA (Pagamento con adiacente): " + docente.getNome());
+                return new Lezione(sostituto, false, lezioneDaSostituire.getClasse(),
+                        lezioneDaSostituire.getMateria() + " (Pagamento adiacente)",
+                        lezioneDaSostituire.getDurata(), lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno());
+            }
+        }
+
+        System.out.println("6b. Ricerca qualsiasi docente libero per pagamento");
+        for (Docente docente : gestoreDocenti.getDocenti()) {
+            if (!docentiAssenti.contains(docente.getNome()) &&
+                    isDocenteDisponibile(docente, lezioneDaSostituire.getOra())) {
+                ArrayList<String> sostituto = new ArrayList<>();
+                sostituto.add(docente.getNome());
+                System.out.println("✓ SOSTITUZIONE ASSEGNATA (Pagamento generico): " + docente.getNome());
                 return new Lezione(sostituto, false, lezioneDaSostituire.getClasse(),
                         lezioneDaSostituire.getMateria() + " (Pagamento)",
                         lezioneDaSostituire.getDurata(), lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno());
             }
         }
+
+        System.out.println("✗ NESSUN SOSTITUTO TROVATO PER LA LEZIONE");
         return null;
     }
 
@@ -209,6 +383,15 @@ public class GestoreSostituzioni extends JFrame {
                         (oraSuccessiva != null && lezione.getOra().equals(oraSuccessiva))) {
                     return true;
                 }
+            }
+        }
+        return false;
+    }
+
+    private boolean insegnaInQuinte(Docente docente) {
+        for (String classe : docente.getClassiDiQuestoDoc()) {
+            if (classe.contains("5")) {
+                return true;
             }
         }
         return false;
