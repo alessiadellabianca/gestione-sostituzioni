@@ -1,3 +1,8 @@
+package Gestori;
+
+import Classi.Docente;
+import Classi.Lezione;
+
 import java.util.ArrayList;
 
 public class GestoreDocenti {

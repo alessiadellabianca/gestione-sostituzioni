@@ -1,3 +1,8 @@
+package Interfaccia;
+
+import Gestori.*;
+import Interfaccia.*;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -12,7 +17,7 @@ public class HomePage extends JFrame {
     String[] sceltaOrari = {"Docenti", "Classe", "Disposizione"};
 
     public HomePage(GestioneDati gestore) {
-        super("HomePage");
+        super("Interfaccia.HomePage");
 
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {

@@ -1,3 +1,8 @@
+package Interfaccia;
+
+import Gestori.CreazioneOrarioDisposizioni;
+import Gestori.GestioneDati;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;

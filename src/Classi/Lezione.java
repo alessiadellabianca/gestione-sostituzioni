@@ -1,3 +1,5 @@
+package Classi;
+
 import java.util.ArrayList;
 
 public class Lezione {
@@ -51,7 +53,7 @@ public class Lezione {
 
     @Override
     public String toString() {
-        return "Lezione{" +
+        return "Classi.Lezione{" +
                 "docente='" + docente + '\'' +
                 ", materia='" + materia + '\'' +
                 ", ora='" + ora + '\'' +

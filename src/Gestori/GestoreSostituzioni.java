@@ -1,3 +1,8 @@
+package Gestori;
+
+import Classi.Docente;
+import Classi.Lezione;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
@@ -147,7 +152,7 @@ public class GestoreSostituzioni extends JFrame {
 
     private Lezione assegnaSostituzionePerLezione(Lezione lezioneDaSostituire) {
         System.out.println("\n=== ANALISI SOSTITUZIONE ===");
-        System.out.println("Lezione da sostituire: " + lezioneDaSostituire.getMateria() +
+        System.out.println("Classi.Lezione da sostituire: " + lezioneDaSostituire.getMateria() +
                 " - " + lezioneDaSostituire.getClasse() + " - " + lezioneDaSostituire.getOra());
         System.out.println("Docenti assenti: " + lezioneDaSostituire.getDocente());
         System.out.println("È compresenza: " + lezioneDaSostituire.isCodocenza());
@@ -181,7 +186,7 @@ public class GestoreSostituzioni extends JFrame {
                 for (String docente : disposizione.getDocente()) {
                     if (!docentiAssenti.contains(docente)) {
                         sostitutiValidi.add(docente);
-                        System.out.println("  Docente disponibile da disposizioni: " + docente);
+                        System.out.println("  Classi.Docente disponibile da disposizioni: " + docente);
                     }
                 }
                 if (!sostitutiValidi.isEmpty()) {
@@ -197,7 +202,7 @@ public class GestoreSostituzioni extends JFrame {
         // 3. DOCENTI LIBERI - Priorità: stessa classe -> materia affine -> qualsiasi altro
         System.out.println("\n--- CONTROLLO 3: DOCENTI LIBERI ---");
 
-        // 3a. Docente della stessa classe
+        // 3a. Classi.Docente della stessa classe
         System.out.println("3a. Ricerca docenti della stessa classe: " + lezioneDaSostituire.getClasse());
         ArrayList<Docente> docentiClasse = gestoreDocenti.trovaDocentiPerClasse(lezioneDaSostituire.getClasse());
         for (Docente docente : docentiClasse) {
@@ -213,7 +218,7 @@ public class GestoreSostituzioni extends JFrame {
         }
         System.out.println("✗ Nessun docente disponibile della stessa classe");
 
-        // 3b. Docente di materia affine
+        // 3b. Classi.Docente di materia affine
         System.out.println("3b. Ricerca docenti di materia affine: " + lezioneDaSostituire.getMateria());
         ArrayList<Docente> docentiMateriaAffine = gestoreDocenti.trovaDocentiPerMateria(lezioneDaSostituire.getMateria());
         for (Docente docente : docentiMateriaAffine) {

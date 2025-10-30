@@ -1,5 +1,11 @@
+package Interfaccia;
+
+import Classi.Lezione;
+import Gestori.GestioneDati;
+import Gestori.GestoreDocenti;
+import Gestori.GestoreSostituzioni;
+
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,7 +15,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +59,7 @@ public class FrameSostituzioni extends JPanel {
 
         JPanel panelCheckbox = new JPanel(new GridLayout(0, 1, 10, 10));
 
-        // Ottieni la lista dei docenti dal GestoreDocenti invece che da GestioneDati
+        // Ottieni la lista dei docenti dal Gestori.GestoreDocenti invece che da Gestori.GestioneDati
         ArrayList<String> nomiDocenti = gestoreDocenti.getNomiDocenti();
         for (String docente : nomiDocenti) {
             String senzaVirgolette = docente.replace("\"", "").trim();
@@ -182,7 +187,7 @@ public class FrameSostituzioni extends JPanel {
 
                 if (!classe.isEmpty() && !giorno.isEmpty() && !ora.isEmpty() && !materia.isEmpty() && !docente.isEmpty()) {
                     listaLezioni.add(new Lezione(docente, codocenza, classe, materia, durata, ora, giorno));
-                    System.out.println("Lezione caricata: " + docente + " - " + materia + " - " + classe + " - " + giorno + " " + ora);
+                    System.out.println("Classi.Lezione caricata: " + docente + " - " + materia + " - " + classe + " - " + giorno + " " + ora);
                 }
             }
         } catch (IOException e) {

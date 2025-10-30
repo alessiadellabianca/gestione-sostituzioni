@@ -1,3 +1,7 @@
+package Gestori;
+
+import Classi.Lezione;
+
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;

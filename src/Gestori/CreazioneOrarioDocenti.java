@@ -1,3 +1,8 @@
+package Gestori;
+
+import Classi.Docente;
+import Classi.Lezione;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -101,7 +106,7 @@ public class CreazioneOrarioDocenti extends JPanel{
                     if(s.equals(docenteSelezionato))
                     {
                         orarioClassex.add(l);
-                        System.out.println("Lezione docente: " + l.getDocente() + " - " + l.getMateria()+ " - " + l.getGiorno());
+                        System.out.println("Classi.Lezione docente: " + l.getDocente() + " - " + l.getMateria()+ " - " + l.getGiorno());
                     }
                 }
             }

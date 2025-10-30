@@ -1,3 +1,5 @@
+package Classi;
+
 import java.util.ArrayList;
 
 public class Docente {
@@ -98,7 +100,7 @@ public class Docente {
 
     @Override
     public String toString() {
-        return "Docente{" +
+        return "Classi.Docente{" +
                 "nome='" + nome + '\'' +
                 ", lezioniDiQuestoDoc=" + lezioniDiQuestoDoc.size() +
                 ", classiDiQuestoDoc=" + classiDiQuestoDoc +

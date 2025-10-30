@@ -1,8 +1,8 @@
+package Gestori;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class GestioneDati {
@@ -86,7 +86,7 @@ public class GestioneDati {
 
 
     /*public static void main(String[] args) {
-        GestioneDati gestore = new GestioneDati();
+        Gestori.GestioneDati gestore = new Gestori.GestioneDati();
         System.out.println(gestore.toString());
     }*/
 }
