@@ -195,6 +195,18 @@
             </GhostTextMetaData>
           </value>
         </entry>
+        <entry key="qui le ore e le lezioni non girano nel modo giusto e la condizione sarà sempre falsa correggi">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761819065605" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
         <entry key="rifallo ora">
           <value>
             <GhostTextMetaData>
@@ -207,6 +219,18 @@
             </GhostTextMetaData>
           </value>
         </entry>
+        <entry key="riguarda gentilmente questo algoritmo che a mio parere non funziona bene dati che non stampa le varie lezioni nella tabella, mentre con i print l'algoritmo delle sostituzioni funziona">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761815982715" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
         <entry key="risolvi il problema di questa classe">
           <value>
             <GhostTextMetaData>
@@ -214,6 +238,18 @@
               <option name="timestamps">
                 <list>
                   <option value="1761550789642" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="secondo il funzionamento generale fai in modo che le sostituzioni trovate vengano inserite nella tabella">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761816332628" />
                 </list>
               </option>
             </GhostTextMetaData>

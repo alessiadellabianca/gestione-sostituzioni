@@ -17,7 +17,7 @@ public class GestoreSostituzioni extends JFrame {
     ArrayList<Lezione> lezioniSostituite = new ArrayList<>();
     ArrayList<Lezione> listaDisposizioni = new ArrayList<>();
     File lettFile = new File("letturaFile.txt");
-    String[] oreStampa = {"8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00"};
+    String[] oreStampa = {"08:00-9:00", "09:00-10:00", "10:00-11:10", "11:10-12:05", "12:05-13:00", "13:00-14:00"};
     ArrayList<Lezione> sostituzioniAssegnate = new ArrayList<>();
 
     public GestoreSostituzioni(List<String> docenti, GestoreDocenti gestoreDocenti, String giorno) {
@@ -140,7 +140,7 @@ public class GestoreSostituzioni extends JFrame {
             Lezione originale = lezioniSostituite.get(i);
             Lezione sostituzione = sostituzioniAssegnate.get(i);
             System.out.println((i + 1) + ". " + originale.getMateria() + " (" + originale.getClasse() +
-                             ") → " + sostituzione.getDocente() + " [" + sostituzione.getMateria() + "]");
+                    ") → " + sostituzione.getDocente() + " [" + sostituzione.getMateria() + "]");
         }
         System.out.println("=========================================");
     }
@@ -148,7 +148,7 @@ public class GestoreSostituzioni extends JFrame {
     private Lezione assegnaSostituzionePerLezione(Lezione lezioneDaSostituire) {
         System.out.println("\n=== ANALISI SOSTITUZIONE ===");
         System.out.println("Lezione da sostituire: " + lezioneDaSostituire.getMateria() +
-                          " - " + lezioneDaSostituire.getClasse() + " - " + lezioneDaSostituire.getOra());
+                " - " + lezioneDaSostituire.getClasse() + " - " + lezioneDaSostituire.getOra());
         System.out.println("Docenti assenti: " + lezioneDaSostituire.getDocente());
         System.out.println("È compresenza: " + lezioneDaSostituire.isCodocenza());
 
@@ -449,12 +449,13 @@ public class GestoreSostituzioni extends JFrame {
                             break;
                         }
                     }
-                    if (docenteTrovato && lezioneOriginale.getOra().equals(oraCorrente)) {
+
+                    if (docenteTrovato && lezioneOriginale.getOra().replace("h",":").equals(oraCorrente)) {
                         int altezza = calcolaDurataBlocchi(lezioneOriginale);
                         c.gridx = col + 1;
                         c.gridy = riga + 1;
                         c.gridheight = altezza;
-                        JPanel pannelloCompleto = creaPannelloSostituzione(lezioneOriginale, i);
+                        JPanel pannelloCompleto = creaPannelloSostituzione(lezioneOriginale);
                         panelloOrario.add(pannelloCompleto, c);
                         lezioneTrovata = true;
                         if (altezza > 1) riga += (altezza - 1);
@@ -498,49 +499,26 @@ public class GestoreSostituzioni extends JFrame {
             return 1;
         }
     }
+    int j=0;
 
-    private JPanel creaPannelloSostituzione(Lezione lezioneOriginale, int indiceLezione) {
-        JPanel panel = new JPanel(new BorderLayout());
-        JPanel panelOriginale = new JPanel(new BorderLayout());
-        String risultato = String.join(" ", lezioneOriginale.getDocente());
-        JLabel docenteOriginale = new JLabel(risultato, SwingConstants.CENTER);
-        JLabel materiaOriginale = new JLabel(lezioneOriginale.getMateria(), SwingConstants.CENTER);
-        JLabel classeOriginale = new JLabel(lezioneOriginale.getClasse(), SwingConstants.CENTER);
-        panelOriginale.add(docenteOriginale, BorderLayout.NORTH);
-        panelOriginale.add(materiaOriginale, BorderLayout.CENTER);
-        panelOriginale.add(classeOriginale, BorderLayout.SOUTH);
-        panelOriginale.setBackground(new Color(255, 200, 200));
-        panelOriginale.setBorder(BorderFactory.createLineBorder(Color.RED));
+    private JPanel creaPannelloSostituzione(Lezione lezioneOriginale) {
 
         JPanel panelSostituto = new JPanel(new BorderLayout());
-        Lezione sostituzione = null;
-        for (int i = 0; i < lezioniSostituite.size(); i++) {
-            Lezione l = lezioniSostituite.get(i);
-            if (l.getOra().equals(lezioneOriginale.getOra()) && l.getClasse().equals(lezioneOriginale.getClasse())) {
-                sostituzione = sostituzioniAssegnate.get(i);
-                break;
-            }
-        }
-        if (sostituzione != null) {
-            String risultatoSostituto = String.join(" ", sostituzione.getDocente());
-            JLabel docenteSostituto = new JLabel("→ " + risultatoSostituto, SwingConstants.CENTER);
-            JLabel tipoSostituzione = new JLabel(sostituzione.getMateria(), SwingConstants.CENTER);
-            panelSostituto.add(docenteSostituto, BorderLayout.NORTH);
-            panelSostituto.add(tipoSostituzione, BorderLayout.CENTER);
+        if(lezioneOriginale.getOra().replace("h",":").equals(sostituzioniAssegnate.get(j).getOra().replace("h",":")))
+        {
+            System.out.println("Assegnato sostituto: " + sostituzioniAssegnate.get(j).getDocente().getFirst() + " per lezione " + lezioneOriginale.getMateria() + " - " + lezioneOriginale.getClasse() + " - " + lezioneOriginale.getOra());
+            JLabel docente = new JLabel(sostituzioniAssegnate.get(j).getDocente().getFirst(), SwingConstants.CENTER);
+            panelSostituto.add(docente, BorderLayout.CENTER);
             panelSostituto.setBackground(new Color(200, 255, 200));
-            panelSostituto.setBorder(BorderFactory.createLineBorder(Color.GREEN));
-        } else {
-            JLabel nessunSostituto = new JLabel("Nessun sostituto", SwingConstants.CENTER);
-            nessunSostituto.setForeground(Color.RED);
-            panelSostituto.add(nessunSostituto, BorderLayout.CENTER);
-            panelSostituto.setBackground(new Color(255, 230, 230));
-            panelSostituto.setBorder(BorderFactory.createLineBorder(Color.RED));
+            j++;
+            panelSostituto.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            panelSostituto.setPreferredSize(new Dimension(120, 60));
+            return panelSostituto;
         }
-
-        panel.add(panelOriginale, BorderLayout.NORTH);
-        panel.add(panelSostituto, BorderLayout.CENTER);
-        panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        panel.setPreferredSize(new Dimension(150, 80));
-        return panel;
+        else
+        {
+            panelSostituto.setBackground(new Color(255, 200, 200));
+            return panelSostituto;
+        }
     }
 }
