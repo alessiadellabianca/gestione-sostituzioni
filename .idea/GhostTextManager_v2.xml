@@ -63,6 +63,30 @@
             </GhostTextMetaData>
           </value>
         </entry>
+        <entry key="aggiungi la possibilità di stampare la tabella e scaricarla in pdf e poi fai una leggenda differenziando i colori tra compresenza o meno, fallo in modo semplice">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761905375575" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="cambiami con dei colori più carini, cambia la grafica ma non cambiare nient'altro nel codice, NON METTERE COMMENTI">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761905724135" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
         <entry key="continua a non stampare, per favore impeganti in modo che stampi, le sostituzioni le trova ma non le mette nella gui e nella tabella">
           <value>
             <GhostTextMetaData>
@@ -178,6 +202,30 @@
               <option name="timestamps">
                 <list>
                   <option value="1761760579104" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="non mi funziona, il programma si blocca se lo premo">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761906354611" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="non mi piacciono questi colori falli piu chiari">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1761905869809" />
                 </list>
               </option>
             </GhostTextMetaData>

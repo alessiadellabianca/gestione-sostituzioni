@@ -24,6 +24,7 @@ public class FrameSostituzioni extends JPanel {
     ArrayList<Lezione> listaLezioni = new ArrayList<>();
     File letturaFile = new File("letturaFile.txt");
     GestoreDocenti gestoreDocenti = new GestoreDocenti();
+    JComboBox comboBox = new JComboBox();
 
     public FrameSostituzioni(GestioneDati gestore) {
         try {
@@ -45,10 +46,18 @@ public class FrameSostituzioni extends JPanel {
         panelTop.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
         String data = LocalDate.now().toString();
-        JLabel descrizione = new JLabel("Seleziona i docenti assenti nella giornata di " + data, SwingConstants.CENTER);
+        comboBox.addItem("Lunedì");
+        comboBox.addItem("Martedì");
+        comboBox.addItem("Mercoledì");
+        comboBox.addItem("Giovedì");
+        comboBox.addItem("Venerdì");
+        comboBox.addItem("Sabato");
+
+        JLabel descrizione = new JLabel("Seleziona i docenti assenti nella giornata di ", SwingConstants.CENTER);
         descrizione.setFont(new Font("Segoe UI", Font.BOLD, 16));
         descrizione.setForeground(Color.BLACK);
-        panelTop.add(descrizione, BorderLayout.CENTER);
+        panelTop.add(descrizione, BorderLayout.WEST);
+        panelTop.add(comboBox, BorderLayout.CENTER);
         add(panelTop, BorderLayout.NORTH);
 
         int giorno = LocalDate.now().getDayOfWeek().getValue();
@@ -119,7 +128,7 @@ public class FrameSostituzioni extends JPanel {
                     }
                 }
                 if (!docentiSelezionati.isEmpty()) {
-                    new GestoreSostituzioni(docentiSelezionati, gestoreDocenti, controllaGiorno(giorno));
+                    new GestoreSostituzioni(docentiSelezionati, gestoreDocenti, comboBox.getSelectedItem().toString());
                 } else {
                     JOptionPane.showMessageDialog(FrameSostituzioni.this,
                             "Seleziona almeno un docente assente!",
