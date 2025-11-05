@@ -3,7 +3,6 @@ import Classi.Docente;
 import Classi.Lezione;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.print.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
@@ -164,7 +163,7 @@ public class GestoreSostituzioni extends JFrame {
                 System.out.println("✗ IMPOSSIBILE TROVARE SOSTITUTO");
             }
         }
-
+        //zona di controllo
         System.out.println("RIEPILOGO SOSTITUZIONI");
         System.out.println("Lezioni da sostituire: " + lezioniDaSostituire.size());
         System.out.println("Sostituzioni assegnate: " + sostituzioniAssegnate.size());
@@ -214,8 +213,54 @@ public class GestoreSostituzioni extends JFrame {
                     }
                 }
                 if (!sostitutiValidi.isEmpty()) {
-                    return new Lezione(sostitutiValidi, false, lezioneDaSostituire.getClasse(),
-                            lezioneDaSostituire.getMateria() + " (Disposizione)",
+                    boolean giaAssegnato = false;
+                    for (Lezione sostituzioneEsistente : sostituzioniAssegnate) {
+                        if (sostituzioneEsistente.getOra().equals(lezioneDaSostituire.getOra()) &&
+                            sostituzioneEsistente.getGiorno().equalsIgnoreCase(lezioneDaSostituire.getGiorno())) {
+                            for (String sostitutoValido : sostitutiValidi) {
+                                if (sostituzioneEsistente.getDocente().contains(sostitutoValido)) {
+                                    giaAssegnato = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (giaAssegnato)
+                        {
+                            break;
+                        }
+                    }
+
+                    if (!giaAssegnato) {
+                        return new Lezione(sostitutiValidi, false, lezioneDaSostituire.getClasse(),
+                                lezioneDaSostituire.getMateria() + " (Disposizione)",
+                                lezioneDaSostituire.getDurata(),
+                                lezioneDaSostituire.getOra(),
+                                lezioneDaSostituire.getGiorno());
+                    }
+                }
+            }
+        }
+
+        for (Docente docente : gestoreDocenti.getDocenti()) {
+            if (!docentiAssenti.contains(docente.getNome()) &&
+                    isDocenteDisponibile(docente, lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno())) {
+
+                // Verifica che il docente non sia già stato assegnato per questo stesso orario
+                boolean giaAssegnato = false;
+                for (Lezione sostituzioneEsistente : sostituzioniAssegnate) {
+                    if (sostituzioneEsistente.getOra().equals(lezioneDaSostituire.getOra()) &&
+                        sostituzioneEsistente.getGiorno().equalsIgnoreCase(lezioneDaSostituire.getGiorno()) &&
+                        sostituzioneEsistente.getDocente().contains(docente.getNome())) {
+                        giaAssegnato = true;
+                        break;
+                    }
+                }
+
+                if (!giaAssegnato) {
+                    ArrayList<String> sostituto = new ArrayList<>();
+                    sostituto.add(docente.getNome());
+                    return new Lezione(sostituto, false, lezioneDaSostituire.getClasse(),
+                            lezioneDaSostituire.getMateria() + " (Altro libero)",
                             lezioneDaSostituire.getDurata(),
                             lezioneDaSostituire.getOra(),
                             lezioneDaSostituire.getGiorno());
@@ -223,26 +268,12 @@ public class GestoreSostituzioni extends JFrame {
             }
         }
 
-        for (Docente docente : gestoreDocenti.getDocenti()) {
-            if (!docentiAssenti.contains(docente.getNome()) &&
-                    isDocenteDisponibile(docente, lezioneDaSostituire.getOra())) {
-
-                ArrayList<String> sostituto = new ArrayList<>();
-                sostituto.add(docente.getNome());
-                return new Lezione(sostituto, false, lezioneDaSostituire.getClasse(),
-                        lezioneDaSostituire.getMateria() + " (Altro libero)",
-                        lezioneDaSostituire.getDurata(),
-                        lezioneDaSostituire.getOra(),
-                        lezioneDaSostituire.getGiorno());
-            }
-        }
-
         return null;
     }
 
-    private boolean isDocenteDisponibile(Docente docente, String ora) {
+    private boolean isDocenteDisponibile(Docente docente, String ora, String giorno) {
         for (Lezione lezione : docente.getLezioniDiQuestoDoc()) {
-            if (lezione.getGiorno().equals(giorno) && lezione.getOra().equals(ora)) {
+            if (lezione.getGiorno().equalsIgnoreCase(giorno) && lezione.getOra().replace("h", ":").equals(ora.replace("h", ":"))) {
                 return false;
             }
         }
@@ -310,6 +341,12 @@ public class GestoreSostituzioni extends JFrame {
                     }
 
                     if (docenteTrovato && lezioneOriginale.getOra().replace("h", ":").equals(oraCorrente)) {
+                        // no mostrare le lezioni di materia "Disposizione"
+                        if (lezioneOriginale.getMateria().equalsIgnoreCase("Disposizione")) {
+                            lezioneTrovata = true;
+                            break;
+                        }
+
                         int altezza = calcolaDurataBlocchi(lezioneOriginale);
                         c.gridx = col + 1;
                         c.gridy = riga + 1;
@@ -437,7 +474,6 @@ public class GestoreSostituzioni extends JFrame {
             JLabel docente = new JLabel(sostituzioniAssegnate.get(j).getDocente().getFirst(), SwingConstants.CENTER);
 
             if (lezioneOriginale.isCodocenza()) {
-                panelSostituto.add(new JLabel("COMPRESENZA", SwingConstants.CENTER), BorderLayout.NORTH);
                 panelSostituto.add(docente, BorderLayout.CENTER);
                 panelSostituto.setBackground(new Color(255, 182, 193));
                 panelSostituto.setForeground(Color.BLACK);

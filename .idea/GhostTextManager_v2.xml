@@ -63,6 +63,18 @@
             </GhostTextMetaData>
           </value>
         </entry>
+        <entry key="aggiungi il controllo che se la materia della lezione da sostituire è disposizione nel pannello non apparirà nulla">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762364105176" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
         <entry key="aggiungi la possibilità di stampare la tabella e scaricarla in pdf e poi fai una leggenda differenziando i colori tra compresenza o meno, fallo in modo semplice">
           <value>
             <GhostTextMetaData>
@@ -82,6 +94,18 @@
               <option name="timestamps">
                 <list>
                   <option value="1761905724135" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="ci sono dei problemi nell'assengnazione dei docenti che dovrebbero essere disponibili prova a controllare senza complicare il programma">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762363904173" />
                 </list>
               </option>
             </GhostTextMetaData>
@@ -231,6 +255,18 @@
             </GhostTextMetaData>
           </value>
         </entry>
+        <entry key="potresti rimuovere ciò che è inutile e nelle sostituzioni devo controllare che se non trovo nella lista disposizioniun docente libero quello che assegno non deve avere lezione in quell'ora">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762363415149" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
         <entry key="qualcosa non va dato che non stampa nessuna lezione (concentrati soprattutto in quelle presenti nella lista delle disposizioni) poi sul resto tenendo conto delle durate, TUTTO IN UNA CLASSE">
           <value>
             <GhostTextMetaData>
@@ -250,6 +286,18 @@
               <option name="timestamps">
                 <list>
                   <option value="1761819065605" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="riesci a sistemare questa parte in modo che non si ripetano le sostituzioni, in pratica prima di fare return deve controllare che nelle lezioni sostituite non ci sia già quella che assegno come sostituzione">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762363048153" />
                 </list>
               </option>
             </GhostTextMetaData>
