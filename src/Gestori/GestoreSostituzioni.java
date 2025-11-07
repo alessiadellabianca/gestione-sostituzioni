@@ -27,7 +27,6 @@ public class GestoreSostituzioni extends JFrame {
     };
 
     ArrayList<Lezione> sostituzioniAssegnate = new ArrayList<>();
-    int j = 0;
 
     public GestoreSostituzioni(List<String> docenti, GestoreDocenti gestoreDocenti, String giorno) {
         this.docentiAssenti = docenti;
@@ -145,7 +144,6 @@ public class GestoreSostituzioni extends JFrame {
         System.out.println("Docenti assenti: " + docentiAssenti);
         System.out.println("Lezioni da sostituire: " + lezioniDaSostituire.size());
 
-
         lezioniSostituite.clear();
         sostituzioniAssegnate.clear();
 
@@ -229,10 +227,52 @@ public class GestoreSostituzioni extends JFrame {
                             break;
                         }
                     }
-
                     if (!giaAssegnato) {
                         return new Lezione(sostitutiValidi, false, lezioneDaSostituire.getClasse(),
                                 lezioneDaSostituire.getMateria() + " (Disposizione)",
+                                lezioneDaSostituire.getDurata(),
+                                lezioneDaSostituire.getOra(),
+                                lezioneDaSostituire.getGiorno());
+                    }
+                }
+            }
+        }
+
+        for (Lezione altraCompresenza : gestoreDocenti.getTutteLezioni()) {
+            if (altraCompresenza.isCodocenza() && !(altraCompresenza.getOra().equals(lezioneDaSostituire.getOra()) &&
+                      altraCompresenza.getGiorno().equalsIgnoreCase(lezioneDaSostituire.getGiorno()) &&
+                      altraCompresenza.getClasse().equals(lezioneDaSostituire.getClasse()))) {
+
+                ArrayList<String> docentiCompresenzaDisponibili = new ArrayList<>();
+                for (String docente : altraCompresenza.getDocente()) {
+                    if (!docentiAssenti.contains(docente)) {
+                        docentiCompresenzaDisponibili.add(docente);
+                    }
+                }
+
+                if (!docentiCompresenzaDisponibili.isEmpty()) {
+                    boolean giaAssegnato = false;
+                    for (Lezione sostituzioneEsistente : sostituzioniAssegnate) {
+                        if (sostituzioneEsistente.getOra().equals(lezioneDaSostituire.getOra()) &&
+                            sostituzioneEsistente.getGiorno().equalsIgnoreCase(lezioneDaSostituire.getGiorno())) {
+                            for (String docenteCompresenza : docentiCompresenzaDisponibili) {
+                                if (sostituzioneEsistente.getDocente().contains(docenteCompresenza)) {
+                                    giaAssegnato = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (giaAssegnato) {
+                            break;
+                        }
+                    }
+
+                    if (!giaAssegnato) {
+                        ArrayList<String> docenteSingolo = new ArrayList<>();
+                        docenteSingolo.add(docentiCompresenzaDisponibili.get(0));
+
+                        return new Lezione(docenteSingolo, false, lezioneDaSostituire.getClasse(),
+                                lezioneDaSostituire.getMateria() + " (Da compresenza divisa)",
                                 lezioneDaSostituire.getDurata(),
                                 lezioneDaSostituire.getOra(),
                                 lezioneDaSostituire.getGiorno());
@@ -245,13 +285,13 @@ public class GestoreSostituzioni extends JFrame {
             if (!docentiAssenti.contains(docente.getNome()) &&
                     isDocenteDisponibile(docente, lezioneDaSostituire.getOra(), lezioneDaSostituire.getGiorno())) {
 
-                // Verifica che il docente non sia già stato assegnato per questo stesso orario
                 boolean giaAssegnato = false;
                 for (Lezione sostituzioneEsistente : sostituzioniAssegnate) {
                     if (sostituzioneEsistente.getOra().equals(lezioneDaSostituire.getOra()) &&
                         sostituzioneEsistente.getGiorno().equalsIgnoreCase(lezioneDaSostituire.getGiorno()) &&
                         sostituzioneEsistente.getDocente().contains(docente.getNome())) {
                         giaAssegnato = true;
+
                         break;
                     }
                 }
@@ -279,7 +319,6 @@ public class GestoreSostituzioni extends JFrame {
         }
         return true;
     }
-
 
     public void creaTabellaSostituzioni() {
         panelloOrario.removeAll();
@@ -378,7 +417,7 @@ public class GestoreSostituzioni extends JFrame {
 
     private JPanel creaLeggenda() {
         JPanel leggenda = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        leggenda.setBorder(BorderFactory.createTitledBorder("Leggenda"));
+        leggenda.setBorder(BorderFactory.createTitledBorder("Legenda"));
         leggenda.setBackground(new Color(248, 249, 250));
 
         JPanel panelCompresenza = new JPanel(new FlowLayout());
@@ -387,17 +426,35 @@ public class GestoreSostituzioni extends JFrame {
         coloreCompresenza.setPreferredSize(new Dimension(20, 20));
         coloreCompresenza.setBorder(BorderFactory.createLineBorder(new Color(255, 160, 180)));
         panelCompresenza.add(coloreCompresenza);
-        panelCompresenza.add(new JLabel("Compresenza"));
+        panelCompresenza.add(new JLabel("Compresenza (stessa lezione)"));
         leggenda.add(panelCompresenza);
 
-        JPanel panelSostituzione = new JPanel(new FlowLayout());
-        JPanel coloreSostituzione = new JPanel();
-        coloreSostituzione.setBackground(new Color(144, 238, 144));
-        coloreSostituzione.setPreferredSize(new Dimension(20, 20));
-        coloreSostituzione.setBorder(BorderFactory.createLineBorder(new Color(124, 218, 124)));
-        panelSostituzione.add(coloreSostituzione);
-        panelSostituzione.add(new JLabel("Sostituzione"));
-        leggenda.add(panelSostituzione);
+        JPanel panelDisposizione = new JPanel(new FlowLayout());
+        JPanel coloreDisposizione = new JPanel();
+        coloreDisposizione.setBackground(new Color(173, 216, 230));
+        coloreDisposizione.setPreferredSize(new Dimension(20, 20));
+        coloreDisposizione.setBorder(BorderFactory.createLineBorder(new Color(135, 206, 235)));
+        panelDisposizione.add(coloreDisposizione);
+        panelDisposizione.add(new JLabel("Sostituzione da Disposizione"));
+        leggenda.add(panelDisposizione);
+
+        JPanel panelCompresenzaDivisa = new JPanel(new FlowLayout());
+        JPanel coloreCompresenzaDivisa = new JPanel();
+        coloreCompresenzaDivisa.setBackground(new Color(255, 218, 185));
+        coloreCompresenzaDivisa.setPreferredSize(new Dimension(20, 20));
+        coloreCompresenzaDivisa.setBorder(BorderFactory.createLineBorder(new Color(255, 182, 193)));
+        panelCompresenzaDivisa.add(coloreCompresenzaDivisa);
+        panelCompresenzaDivisa.add(new JLabel("Sostituzione da Compresenza divisa"));
+        leggenda.add(panelCompresenzaDivisa);
+
+        JPanel panelAltroLibero = new JPanel(new FlowLayout());
+        JPanel coloreAltroLibero = new JPanel();
+        coloreAltroLibero.setBackground(new Color(144, 238, 144));
+        coloreAltroLibero.setPreferredSize(new Dimension(20, 20));
+        coloreAltroLibero.setBorder(BorderFactory.createLineBorder(new Color(124, 218, 124)));
+        panelAltroLibero.add(coloreAltroLibero);
+        panelAltroLibero.add(new JLabel("Sostituzione da Altro docente libero"));
+        leggenda.add(panelAltroLibero);
 
         JPanel panelNonCoperto = new JPanel(new FlowLayout());
         JPanel coloreNonCoperto = new JPanel();
@@ -407,7 +464,6 @@ public class GestoreSostituzioni extends JFrame {
         panelNonCoperto.add(coloreNonCoperto);
         panelNonCoperto.add(new JLabel("Non coperto"));
         leggenda.add(panelNonCoperto);
-
         return leggenda;
     }
 
@@ -468,27 +524,48 @@ public class GestoreSostituzioni extends JFrame {
 
     private JPanel creaPannelloSostituzione(Lezione lezioneOriginale) {
         JPanel panelSostituto = new JPanel(new BorderLayout());
-        if (lezioneOriginale.getOra().replace("h", ":")
-                .equals(sostituzioniAssegnate.get(j).getOra().replace("h", ":"))) {
 
-            JLabel docente = new JLabel(sostituzioniAssegnate.get(j).getDocente().getFirst(), SwingConstants.CENTER);
-
-            if (lezioneOriginale.isCodocenza()) {
-                panelSostituto.add(docente, BorderLayout.CENTER);
-                panelSostituto.setBackground(new Color(255, 182, 193));
-                panelSostituto.setForeground(Color.BLACK);
-                panelSostituto.setBorder(BorderFactory.createLineBorder(new Color(255, 160, 180)));
-                panelSostituto.setPreferredSize(new Dimension(120, 60));
-                j++;
-                return panelSostituto;
-
+        Lezione sostituzione = null;
+        for (int i = 0; i < sostituzioniAssegnate.size(); i++) {
+            Lezione s = sostituzioniAssegnate.get(i);
+            if (lezioneOriginale.getOra().replace("h", ":").equals(s.getOra().replace("h", ":")) &&
+                lezioneOriginale.getGiorno().equalsIgnoreCase(s.getGiorno()) &&
+                lezioneOriginale.getClasse().equals(s.getClasse())) {
+                sostituzione = s;
+                break;
             }
+        }
+
+        if (sostituzione != null) {
+            JLabel docente = new JLabel(String.join(", ", sostituzione.getDocente()), SwingConstants.CENTER);
+
+            String tipoSostituzione = sostituzione.getMateria();
+            Color coloreSfondo;
+            Color coloreBordo;
+
+            if (lezioneOriginale.isCodocenza() && tipoSostituzione.contains("(Compresenza)")) {
+                coloreSfondo = new Color(255, 182, 193);
+                coloreBordo = new Color(255, 160, 180);
+            } else if (tipoSostituzione.contains("(Disposizione)")) {
+                coloreSfondo = new Color(173, 216, 230);
+                coloreBordo = new Color(135, 206, 235);
+            } else if (tipoSostituzione.contains("(Da compresenza divisa)")) {
+                coloreSfondo = new Color(255, 218, 185);
+                coloreBordo = new Color(255, 182, 193);
+            } else if (tipoSostituzione.contains("(Altro libero)")) {
+                coloreSfondo = new Color(144, 238, 144);
+                coloreBordo = new Color(124, 218, 124);
+            } else {
+                coloreSfondo = new Color(255, 228, 196);
+                coloreBordo = new Color(255, 218, 185);
+            }
+
             panelSostituto.add(docente, BorderLayout.CENTER);
-            panelSostituto.setBackground(new Color(144, 238, 144));
+            panelSostituto.setBackground(coloreSfondo);
             panelSostituto.setForeground(Color.BLACK);
-            panelSostituto.setBorder(BorderFactory.createLineBorder(new Color(124, 218, 124)));
+            panelSostituto.setBorder(BorderFactory.createLineBorder(coloreBordo));
             panelSostituto.setPreferredSize(new Dimension(120, 60));
-            j++;
+
             return panelSostituto;
         } else {
             panelSostituto.setBackground(new Color(255, 228, 181));

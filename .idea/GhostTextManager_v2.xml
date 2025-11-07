@@ -87,6 +87,18 @@
             </GhostTextMetaData>
           </value>
         </entry>
+        <entry key="aggiungi qui la possibilità che se c'e una  compresenza posso dividerla e asssegnare uno dei due prof come sostituto prima di controllare che un professore abbia un'ora libera">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762506107530" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
         <entry key="cambiami con dei colori più carini, cambia la grafica ma non cambiare nient'altro nel codice, NON METTERE COMMENTI">
           <value>
             <GhostTextMetaData>
@@ -111,6 +123,18 @@
             </GhostTextMetaData>
           </value>
         </entry>
+        <entry key="ci sono dei problemi nella separazione dei codocenti controlla meglio">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762506526827" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
         <entry key="continua a non stampare, per favore impeganti in modo che stampi, le sostituzioni le trova ma non le mette nella gui e nella tabella">
           <value>
             <GhostTextMetaData>
@@ -130,6 +154,18 @@
               <option name="timestamps">
                 <list>
                   <option value="1761288574133" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="cosa fa?">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762507281394" />
                 </list>
               </option>
             </GhostTextMetaData>
@@ -214,6 +250,18 @@
               <option name="timestamps">
                 <list>
                   <option value="1761760103552" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="le compresenze da dividire non sono nella lista disposizioni ma in generale">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762506642455" />
                 </list>
               </option>
             </GhostTextMetaData>
@@ -346,6 +394,30 @@
               <option name="timestamps">
                 <list>
                   <option value="1761816332628" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="sistema le varie casisticche con i colori e modificando la legenda in modo da capirlo">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762506251074" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="verrà passato nella nuova lezione solo uno dei due docenti">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762506972671" />
                 </list>
               </option>
             </GhostTextMetaData>

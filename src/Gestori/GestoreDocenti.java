@@ -53,6 +53,10 @@ public class GestoreDocenti {
         return nomi;
     }
 
+    public ArrayList<Lezione> getTutteLezioni() {
+        return tutteLezioni;
+    }
+
     public void setTutteLezioni(ArrayList<Lezione> tutteLezioni) {
         this.tutteLezioni = tutteLezioni;
         docenti.clear();
