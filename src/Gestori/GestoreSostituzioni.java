@@ -458,7 +458,7 @@ public class GestoreSostituzioni extends JFrame {
 
         JPanel panelNonCoperto = new JPanel(new FlowLayout());
         JPanel coloreNonCoperto = new JPanel();
-        coloreNonCoperto.setBackground(new Color(255, 228, 181));
+        coloreNonCoperto.setBackground(new Color(200, 50, 50));
         coloreNonCoperto.setPreferredSize(new Dimension(20, 20));
         coloreNonCoperto.setBorder(BorderFactory.createLineBorder(new Color(255, 208, 161)));
         panelNonCoperto.add(coloreNonCoperto);
@@ -556,8 +556,8 @@ public class GestoreSostituzioni extends JFrame {
                 coloreSfondo = new Color(144, 238, 144);
                 coloreBordo = new Color(124, 218, 124);
             } else {
-                coloreSfondo = new Color(255, 228, 196);
-                coloreBordo = new Color(255, 218, 185);
+                coloreSfondo = new Color(200, 50, 50);
+                coloreBordo = new Color(200, 50, 50);
             }
 
             panelSostituto.add(docente, BorderLayout.CENTER);

@@ -243,6 +243,18 @@
             </GhostTextMetaData>
           </value>
         </entry>
+        <entry key="falla tornare togliendo tutte le cose dell'interfaccia che hai aggiunto">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762365883621" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
         <entry key="la tabella si stampa vuota, gentilmente inserisci le lezioni sostituitive che trovi">
           <value>
             <GhostTextMetaData>
@@ -250,6 +262,18 @@
               <option name="timestamps">
                 <list>
                   <option value="1761760103552" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="migli@&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; migliora un po l'interfaccia dei bottoni, non cambiare il resto">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762365052682" />
                 </list>
               </option>
             </GhostTextMetaData>
