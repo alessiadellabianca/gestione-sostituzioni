@@ -267,18 +267,6 @@
             </GhostTextMetaData>
           </value>
         </entry>
-        <entry key="migli@&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; migliora un po l'interfaccia dei bottoni, non cambiare il resto">
-          <value>
-            <GhostTextMetaData>
-              <option name="count" value="1.0" />
-              <option name="timestamps">
-                <list>
-                  <option value="1762365052682" />
-                </list>
-              </option>
-            </GhostTextMetaData>
-          </value>
-        </entry>
         <entry key="le compresenze da dividire non sono nella lista disposizioni ma in generale">
           <value>
             <GhostTextMetaData>
@@ -286,6 +274,18 @@
               <option name="timestamps">
                 <list>
                   <option value="1762506642455" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="migli@&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; @&lt;file_name&gt; migliora un po l'interfaccia dei bottoni, non cambiare il resto">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762365052682" />
                 </list>
               </option>
             </GhostTextMetaData>
@@ -430,6 +430,18 @@
               <option name="timestamps">
                 <list>
                   <option value="1762506251074" />
+                </list>
+              </option>
+            </GhostTextMetaData>
+          </value>
+        </entry>
+        <entry key="spiegami cosa fa">
+          <value>
+            <GhostTextMetaData>
+              <option name="count" value="1.0" />
+              <option name="timestamps">
+                <list>
+                  <option value="1762765709436" />
                 </list>
               </option>
             </GhostTextMetaData>

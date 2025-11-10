@@ -78,11 +78,8 @@ public class GestoreSostituzioni extends JFrame {
                 String materia = parti[2];
                 ArrayList<String> docente = new ArrayList<>();
 
-                String[] docentiSplit = parti[3].split(";");
-                for (String d : docentiSplit) {
-                    String pulito = d.replace("\"", "").trim();
-                    if (!pulito.isEmpty()) docente.add(pulito);
-                }
+                String pulito1 = parti[3].replace("\"", "").trim();
+                if (!pulito1.isEmpty()) docente.add(pulito1);
 
                 String classe;
                 String giorno;
